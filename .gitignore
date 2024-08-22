@@ -1,4 +1,20 @@
 # Build Folders
 bin/
 obj/
-out/
+
+# User-specific Files
+*.user
+*.suo
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db

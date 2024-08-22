@@ -14,12 +14,14 @@ install() {
 # Function to build the package
 build() {
     echo "Building the package..."
+    dotnet build app/PCPServerSDKDotNetRunner/PCPServerSDKDotNetRunner.csproj
     echo "Build complete."
 }
 
 # Function to run tests
 test() {
     echo "Running tests..."
+    dotnet test
     echo "Tests complete."
 }
 
@@ -34,8 +36,8 @@ version() {
 }
 
 clear() {
-    echo "Removing __pycache__ directories..."
-    echo "All __pycache__ directories have been removed."
+    echo "Removing temp directories..."
+    echo "All temp directories have been removed."
 }
 
 publish() {
@@ -85,7 +87,7 @@ run)
     run
     ;;
 *)
-    echo "Usage: $0 {setup|install|build|test|lint|clear|version|publish}"
+    echo "Usage: $0 {setup|install|build|test|lint|clear|version|publish|run}"
     exit 1
     ;;
 esac

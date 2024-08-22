@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\PCPServerSDKDotNet\lib.csproj" />
+    <ProjectReference Include="..\..\lib\PCPServerSDKDotNet\PCPServerSDKDotNet.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
