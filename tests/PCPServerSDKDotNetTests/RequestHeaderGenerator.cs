@@ -1,15 +1,17 @@
+namespace PCPServerSDKDotNetTests;
 
 using System.Text;
 using PCPServerSDKDotNet;
 using Xunit.Abstractions;
 using Newtonsoft.Json;
+using PCPServerSDKDotNet.Utils;
 
 public class RequestHeaderGeneratorTest
 {
     private readonly ITestOutputHelper _output;
     private const string TEST_KEY = "KEY";
     private const string TEST_SECRET = "Super duper Ethan Hunt level secret";
-    private readonly CommunicatorConfiguration CONFIG = new CommunicatorConfiguration(TEST_KEY, TEST_SECRET, "awesome-api.com", null);
+    private readonly CommunicatorConfiguration CONFIG = new(TEST_KEY, TEST_SECRET, "awesome-api.com", null);
     private readonly RequestHeaderGenerator HEADER_GENERATOR;
 
     public RequestHeaderGeneratorTest(ITestOutputHelper output)
@@ -21,7 +23,7 @@ public class RequestHeaderGeneratorTest
     [Fact]
     public void TestSignatureGenerationForGet()
     {
-        DateTime date = new DateTime(2024, 7, 9, 10, 21, 39, DateTimeKind.Utc);
+        DateTime date = DateTimeOffset.FromUnixTimeMilliseconds(1720520499000).UtcDateTime;
         var request = new HttpRequestMessage(HttpMethod.Get, "http://awesome-api.com/v1/commerce_cases");
         request.Headers.Add(RequestHeaderGenerator.DATE_HEADER_NAME, date.ToString("r"));
         request.Headers.Add(RequestHeaderGenerator.SERVER_META_INFO_HEADER_NAME, "server fixed");
@@ -35,7 +37,7 @@ public class RequestHeaderGeneratorTest
     [Fact]
     public void TestSignatureGenerationWithContentType()
     {
-        DateTime date = new DateTime(2024, 7, 9, 10, 21, 39, DateTimeKind.Utc);
+        DateTime date = DateTimeOffset.FromUnixTimeMilliseconds(1720520499000).UtcDateTime;
         var request = new HttpRequestMessage(HttpMethod.Post, "http://awesome-api.com/v1/commerce_cases")
         {
             Content = new StringContent("", Encoding.UTF8, "application/json")
