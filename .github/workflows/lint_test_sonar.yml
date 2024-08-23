@@ -38,6 +38,7 @@ jobs:
           /d:sonar.language="cs" \
           /d:sonar.host.url="https://sonarcloud.io" \
           /d:sonar.sln="PCP-ServerSDK-DotNet.sln" \
+          /d:sonar.sources="lib/PCPServerSDKDotNet" \
           /d:sonar.cs.opencover.reportsPaths="tests/PCPServerSDKDotNetTests/TestResults/**/coverage.opencover.xml" \
           /d:sonar.test.exclusions="**/bin/**,**/obj/**" \
           /d:sonar.exclusions="**/bin/**,**/obj/**,**/*.generated.cs" \
