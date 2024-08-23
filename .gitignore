@@ -19,4 +19,6 @@ packages/
 .DS_Store
 Thumbs.db
 
+#tests
+TestResults/
 node_modules
