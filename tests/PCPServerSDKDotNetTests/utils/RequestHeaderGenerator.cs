@@ -1,10 +1,5 @@
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
+
 using System.Text;
-using System.Text.Json;
-using System.Linq;
-using Xunit;
 using PCPServerSDKDotNet;
 using Xunit.Abstractions;
 using Newtonsoft.Json;
@@ -34,7 +29,7 @@ public class RequestHeaderGeneratorTest
 
         HttpRequestMessage updatedRequest = HEADER_GENERATOR.GenerateAdditionalRequestHeaders(request);
 
-        Assert.Equal("GCS v1HMAC:KEY:ZSq7H19dyhyNGSPY5UgyPwITc5n4QG+zHnNDExIa6A8=", updatedRequest.Headers.Authorization.ToString());
+        Assert.Equal("GCS v1HMAC:KEY:ZSq7H19dyhyNGSPY5UgyPwITc5n4QG+zHnNDExIa6A8=", updatedRequest.Headers.Authorization!.ToString());
     }
 
     [Fact]
@@ -51,7 +46,7 @@ public class RequestHeaderGeneratorTest
 
         HttpRequestMessage updatedRequest = HEADER_GENERATOR.GenerateAdditionalRequestHeaders(request);
 
-        Assert.Equal("GCS v1HMAC:KEY:c5aNDw4AUxRChugRyN0OmTCs38YLA9E/tR+k0bOQzyk=", updatedRequest.Headers.Authorization.ToString());
+        Assert.Equal("GCS v1HMAC:KEY:c5aNDw4AUxRChugRyN0OmTCs38YLA9E/tR+k0bOQzyk=", updatedRequest.Headers.Authorization!.ToString());
     }
 
     [Fact]
@@ -76,7 +71,7 @@ public class RequestHeaderGeneratorTest
 
         string serverMetaInfoAsJson = Encoding.UTF8.GetString(Convert.FromBase64String(serverMetaInfoBase64));
         _output.WriteLine(serverMetaInfoAsJson);
-        ServerMetaInfo serverMetaInfo = JsonConvert.DeserializeObject<ServerMetaInfo>(serverMetaInfoAsJson);
+        ServerMetaInfo serverMetaInfo = JsonConvert.DeserializeObject<ServerMetaInfo>(serverMetaInfoAsJson)!;
         _output.WriteLine(ServerMetaInfo.WithDefaults(null).SdkCreator);
 
         Assert.Equal(ServerMetaInfo.WithDefaults(null), serverMetaInfo);

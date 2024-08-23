@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Diagnostics;
 
 public class RequestHeaderGenerator
@@ -62,14 +61,14 @@ public class RequestHeaderGenerator
         // 2. Content-Type
         if (request.Content?.Headers.ContentType != null)
         {
-            stringToSign.Append(request.Content.Headers.ContentType.ToString());
+            stringToSign.Append(request.Content.Headers.ContentType);
         }
         stringToSign.Append('\n');
 
         // 3. Date
         if (request.Headers.Contains(DATE_HEADER_NAME))
         {
-            stringToSign.Append(request.Headers.GetValues(DATE_HEADER_NAME).First().ToString()).Append('\n');
+            stringToSign.Append(request.Headers.GetValues(DATE_HEADER_NAME).First()).Append('\n');
         }
 
         // 4. Canonicalized Headers (starting with X-GCS, sorted by names)
@@ -77,19 +76,19 @@ public class RequestHeaderGenerator
         {
             stringToSign.Append(CLIENT_META_INFO_HEADER_NAME.ToLower())
                 .Append(':')
-                .Append(request.Headers.GetValues(CLIENT_META_INFO_HEADER_NAME).First().ToString().Replace(WHITESPACE_REGEX, " ").Trim())
+                .Append(request.Headers.GetValues(CLIENT_META_INFO_HEADER_NAME).First().Replace(WHITESPACE_REGEX, " ").Trim())
                 .Append('\n');
         }
         if (request.Headers.Contains(SERVER_META_INFO_HEADER_NAME))
         {
             stringToSign.Append(SERVER_META_INFO_HEADER_NAME.ToLower())
                 .Append(':')
-                .Append(request.Headers.GetValues(SERVER_META_INFO_HEADER_NAME).First().ToString().Replace(WHITESPACE_REGEX, " ").Trim())
+                .Append(request.Headers.GetValues(SERVER_META_INFO_HEADER_NAME).First().Replace(WHITESPACE_REGEX, " ").Trim())
                 .Append('\n');
         }
 
         // 5. Canonicalized Resource (has to include query parameters)
-        stringToSign.Append(request.RequestUri.AbsolutePath);
+        stringToSign.Append(request.RequestUri!.AbsolutePath);
         if (!string.IsNullOrEmpty(request.RequestUri.Query))
         {
             stringToSign.Append('?').Append(request.RequestUri.Query);

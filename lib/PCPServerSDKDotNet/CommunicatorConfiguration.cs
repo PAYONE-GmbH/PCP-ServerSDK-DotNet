@@ -1,6 +1,5 @@
 namespace PCPServerSDKDotNet;
 
-using System;
 
 public class CommunicatorConfiguration
 {
@@ -11,10 +10,10 @@ public class CommunicatorConfiguration
 
     public CommunicatorConfiguration(string apiKey, string apiSecret, string host, string? integrator)
     {
-        this.ApiKey = apiKey;
-        this.ApiSecret = apiSecret;
-        this.Host = host;
-        this.ServerMetaInfo = ServerMetaInfo.WithDefaults(integrator);
+        ApiKey = apiKey;
+        ApiSecret = apiSecret;
+        Host = host;
+        ServerMetaInfo = ServerMetaInfo.WithDefaults(integrator);
     }
 
 
