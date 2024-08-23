@@ -20,7 +20,7 @@ namespace PCPServerSDKDotNet.Models
     /// <value>Version information about the payment token. Currently only EC_v1 for ECC-encrypted data is supported.</value>
     [DataMember(Name = "version", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "version")]
-    public string? Version { get; set; }
+    public ApplePaymentTokenVersion? Version { get; set; }
 
     /// <summary>
     /// Detached PKCS #7 signature, Base64 encoded as string. Signature of the payment and header data. The signature includes the signing certificate, its intermediate CA certificate, and information about the signing algorithm.
