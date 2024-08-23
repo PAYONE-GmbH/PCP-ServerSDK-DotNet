@@ -25,7 +25,12 @@ jobs:
         run: ./scripts.sh build
       - name: Run Tests
         run: ./scripts.sh test
-      - name: Run SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: Install SonarScanner for .NET
+        run: dotnet tool install --global dotnet-sonarscanner
+      - name: Run SonarCloud analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          dotnet sonarscanner begin /k:"PAYONE-GmbH_PCP-ServerSDK-DotNet" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet build --no-incremental
+          dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
