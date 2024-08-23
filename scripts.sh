@@ -21,7 +21,7 @@ build() {
 # Function to run tests
 test() {
     echo "Running tests..."
-    dotnet test --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+    dotnet test tests/PCPServerSDKDotNetTests --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     echo "Tests complete."
 }
 
