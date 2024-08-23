@@ -21,7 +21,7 @@ build() {
 # Function to run tests
 test() {
     echo "Running tests..."
-    dotnet test
+    dotnet test --collect:"XPlat Code Coverage"
     echo "Tests complete."
 }
 
