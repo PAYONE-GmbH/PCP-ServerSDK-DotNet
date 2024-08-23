@@ -31,6 +31,19 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner begin /k:"PAYONE-GmbH_PCP-ServerSDK-DotNet" /o:"payone-gmbh" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner begin \
+          /k:"PAYONE-GmbH_PCP-ServerSDK-DotNet" \
+          /o:"payone-gmbh" \
+          /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          /d:sonar.language="cs"
+          /d:sonar.host.url="https://sonarcloud.io"
+          /d:sonar.sln="PCP-ServerSDK-DotNet.sln"
+          /d:sonar.sources="lib/PCPServerSDKDotNet"
+          /d:sonar.tests="tests/"
+          /d:sonar.cs.opencover.reportsPaths="tests/PCPServerSDKDotNetTests/TestResults/**/coverage.opencover.xml"
+          /d:sonar.test.exclusions="**/bin/**,**/obj/**"
+          /d:sonar.exclusions="**/bin/**,**/obj/**,**/*.generated.cs"
+          /d:sonar.coverage.exclusions="**/*.Generated.cs,**/Migrations/**"
+          /d:sonar.cs.dotnet.version="8.0.401"
           dotnet build --no-incremental
           dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
