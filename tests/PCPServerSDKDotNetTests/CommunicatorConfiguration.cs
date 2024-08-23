@@ -16,7 +16,7 @@ public class CommunicatorConfigurationTest
         string expectedIntegrator = "test-integrator";
 
         // Act
-        var config = new CommunicatorConfiguration(expectedApiKey, expectedApiSecret, expectedHost, expectedIntegrator);
+        CommunicatorConfiguration config = new(expectedApiKey, expectedApiSecret, expectedHost, expectedIntegrator);
 
         // Assert
         Assert.Equal(expectedApiKey, config.ApiKey);
@@ -35,7 +35,7 @@ public class CommunicatorConfigurationTest
         string expectedHost = "test-host.com";
 
         // Act
-        var config = new CommunicatorConfiguration(expectedApiKey, expectedApiSecret, expectedHost, null);
+        CommunicatorConfiguration config = new(expectedApiKey, expectedApiSecret, expectedHost, null);
 
         // Assert
         Assert.Equal(expectedApiKey, config.ApiKey);
@@ -49,10 +49,11 @@ public class CommunicatorConfigurationTest
     public void ApiKey_ShouldBeSetCorrectly()
     {
         // Arrange
-        var config = new CommunicatorConfiguration("initial-key", "test-api-secret", "test-host.com", "test-integrator");
-
-        // Act
-        config.ApiKey = "new-api-key";
+        CommunicatorConfiguration config = new("initial-key", "test-api-secret", "test-host.com", "test-integrator")
+        {
+            // Act
+            ApiKey = "new-api-key"
+        };
 
         // Assert
         Assert.Equal("new-api-key", config.ApiKey);
@@ -62,10 +63,11 @@ public class CommunicatorConfigurationTest
     public void ApiSecret_ShouldBeSetCorrectly()
     {
         // Arrange
-        var config = new CommunicatorConfiguration("test-api-key", "initial-secret", "test-host.com", "test-integrator");
-
-        // Act
-        config.ApiSecret = "new-api-secret";
+        CommunicatorConfiguration config = new("test-api-key", "initial-secret", "test-host.com", "test-integrator")
+        {
+            // Act
+            ApiSecret = "new-api-secret"
+        };
 
         // Assert
         Assert.Equal("new-api-secret", config.ApiSecret);
@@ -75,10 +77,11 @@ public class CommunicatorConfigurationTest
     public void Host_ShouldBeSetCorrectly()
     {
         // Arrange
-        var config = new CommunicatorConfiguration("test-api-key", "test-api-secret", "initial-host.com", "test-integrator");
-
-        // Act
-        config.Host = "new-host.com";
+        CommunicatorConfiguration config = new("test-api-key", "test-api-secret", "initial-host.com", "test-integrator")
+        {
+            // Act
+            Host = "new-host.com"
+        };
 
         // Assert
         Assert.Equal("new-host.com", config.Host);
@@ -88,8 +91,8 @@ public class CommunicatorConfigurationTest
     public void ServerMetaInfo_ShouldBeSetCorrectly()
     {
         // Arrange
-        var config = new CommunicatorConfiguration("test-api-key", "test-api-secret", "test-host.com", "test-integrator");
-        var newServerMetaInfo = new ServerMetaInfo()
+        CommunicatorConfiguration config = new("test-api-key", "test-api-secret", "test-host.com", "test-integrator");
+        ServerMetaInfo newServerMetaInfo = new ServerMetaInfo()
             .WithPlatformIdentifier("Custom Platform")
             .WithSdkIdentifier("Custom SDK Identifier")
             .WithSdkCreator("Custom SDK Creator")

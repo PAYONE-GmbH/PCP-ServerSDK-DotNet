@@ -24,7 +24,7 @@ public class RequestHeaderGeneratorTest
     public void TestSignatureGenerationForGet()
     {
         DateTime date = DateTimeOffset.FromUnixTimeMilliseconds(1720520499000).UtcDateTime;
-        var request = new HttpRequestMessage(HttpMethod.Get, "http://awesome-api.com/v1/commerce_cases");
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://awesome-api.com/v1/commerce_cases");
         request.Headers.Add(RequestHeaderGenerator.DATE_HEADER_NAME, date.ToString("r"));
         request.Headers.Add(RequestHeaderGenerator.SERVER_META_INFO_HEADER_NAME, "server fixed");
         request.Headers.Add(RequestHeaderGenerator.CLIENT_META_INFO_HEADER_NAME, "client fixed");
@@ -38,7 +38,7 @@ public class RequestHeaderGeneratorTest
     public void TestSignatureGenerationWithContentType()
     {
         DateTime date = DateTimeOffset.FromUnixTimeMilliseconds(1720520499000).UtcDateTime;
-        var request = new HttpRequestMessage(HttpMethod.Post, "http://awesome-api.com/v1/commerce_cases")
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "http://awesome-api.com/v1/commerce_cases")
         {
             Content = new StringContent("", Encoding.UTF8, "application/json")
         };
@@ -54,7 +54,7 @@ public class RequestHeaderGeneratorTest
     [Fact]
     public void AddADateHeaderIfMissingTest()
     {
-        var request = new HttpRequestMessage(HttpMethod.Get, "http://api.somewhere.com/route/to/thing");
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://api.somewhere.com/route/to/thing");
 
         HttpRequestMessage updatedRequest = HEADER_GENERATOR.GenerateAdditionalRequestHeaders(request);
 
@@ -64,10 +64,10 @@ public class RequestHeaderGeneratorTest
     [Fact]
     public void AddServerMetaInfoIfMissingTest()
     {
-        var request = new HttpRequestMessage(HttpMethod.Get, "http://api.somewhere.com/route/to/thing");
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://api.somewhere.com/route/to/thing");
 
         HttpRequestMessage updatedRequest = HEADER_GENERATOR.GenerateAdditionalRequestHeaders(request);
-        var serverMetaInfoBase64 = updatedRequest.Headers.GetValues(RequestHeaderGenerator.SERVER_META_INFO_HEADER_NAME).FirstOrDefault();
+        string serverMetaInfoBase64 = updatedRequest.Headers.GetValues(RequestHeaderGenerator.SERVER_META_INFO_HEADER_NAME).FirstOrDefault()!;
         _output.WriteLine(serverMetaInfoBase64);
         Assert.NotNull(serverMetaInfoBase64);
 
@@ -82,13 +82,13 @@ public class RequestHeaderGeneratorTest
     [Fact]
     public void AddServerClientInfoIfMissingTest()
     {
-        var request = new HttpRequestMessage(HttpMethod.Get, "http://api.somewhere.com/route/to/thing");
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://api.somewhere.com/route/to/thing");
 
         HttpRequestMessage updatedRequest = HEADER_GENERATOR.GenerateAdditionalRequestHeaders(request);
-        var clientMetaInfo = updatedRequest.Headers.GetValues(RequestHeaderGenerator.CLIENT_META_INFO_HEADER_NAME).FirstOrDefault();
+        string clientMetaInfo = updatedRequest.Headers.GetValues(RequestHeaderGenerator.CLIENT_META_INFO_HEADER_NAME).FirstOrDefault()!;
         Assert.NotNull(clientMetaInfo);
 
-        var metaInfoAsJson = Encoding.UTF8.GetString(Convert.FromBase64String(clientMetaInfo));
+        string metaInfoAsJson = Encoding.UTF8.GetString(Convert.FromBase64String(clientMetaInfo));
         Assert.Equal("\"[]\"", metaInfoAsJson);
     }
 }
