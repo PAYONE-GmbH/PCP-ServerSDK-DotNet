@@ -31,6 +31,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner begin /k:"PAYONE-GmbH_PCP-ServerSDK-DotNet" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner begin /k:"PAYONE-GmbH_PCP-ServerSDK-DotNet" /o:"payone-gmbh" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
           dotnet build --no-incremental
           dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
