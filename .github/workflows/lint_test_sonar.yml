@@ -44,5 +44,5 @@ jobs:
           /d:sonar.exclusions="**/bin/**,**/obj/**,**/*.generated.cs" \
           /d:sonar.coverage.exclusions="**/*.Generated.cs,**/Migrations/**" \
           /d:sonar.cs.dotnet.version="8.0.401"
-          dotnet build --no-incremental
+          ./scripts.sh build
           dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

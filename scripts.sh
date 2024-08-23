@@ -14,7 +14,7 @@ install() {
 # Function to build the package
 build() {
     echo "Building the package..."
-    dotnet build app/PCPServerSDKDotNetRunner/PCPServerSDKDotNetRunner.csproj
+    dotnet build lib/PCPServerSDKDotNet/PCPServerSDKDotNet.csproj
     echo "Build complete."
 }
 
