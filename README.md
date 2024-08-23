@@ -2,7 +2,6 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=PAYONE-GmbH_PCP-ServerSDK-DotNet&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=PAYONE-GmbH_PCP-ServerSDK-DotNet)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=PAYONE-GmbH_PCP-ServerSDK-DotNet&metric=coverage)](https://sonarcloud.io/summary/new_code?id=PAYONE-GmbH_PCP-ServerSDK-DotNet)
-
 ![NuGet Version](https://img.shields.io/nuget/v/pcp-serversdk-dotnet)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/pcp-serversdk-dotnet)
 
@@ -37,7 +36,7 @@ Welcome to the .NET SDK for the PAYONE Commerce Platform! This repository contai
 ## Installation
 
 ```sh
-dotnet add package PCP-ServerSDK-DotNet --version <version>
+dotnet add package pcp-serversdk-dotnet --version <version>
 ```
 
 **[back to top](#table-of-contents)**
