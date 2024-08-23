@@ -15,8 +15,6 @@ public class RequestHeaderGenerator
     public const string DATE_HEADER_NAME = "Date";
     public const string AUTHORIZATION_HEADER_NAME = "Authorization";
     public const string CONTENT_TYPE_HEADER_NAME = "Content-Type";
-
-    private const string ALGORITHM = "HmacSHA256";
     private const string WHITESPACE_REGEX = "\\r?\\n[\\h]*";
 
     private readonly CommunicatorConfiguration config;
@@ -25,7 +23,6 @@ public class RequestHeaderGenerator
     public RequestHeaderGenerator(CommunicatorConfiguration config)
     {
         this.config = config;
-
         hmac = new HMACSHA256(Encoding.UTF8.GetBytes(config.ApiSecret));
     }
 
@@ -68,13 +65,16 @@ public class RequestHeaderGenerator
         // 3. Date
         if (request.Headers.Contains(DATE_HEADER_NAME))
         {
-            stringToSign.Append(request.Headers.GetValues(DATE_HEADER_NAME).First()).Append('\n');
+            stringToSign
+                .Append(request.Headers.GetValues(DATE_HEADER_NAME).First())
+                .Append('\n');
         }
 
         // 4. Canonicalized Headers (starting with X-GCS, sorted by names)
         if (request.Headers.Contains(CLIENT_META_INFO_HEADER_NAME))
         {
-            stringToSign.Append(CLIENT_META_INFO_HEADER_NAME.ToLower())
+            stringToSign
+                .Append(CLIENT_META_INFO_HEADER_NAME.ToLower())
                 .Append(':')
                 .Append(request.Headers.GetValues(CLIENT_META_INFO_HEADER_NAME).First().Replace(WHITESPACE_REGEX, " ").Trim())
                 .Append('\n');
@@ -91,7 +91,9 @@ public class RequestHeaderGenerator
         stringToSign.Append(request.RequestUri!.AbsolutePath);
         if (!string.IsNullOrEmpty(request.RequestUri.Query))
         {
-            stringToSign.Append('?').Append(request.RequestUri.Query);
+            stringToSign
+                .Append('?')
+                .Append(request.RequestUri.Query);
         }
         stringToSign.Append('\n');
 
