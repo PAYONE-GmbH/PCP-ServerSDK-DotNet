@@ -19,7 +19,7 @@ namespace PCPServerSDKDotNet.Models
     /// </summary>
     [DataMember(Name = "network", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "network")]
-    public string? Network { get; set; }
+    public NetworkEnum? Network { get; set; }
 
     /// <summary>
     /// Gets or Sets Token
