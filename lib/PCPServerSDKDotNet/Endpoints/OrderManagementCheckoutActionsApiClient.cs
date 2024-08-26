@@ -8,121 +8,168 @@ using PCPServerSDKDotNet.Models;
 
 public class OrderManagementCheckoutActionsApiClient : BaseApiClient
 {
-    public OrderManagementCheckoutActionsApiClient(CommunicatorConfiguration config) : base(config) { }
+    public OrderManagementCheckoutActionsApiClient(CommunicatorConfiguration config)
+        : base(config)
+    {
+    }
 
     public async Task<OrderResponse> CreateOrderAsync(string merchantId, string commerceCaseId, string checkoutId, OrderRequest payload)
     {
         if (string.IsNullOrEmpty(merchantId))
-            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(commerceCaseId))
-            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(checkoutId))
-            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+        }
+
         if (payload == null)
-            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(PAYLOADREQUIREDERROR);
+        }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPS_SCHEME,
-            Host = GetConfig().Host,
-            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/order"
+            Scheme = HTTPSSCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/order",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
         };
-        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+        request.Content.Headers.ContentType = JSONMEDIATYPE;
 
-        return await MakeApiCallAsync<OrderResponse>(request);
+        return await this.MakeApiCallAsync<OrderResponse>(request);
     }
 
     public async Task<DeliverResponse> DeliverOrderAsync(string merchantId, string commerceCaseId, string checkoutId, DeliverRequest payload)
     {
         if (string.IsNullOrEmpty(merchantId))
-            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(commerceCaseId))
-            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(checkoutId))
-            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+        }
+
         if (payload == null)
-            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(PAYLOADREQUIREDERROR);
+        }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPS_SCHEME,
-            Host = GetConfig().Host,
-            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/deliver"
+            Scheme = HTTPSSCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/deliver",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
         };
-        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+        request.Content.Headers.ContentType = JSONMEDIATYPE;
 
-        return await MakeApiCallAsync<DeliverResponse>(request);
+        return await this.MakeApiCallAsync<DeliverResponse>(request);
     }
 
     public async Task<ReturnResponse> ReturnOrderAsync(string merchantId, string commerceCaseId, string checkoutId, ReturnRequest payload)
     {
         if (string.IsNullOrEmpty(merchantId))
-            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(commerceCaseId))
-            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(checkoutId))
-            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+        }
+
         if (payload == null)
-            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(PAYLOADREQUIREDERROR);
+        }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPS_SCHEME,
-            Host = GetConfig().Host,
-            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/return"
+            Scheme = HTTPSSCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/return",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
         };
-        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+        request.Content.Headers.ContentType = JSONMEDIATYPE;
 
-        return await MakeApiCallAsync<ReturnResponse>(request);
+        return await this.MakeApiCallAsync<ReturnResponse>(request);
     }
 
     public async Task<CancelResponse> CancelOrderAsync(string merchantId, string commerceCaseId, string checkoutId, CancelRequest payload)
     {
         if (string.IsNullOrEmpty(merchantId))
-            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(commerceCaseId))
-            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+        }
+
         if (string.IsNullOrEmpty(checkoutId))
-            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+        }
+
         if (payload == null)
-            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        {
+            throw new ArgumentException(PAYLOADREQUIREDERROR);
+        }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPS_SCHEME,
-            Host = GetConfig().Host,
-            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/cancel"
+            Scheme = HTTPSSCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/cancel",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
         };
-        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+        request.Content.Headers.ContentType = JSONMEDIATYPE;
 
-        return await MakeApiCallAsync<CancelResponse>(request);
+        return await this.MakeApiCallAsync<CancelResponse>(request);
     }
 }

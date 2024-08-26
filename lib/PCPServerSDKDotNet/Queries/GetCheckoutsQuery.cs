@@ -1,231 +1,261 @@
+namespace PCPServerSDKDotNet.Queries;
+
 using PCPServerSDKDotNet.Models;
 using PCPServerSDKDotNet.Utils;
 
-namespace PCPServerSDKDotNet.Queries;
-
 public class GetCheckoutsQuery : IQueryConfig
 {
-    public int? Offset { get; set; }
-    public int? Size { get; set; }
-    public string? FromDate { get; set; }
-    public string? ToDate { get; set; }
-    public int? FromCheckoutAmount { get; set; }
-    public int? ToCheckoutAmount { get; set; }
-    public int? FromOpenAmount { get; set; }
-    public int? ToOpenAmount { get; set; }
-    public int? FromCollectedAmount { get; set; }
-    public int? ToCollectedAmount { get; set; }
-    public int? FromCancelledAmount { get; set; }
-    public int? ToCancelledAmount { get; set; }
-    public int? FromRefundAmount { get; set; }
-    public int? ToRefundAmount { get; set; }
-    public int? FromChargebackAmount { get; set; }
-    public int? ToChargebackAmount { get; set; }
-    public string? CheckoutId { get; set; }
-    public string? MerchantReference { get; set; }
-    public string? MerchantCustomerId { get; set; }
-    public List<int>? IncludePaymentProductId { get; set; }
-    public List<StatusCheckout>? IncludeCheckoutStatus { get; set; }
-    public List<ExtendedCheckoutStatus>? IncludeExtendedCheckoutStatus { get; set; }
-    public List<PaymentChannel>? IncludePaymentChannel { get; set; }
-    public string? PaymentReference { get; set; }
-    public string? PaymentId { get; set; }
-    public string? FirstName { get; set; }
-    public string? Surname { get; set; }
-    public string? Email { get; set; }
-    public string? PhoneNumber { get; set; }
-    public string? DateOfBirth { get; set; }
-    public string? CompanyInformation { get; set; }
-
     public GetCheckoutsQuery()
     {
         // Empty constructor
         // GetCheckoutsQuery should be populated using the setter methods
     }
 
+    public int? Offset { get; set; }
+
+    public int? Size { get; set; }
+
+    public string? FromDate { get; set; }
+
+    public string? ToDate { get; set; }
+
+    public int? FromCheckoutAmount { get; set; }
+
+    public int? ToCheckoutAmount { get; set; }
+
+    public int? FromOpenAmount { get; set; }
+
+    public int? ToOpenAmount { get; set; }
+
+    public int? FromCollectedAmount { get; set; }
+
+    public int? ToCollectedAmount { get; set; }
+
+    public int? FromCancelledAmount { get; set; }
+
+    public int? ToCancelledAmount { get; set; }
+
+    public int? FromRefundAmount { get; set; }
+
+    public int? ToRefundAmount { get; set; }
+
+    public int? FromChargebackAmount { get; set; }
+
+    public int? ToChargebackAmount { get; set; }
+
+    public string? CheckoutId { get; set; }
+
+    public string? MerchantReference { get; set; }
+
+    public string? MerchantCustomerId { get; set; }
+
+    public List<int>? IncludePaymentProductId { get; set; }
+
+    public List<StatusCheckout>? IncludeCheckoutStatus { get; set; }
+
+    public List<ExtendedCheckoutStatus>? IncludeExtendedCheckoutStatus { get; set; }
+
+    public List<PaymentChannel>? IncludePaymentChannel { get; set; }
+
+    public string? PaymentReference { get; set; }
+
+    public string? PaymentId { get; set; }
+
+    public string? FirstName { get; set; }
+
+    public string? Surname { get; set; }
+
+    public string? Email { get; set; }
+
+    public string? PhoneNumber { get; set; }
+
+    public string? DateOfBirth { get; set; }
+
+    public string? CompanyInformation { get; set; }
+
     public GetCheckoutsQuery SetOffset(int? offset)
     {
-        Offset = offset;
+        this.Offset = offset;
         return this;
     }
 
     public GetCheckoutsQuery SetSize(int? size)
     {
-        Size = size;
+        this.Size = size;
         return this;
     }
 
     public GetCheckoutsQuery SetFromDate(string fromDate)
     {
-        FromDate = fromDate;
+        this.FromDate = fromDate;
         return this;
     }
 
     public GetCheckoutsQuery SetToDate(string toDate)
     {
-        ToDate = toDate;
+        this.ToDate = toDate;
         return this;
     }
 
     public GetCheckoutsQuery SetFromCheckoutAmount(int? fromCheckoutAmount)
     {
-        FromCheckoutAmount = fromCheckoutAmount;
+        this.FromCheckoutAmount = fromCheckoutAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetToCheckoutAmount(int? toCheckoutAmount)
     {
-        ToCheckoutAmount = toCheckoutAmount;
+        this.ToCheckoutAmount = toCheckoutAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetFromOpenAmount(int? fromOpenAmount)
     {
-        FromOpenAmount = fromOpenAmount;
+        this.FromOpenAmount = fromOpenAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetToOpenAmount(int? toOpenAmount)
     {
-        ToOpenAmount = toOpenAmount;
+        this.ToOpenAmount = toOpenAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetFromCollectedAmount(int? fromCollectedAmount)
     {
-        FromCollectedAmount = fromCollectedAmount;
+        this.FromCollectedAmount = fromCollectedAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetToCollectedAmount(int? toCollectedAmount)
     {
-        ToCollectedAmount = toCollectedAmount;
+        this.ToCollectedAmount = toCollectedAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetFromCancelledAmount(int? fromCancelledAmount)
     {
-        FromCancelledAmount = fromCancelledAmount;
+        this.FromCancelledAmount = fromCancelledAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetToCancelledAmount(int? toCancelledAmount)
     {
-        ToCancelledAmount = toCancelledAmount;
+        this.ToCancelledAmount = toCancelledAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetFromRefundAmount(int? fromRefundAmount)
     {
-        FromRefundAmount = fromRefundAmount;
+        this.FromRefundAmount = fromRefundAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetToRefundAmount(int? toRefundAmount)
     {
-        ToRefundAmount = toRefundAmount;
+        this.ToRefundAmount = toRefundAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetFromChargebackAmount(int? fromChargebackAmount)
     {
-        FromChargebackAmount = fromChargebackAmount;
+        this.FromChargebackAmount = fromChargebackAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetToChargebackAmount(int? toChargebackAmount)
     {
-        ToChargebackAmount = toChargebackAmount;
+        this.ToChargebackAmount = toChargebackAmount;
         return this;
     }
 
     public GetCheckoutsQuery SetCheckoutId(string checkoutId)
     {
-        CheckoutId = checkoutId;
+        this.CheckoutId = checkoutId;
         return this;
     }
 
     public GetCheckoutsQuery SetMerchantReference(string merchantReference)
     {
-        MerchantReference = merchantReference;
+        this.MerchantReference = merchantReference;
         return this;
     }
 
     public GetCheckoutsQuery SetMerchantCustomerId(string merchantCustomerId)
     {
-        MerchantCustomerId = merchantCustomerId;
+        this.MerchantCustomerId = merchantCustomerId;
         return this;
     }
 
     public GetCheckoutsQuery SetIncludePaymentProductId(List<int> includePaymentProductId)
     {
-        IncludePaymentProductId = includePaymentProductId;
+        this.IncludePaymentProductId = includePaymentProductId;
         return this;
     }
 
     public GetCheckoutsQuery SetIncludeCheckoutStatus(List<StatusCheckout> includeCheckoutStatus)
     {
-        IncludeCheckoutStatus = includeCheckoutStatus;
+        this.IncludeCheckoutStatus = includeCheckoutStatus;
         return this;
     }
 
     public GetCheckoutsQuery SetIncludeExtendedCheckoutStatus(List<ExtendedCheckoutStatus> includeExtendedCheckoutStatus)
     {
-        IncludeExtendedCheckoutStatus = includeExtendedCheckoutStatus;
+        this.IncludeExtendedCheckoutStatus = includeExtendedCheckoutStatus;
         return this;
     }
 
     public GetCheckoutsQuery SetIncludePaymentChannel(List<PaymentChannel> includePaymentChannel)
     {
-        IncludePaymentChannel = includePaymentChannel;
+        this.IncludePaymentChannel = includePaymentChannel;
         return this;
     }
 
     public GetCheckoutsQuery SetPaymentReference(string paymentReference)
     {
-        PaymentReference = paymentReference;
+        this.PaymentReference = paymentReference;
         return this;
     }
 
     public GetCheckoutsQuery SetPaymentId(string paymentId)
     {
-        PaymentId = paymentId;
+        this.PaymentId = paymentId;
         return this;
     }
 
     public GetCheckoutsQuery SetFirstName(string firstName)
     {
-        FirstName = firstName;
+        this.FirstName = firstName;
         return this;
     }
 
     public GetCheckoutsQuery SetSurname(string surname)
     {
-        Surname = surname;
+        this.Surname = surname;
         return this;
     }
 
     public GetCheckoutsQuery SetEmail(string email)
     {
-        Email = email;
+        this.Email = email;
         return this;
     }
 
     public GetCheckoutsQuery SetPhoneNumber(string phoneNumber)
     {
-        PhoneNumber = phoneNumber;
+        this.PhoneNumber = phoneNumber;
         return this;
     }
 
     public GetCheckoutsQuery SetDateOfBirth(string dateOfBirth)
     {
-        DateOfBirth = dateOfBirth;
+        this.DateOfBirth = dateOfBirth;
         return this;
     }
 
     public GetCheckoutsQuery SetCompanyInformation(string companyInformation)
     {
-        CompanyInformation = companyInformation;
+        this.CompanyInformation = companyInformation;
         return this;
     }
 
@@ -233,170 +263,170 @@ public class GetCheckoutsQuery : IQueryConfig
     {
         Dictionary<string, string> query = [];
 
-        if (Offset.HasValue)
+        if (this.Offset.HasValue)
         {
-            query.Add("offset", Offset.Value.ToString());
+            query.Add("offset", this.Offset.Value.ToString());
         }
 
-        if (Size.HasValue)
+        if (this.Size.HasValue)
         {
-            query.Add("size", Size.Value.ToString());
+            query.Add("size", this.Size.Value.ToString());
         }
 
-        if (!string.IsNullOrEmpty(FromDate))
+        if (!string.IsNullOrEmpty(this.FromDate))
         {
-            query.Add("fromDate", FromDate);
+            query.Add("fromDate", this.FromDate);
         }
 
-        if (!string.IsNullOrEmpty(ToDate))
+        if (!string.IsNullOrEmpty(this.ToDate))
         {
-            query.Add("toDate", ToDate);
+            query.Add("toDate", this.ToDate);
         }
 
-        if (FromCheckoutAmount.HasValue)
+        if (this.FromCheckoutAmount.HasValue)
         {
-            query.Add("fromCheckoutAmount", FromCheckoutAmount.Value.ToString());
+            query.Add("fromCheckoutAmount", this.FromCheckoutAmount.Value.ToString());
         }
 
-        if (ToCheckoutAmount.HasValue)
+        if (this.ToCheckoutAmount.HasValue)
         {
-            query.Add("toCheckoutAmount", ToCheckoutAmount.Value.ToString());
+            query.Add("toCheckoutAmount", this.ToCheckoutAmount.Value.ToString());
         }
 
-        if (FromOpenAmount.HasValue)
+        if (this.FromOpenAmount.HasValue)
         {
-            query.Add("fromOpenAmount", FromOpenAmount.Value.ToString());
+            query.Add("fromOpenAmount", this.FromOpenAmount.Value.ToString());
         }
 
-        if (ToOpenAmount.HasValue)
+        if (this.ToOpenAmount.HasValue)
         {
-            query.Add("toOpenAmount", ToOpenAmount.Value.ToString());
+            query.Add("toOpenAmount", this.ToOpenAmount.Value.ToString());
         }
 
-        if (FromCollectedAmount.HasValue)
+        if (this.FromCollectedAmount.HasValue)
         {
-            query.Add("fromCollectedAmount", FromCollectedAmount.Value.ToString());
+            query.Add("fromCollectedAmount", this.FromCollectedAmount.Value.ToString());
         }
 
-        if (ToCollectedAmount.HasValue)
+        if (this.ToCollectedAmount.HasValue)
         {
-            query.Add("toCollectedAmount", ToCollectedAmount.Value.ToString());
+            query.Add("toCollectedAmount", this.ToCollectedAmount.Value.ToString());
         }
 
-        if (FromCancelledAmount.HasValue)
+        if (this.FromCancelledAmount.HasValue)
         {
-            query.Add("fromCancelledAmount", FromCancelledAmount.Value.ToString());
+            query.Add("fromCancelledAmount", this.FromCancelledAmount.Value.ToString());
         }
 
-        if (ToCancelledAmount.HasValue)
+        if (this.ToCancelledAmount.HasValue)
         {
-            query.Add("toCancelledAmount", ToCancelledAmount.Value.ToString());
+            query.Add("toCancelledAmount", this.ToCancelledAmount.Value.ToString());
         }
 
-        if (FromRefundAmount.HasValue)
+        if (this.FromRefundAmount.HasValue)
         {
-            query.Add("fromRefundAmount", FromRefundAmount.Value.ToString());
+            query.Add("fromRefundAmount", this.FromRefundAmount.Value.ToString());
         }
 
-        if (ToRefundAmount.HasValue)
+        if (this.ToRefundAmount.HasValue)
         {
-            query.Add("toRefundAmount", ToRefundAmount.Value.ToString());
+            query.Add("toRefundAmount", this.ToRefundAmount.Value.ToString());
         }
 
-        if (FromChargebackAmount.HasValue)
+        if (this.FromChargebackAmount.HasValue)
         {
-            query.Add("fromChargebackAmount", FromChargebackAmount.Value.ToString());
+            query.Add("fromChargebackAmount", this.FromChargebackAmount.Value.ToString());
         }
 
-        if (ToChargebackAmount.HasValue)
+        if (this.ToChargebackAmount.HasValue)
         {
-            query.Add("toChargebackAmount", ToChargebackAmount.Value.ToString());
+            query.Add("toChargebackAmount", this.ToChargebackAmount.Value.ToString());
         }
 
-        if (!string.IsNullOrEmpty(CheckoutId))
+        if (!string.IsNullOrEmpty(this.CheckoutId))
         {
-            query.Add("checkoutId", CheckoutId);
+            query.Add("checkoutId", this.CheckoutId);
         }
 
-        if (!string.IsNullOrEmpty(MerchantReference))
+        if (!string.IsNullOrEmpty(this.MerchantReference))
         {
-            query.Add("merchantReference", MerchantReference);
+            query.Add("merchantReference", this.MerchantReference);
         }
 
-        if (!string.IsNullOrEmpty(MerchantCustomerId))
+        if (!string.IsNullOrEmpty(this.MerchantCustomerId))
         {
-            query.Add("merchantCustomerId", MerchantCustomerId);
+            query.Add("merchantCustomerId", this.MerchantCustomerId);
         }
 
-        if (IncludePaymentProductId != null && IncludePaymentProductId.Count > 0)
+        if (this.IncludePaymentProductId != null && this.IncludePaymentProductId.Count > 0)
         {
             List<string> productIdList = [];
-            foreach (int productId in IncludePaymentProductId)
+            foreach (int productId in this.IncludePaymentProductId)
             {
                 productIdList.Add(productId.ToString());
             }
+
             query.Add("includePaymentProductId", string.Join(",", productIdList));
         }
 
-        if (IncludeCheckoutStatus != null && IncludeCheckoutStatus.Count > 0)
+        if (this.IncludeCheckoutStatus != null && this.IncludeCheckoutStatus.Count > 0)
         {
-            List<StatusCheckout> statusList = [.. IncludeCheckoutStatus];
+            List<StatusCheckout> statusList = [.. this.IncludeCheckoutStatus];
             query.Add("includeCheckoutStatus", string.Join(",", statusList));
         }
 
-        if (IncludeExtendedCheckoutStatus != null && IncludeExtendedCheckoutStatus.Count > 0)
+        if (this.IncludeExtendedCheckoutStatus != null && this.IncludeExtendedCheckoutStatus.Count > 0)
         {
-            List<ExtendedCheckoutStatus> statusList = [.. IncludeExtendedCheckoutStatus];
+            List<ExtendedCheckoutStatus> statusList = [.. this.IncludeExtendedCheckoutStatus];
             query.Add("includeExtendedCheckoutStatus", string.Join(",", statusList));
         }
 
-        if (IncludePaymentChannel != null && IncludePaymentChannel.Count > 0)
+        if (this.IncludePaymentChannel != null && this.IncludePaymentChannel.Count > 0)
         {
-            List<PaymentChannel> channelList = [.. IncludePaymentChannel];
+            List<PaymentChannel> channelList = [.. this.IncludePaymentChannel];
             query.Add("includePaymentChannel", string.Join(",", channelList));
         }
 
-        if (!string.IsNullOrEmpty(PaymentReference))
+        if (!string.IsNullOrEmpty(this.PaymentReference))
         {
-            query.Add("paymentReference", PaymentReference);
+            query.Add("paymentReference", this.PaymentReference);
         }
 
-        if (!string.IsNullOrEmpty(PaymentId))
+        if (!string.IsNullOrEmpty(this.PaymentId))
         {
-            query.Add("paymentId", PaymentId);
+            query.Add("paymentId", this.PaymentId);
         }
 
-        if (!string.IsNullOrEmpty(FirstName))
+        if (!string.IsNullOrEmpty(this.FirstName))
         {
-            query.Add("firstName", FirstName);
+            query.Add("firstName", this.FirstName);
         }
 
-        if (!string.IsNullOrEmpty(Surname))
+        if (!string.IsNullOrEmpty(this.Surname))
         {
-            query.Add("surname", Surname);
+            query.Add("surname", this.Surname);
         }
 
-        if (!string.IsNullOrEmpty(Email))
+        if (!string.IsNullOrEmpty(this.Email))
         {
-            query.Add("email", Email);
+            query.Add("email", this.Email);
         }
 
-        if (!string.IsNullOrEmpty(PhoneNumber))
+        if (!string.IsNullOrEmpty(this.PhoneNumber))
         {
-            query.Add("phoneNumber", PhoneNumber);
+            query.Add("phoneNumber", this.PhoneNumber);
         }
 
-        if (!string.IsNullOrEmpty(DateOfBirth))
+        if (!string.IsNullOrEmpty(this.DateOfBirth))
         {
-            query.Add("dateOfBirth", DateOfBirth);
+            query.Add("dateOfBirth", this.DateOfBirth);
         }
 
-        if (!string.IsNullOrEmpty(CompanyInformation))
+        if (!string.IsNullOrEmpty(this.CompanyInformation))
         {
-            query.Add("companyInformation", CompanyInformation);
+            query.Add("companyInformation", this.CompanyInformation);
         }
 
         return query;
     }
 }
-

@@ -7,6 +7,12 @@ build() {
     echo "Build complete."
 }
 
+format() {
+    echo "Formatting the code..."
+    dotnet format lib/PCPServerSDKDotNet
+    echo "Format complete."
+}
+
 # Function to run tests
 test() {
     echo "Running tests..."
@@ -85,6 +91,9 @@ build)
 test)
     test
     ;;
+format)
+    format
+    ;;
 clear)
     clear
     ;;
@@ -98,7 +107,7 @@ run)
     run
     ;;
 *)
-    echo "Usage: $0 {build|test|clear|version|publish|run}"
+    echo "Usage: $0 {build|test|format|clear|version|publish|run}"
     exit 1
     ;;
 esac

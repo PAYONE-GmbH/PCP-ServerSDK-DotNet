@@ -1,11 +1,16 @@
+namespace PCPServerSDKDotNet.Transformer;
+
 using PCPServerSDKDotNet.Models;
 using PCPServerSDKDotNet.Models.ApplePay;
 
-namespace PCPServerSDKDotNet.Transformer;
-
 public class ApplePayTransformer
 {
-    private const int APPLE_PAY_PAYMENT_PRODUCT_ID = 302;
+    private const int APPLEPAYPAYMENTPRODUCTID = 302;
+
+    // Private constructor to prevent instantiation
+    private ApplePayTransformer()
+    {
+    }
 
     public static MobilePaymentMethodSpecificInput TransformApplePayPaymentToMobilePaymentMethodSpecificInput(
         ApplePayPayment payment)
@@ -55,20 +60,16 @@ public class ApplePayTransformer
         applePaymentDataTokenInformation.Header = new ApplePaymentDataTokenHeaderInformation
         {
             TransactionId = transactionId,
-            ApplicationData = applicationData
+            ApplicationData = applicationData,
         };
 
         paymentProduct320SpecificInput.Token = applePaymentDataTokenInformation;
 
-        input.PaymentProductId = APPLE_PAY_PAYMENT_PRODUCT_ID;
+        input.PaymentProductId = APPLEPAYPAYMENTPRODUCTID;
         input.PublicKeyHash = publicKeyHash;
         input.EphemeralKey = ephemeralKey;
         input.PaymentProduct302SpecificInput = paymentProduct320SpecificInput;
 
         return input;
     }
-
-    // Private constructor to prevent instantiation
-    private ApplePayTransformer() { }
 }
-

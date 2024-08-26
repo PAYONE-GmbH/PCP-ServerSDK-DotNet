@@ -1,97 +1,97 @@
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace PCPServerSDKDotNet.Models
 {
-  /// <summary>
-  /// Current high-level status of the payment in a human-readable form.
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum StatusValue
-  {
-    [JsonProperty("CREATED")]
-    [EnumMember(Value = "CREATED")]
-    Created,
+    using System.Runtime.Serialization;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-    [JsonProperty("CANCELLED")]
-    [EnumMember(Value = "CANCELLED")]
-    Cancelled,
+    /// <summary>
+    /// Current high-level status of the payment in a human-readable form.
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum StatusValue
+    {
+        [JsonProperty("CREATED")]
+        [EnumMember(Value = "CREATED")]
+        Created,
 
-    [JsonProperty("REJECTED")]
-    [EnumMember(Value = "REJECTED")]
-    Rejected,
+        [JsonProperty("CANCELLED")]
+        [EnumMember(Value = "CANCELLED")]
+        Cancelled,
 
-    [JsonProperty("REJECTED_CAPTURE")]
-    [EnumMember(Value = "REJECTED_CAPTURE")]
-    RejectedCapture,
+        [JsonProperty("REJECTED")]
+        [EnumMember(Value = "REJECTED")]
+        Rejected,
 
-    [JsonProperty("REDIRECTED")]
-    [EnumMember(Value = "REDIRECTED")]
-    Redirected,
+        [JsonProperty("REJECTED_CAPTURE")]
+        [EnumMember(Value = "REJECTED_CAPTURE")]
+        RejectedCapture,
 
-    [JsonProperty("PENDING_PAYMENT")]
-    [EnumMember(Value = "PENDING_PAYMENT")]
-    PendingPayment,
+        [JsonProperty("REDIRECTED")]
+        [EnumMember(Value = "REDIRECTED")]
+        Redirected,
 
-    [JsonProperty("PENDING_COMPLETION")]
-    [EnumMember(Value = "PENDING_COMPLETION")]
-    PendingCompletion,
+        [JsonProperty("PENDING_PAYMENT")]
+        [EnumMember(Value = "PENDING_PAYMENT")]
+        PendingPayment,
 
-    [JsonProperty("PENDING_CAPTURE")]
-    [EnumMember(Value = "PENDING_CAPTURE")]
-    PendingCapture,
+        [JsonProperty("PENDING_COMPLETION")]
+        [EnumMember(Value = "PENDING_COMPLETION")]
+        PendingCompletion,
 
-    [JsonProperty("AUTHORIZATION_REQUESTED")]
-    [EnumMember(Value = "AUTHORIZATION_REQUESTED")]
-    AuthorizationRequested,
+        [JsonProperty("PENDING_CAPTURE")]
+        [EnumMember(Value = "PENDING_CAPTURE")]
+        PendingCapture,
 
-    [JsonProperty("CAPTURE_REQUESTED")]
-    [EnumMember(Value = "CAPTURE_REQUESTED")]
-    CaptureRequested,
+        [JsonProperty("AUTHORIZATION_REQUESTED")]
+        [EnumMember(Value = "AUTHORIZATION_REQUESTED")]
+        AuthorizationRequested,
 
-    [JsonProperty("CAPTURED")]
-    [EnumMember(Value = "CAPTURED")]
-    Captured,
+        [JsonProperty("CAPTURE_REQUESTED")]
+        [EnumMember(Value = "CAPTURE_REQUESTED")]
+        CaptureRequested,
 
-    [JsonProperty("REVERSED")]
-    [EnumMember(Value = "REVERSED")]
-    Reversed,
+        [JsonProperty("CAPTURED")]
+        [EnumMember(Value = "CAPTURED")]
+        Captured,
 
-    [JsonProperty("REFUND_REQUESTED")]
-    [EnumMember(Value = "REFUND_REQUESTED")]
-    RefundRequested,
+        [JsonProperty("REVERSED")]
+        [EnumMember(Value = "REVERSED")]
+        Reversed,
 
-    [JsonProperty("REFUNDED")]
-    [EnumMember(Value = "REFUNDED")]
-    Refunded,
+        [JsonProperty("REFUND_REQUESTED")]
+        [EnumMember(Value = "REFUND_REQUESTED")]
+        RefundRequested,
 
-    [JsonProperty("REJECTED_REFUND")]
-    [EnumMember(Value = "REJECTED_REFUND")]
-    RejectedRefund,
+        [JsonProperty("REFUNDED")]
+        [EnumMember(Value = "REFUNDED")]
+        Refunded,
 
-    [JsonProperty("CANCELLATION_REQUESTED")]
-    [EnumMember(Value = "CANCELLATION_REQUESTED")]
-    CancellationRequested,
+        [JsonProperty("REJECTED_REFUND")]
+        [EnumMember(Value = "REJECTED_REFUND")]
+        RejectedRefund,
 
-    [JsonProperty("PAUSED")]
-    [EnumMember(Value = "PAUSED")]
-    Paused,
+        [JsonProperty("CANCELLATION_REQUESTED")]
+        [EnumMember(Value = "CANCELLATION_REQUESTED")]
+        CancellationRequested,
 
-    [JsonProperty("CHARGEBACKED")]
-    [EnumMember(Value = "CHARGEBACKED")]
-    Chargebacked,
+        [JsonProperty("PAUSED")]
+        [EnumMember(Value = "PAUSED")]
+        Paused,
 
-    [JsonProperty("CHARGEBACK_REVERSED")]
-    [EnumMember(Value = "CHARGEBACK_REVERSED")]
-    ChargebackReversed,
+        [JsonProperty("CHARGEBACKED")]
+        [EnumMember(Value = "CHARGEBACKED")]
+        Chargebacked,
 
-    [JsonProperty("ACCOUNT_CREDITED")]
-    [EnumMember(Value = "ACCOUNT_CREDITED")]
-    AccountCredited,
+        [JsonProperty("CHARGEBACK_REVERSED")]
+        [EnumMember(Value = "CHARGEBACK_REVERSED")]
+        ChargebackReversed,
 
-    [JsonProperty("ACCOUNT_DEBITED")]
-    [EnumMember(Value = "ACCOUNT_DEBITED")]
-    AccountDebited
-  }
+        [JsonProperty("ACCOUNT_CREDITED")]
+        [EnumMember(Value = "ACCOUNT_CREDITED")]
+        AccountCredited,
+
+        [JsonProperty("ACCOUNT_DEBITED")]
+        [EnumMember(Value = "ACCOUNT_DEBITED")]
+        AccountDebited,
+    }
 }

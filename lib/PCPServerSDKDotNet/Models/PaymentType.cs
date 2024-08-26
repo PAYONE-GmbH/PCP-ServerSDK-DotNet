@@ -1,45 +1,45 @@
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace PCPServerSDKDotNet.Models
 {
-  /// <summary>
-  /// Defines the respective payment type.
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum PaymentType
-  {
-    [JsonProperty("SALE")]
-    [EnumMember(Value = "SALE")]
-    Sale,
+    using System.Runtime.Serialization;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-    [JsonProperty("RESERVATION")]
-    [EnumMember(Value = "RESERVATION")]
-    Reservation,
+    /// <summary>
+    /// Defines the respective payment type.
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum PaymentType
+    {
+        [JsonProperty("SALE")]
+        [EnumMember(Value = "SALE")]
+        Sale,
 
-    [JsonProperty("CAPTURE")]
-    [EnumMember(Value = "CAPTURE")]
-    Capture,
+        [JsonProperty("RESERVATION")]
+        [EnumMember(Value = "RESERVATION")]
+        Reservation,
 
-    [JsonProperty("REFUND")]
-    [EnumMember(Value = "REFUND")]
-    Refund,
+        [JsonProperty("CAPTURE")]
+        [EnumMember(Value = "CAPTURE")]
+        Capture,
 
-    [JsonProperty("REVERSAL")]
-    [EnumMember(Value = "REVERSAL")]
-    Reversal,
+        [JsonProperty("REFUND")]
+        [EnumMember(Value = "REFUND")]
+        Refund,
 
-    [JsonProperty("CHARGEBACK_REVERSAL")]
-    [EnumMember(Value = "CHARGEBACK_REVERSAL")]
-    ChargebackReversal,
+        [JsonProperty("REVERSAL")]
+        [EnumMember(Value = "REVERSAL")]
+        Reversal,
 
-    [JsonProperty("CREDIT_NOTE")]
-    [EnumMember(Value = "CREDIT_NOTE")]
-    CreditNote,
+        [JsonProperty("CHARGEBACK_REVERSAL")]
+        [EnumMember(Value = "CHARGEBACK_REVERSAL")]
+        ChargebackReversal,
 
-    [JsonProperty("DEBIT_NOTE")]
-    [EnumMember(Value = "DEBIT_NOTE")]
-    DebitNote
-  }
+        [JsonProperty("CREDIT_NOTE")]
+        [EnumMember(Value = "CREDIT_NOTE")]
+        CreditNote,
+
+        [JsonProperty("DEBIT_NOTE")]
+        [EnumMember(Value = "DEBIT_NOTE")]
+        DebitNote,
+    }
 }

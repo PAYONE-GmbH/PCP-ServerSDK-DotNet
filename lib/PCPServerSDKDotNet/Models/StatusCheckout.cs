@@ -1,37 +1,37 @@
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace PCPServerSDKDotNet.Models
 {
-  /// <summary>
-  /// Current high-level status of the Checkout.
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum StatusCheckout
-  {
-    [JsonProperty("OPEN")]
-    [EnumMember(Value = "OPEN")]
-    Open,
+    using System.Runtime.Serialization;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-    [JsonProperty("PENDING_COMPLETION")]
-    [EnumMember(Value = "PENDING_COMPLETION")]
-    PendingCompletion,
+    /// <summary>
+    /// Current high-level status of the Checkout.
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum StatusCheckout
+    {
+        [JsonProperty("OPEN")]
+        [EnumMember(Value = "OPEN")]
+        Open,
 
-    [JsonProperty("COMPLETED")]
-    [EnumMember(Value = "COMPLETED")]
-    Completed,
+        [JsonProperty("PENDING_COMPLETION")]
+        [EnumMember(Value = "PENDING_COMPLETION")]
+        PendingCompletion,
 
-    [JsonProperty("BILLED")]
-    [EnumMember(Value = "BILLED")]
-    Billed,
+        [JsonProperty("COMPLETED")]
+        [EnumMember(Value = "COMPLETED")]
+        Completed,
 
-    [JsonProperty("CHARGEBACKED")]
-    [EnumMember(Value = "CHARGEBACKED")]
-    Chargebacked,
+        [JsonProperty("BILLED")]
+        [EnumMember(Value = "BILLED")]
+        Billed,
 
-    [JsonProperty("DELETED")]
-    [EnumMember(Value = "DELETED")]
-    Deleted
-  }
+        [JsonProperty("CHARGEBACKED")]
+        [EnumMember(Value = "CHARGEBACKED")]
+        Chargebacked,
+
+        [JsonProperty("DELETED")]
+        [EnumMember(Value = "DELETED")]
+        Deleted,
+    }
 }

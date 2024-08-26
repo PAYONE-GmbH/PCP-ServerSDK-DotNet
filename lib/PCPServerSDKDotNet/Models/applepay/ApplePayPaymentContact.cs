@@ -1,7 +1,7 @@
-using Newtonsoft.Json;
-
 namespace PCPServerSDKDotNet.Models.ApplePay
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// The result of authorizing a payment request that contains payment information.
     /// Data in PaymentToken is encrypted. Billing and shipping contact data are not encrypted.
@@ -47,152 +47,154 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         [JsonProperty("countryCode")]
         public string? CountryCode { get; set; }
 
-        public ApplePayPaymentContact() { }
+        public ApplePayPaymentContact()
+        {
+        }
 
         public ApplePayPaymentContact(string phoneNumber, string emailAddress, string givenName, string familyName,
                                       string phoneticGivenName, string phoneticFamilyName, List<string> addressLines,
                                       string locality, string postalCode, string administrativeArea,
                                       string subAdministrativeArea, string country, string countryCode)
         {
-            PhoneNumber = phoneNumber;
-            EmailAddress = emailAddress;
-            GivenName = givenName;
-            FamilyName = familyName;
-            PhoneticGivenName = phoneticGivenName;
-            PhoneticFamilyName = phoneticFamilyName;
-            AddressLines = addressLines;
-            Locality = locality;
-            PostalCode = postalCode;
-            AdministrativeArea = administrativeArea;
-            SubAdministrativeArea = subAdministrativeArea;
-            Country = country;
-            CountryCode = countryCode;
+            this.PhoneNumber = phoneNumber;
+            this.EmailAddress = emailAddress;
+            this.GivenName = givenName;
+            this.FamilyName = familyName;
+            this.PhoneticGivenName = phoneticGivenName;
+            this.PhoneticFamilyName = phoneticFamilyName;
+            this.AddressLines = addressLines;
+            this.Locality = locality;
+            this.PostalCode = postalCode;
+            this.AdministrativeArea = administrativeArea;
+            this.SubAdministrativeArea = subAdministrativeArea;
+            this.Country = country;
+            this.CountryCode = countryCode;
         }
 
         public ApplePayPaymentContact WithPhoneNumber(string phoneNumber)
         {
-            PhoneNumber = phoneNumber;
+            this.PhoneNumber = phoneNumber;
             return this;
         }
 
         public ApplePayPaymentContact WithEmailAddress(string emailAddress)
         {
-            EmailAddress = emailAddress;
+            this.EmailAddress = emailAddress;
             return this;
         }
 
         public ApplePayPaymentContact WithGivenName(string givenName)
         {
-            GivenName = givenName;
+            this.GivenName = givenName;
             return this;
         }
 
         public ApplePayPaymentContact WithFamilyName(string familyName)
         {
-            FamilyName = familyName;
+            this.FamilyName = familyName;
             return this;
         }
 
         public ApplePayPaymentContact WithPhoneticGivenName(string phoneticGivenName)
         {
-            PhoneticGivenName = phoneticGivenName;
+            this.PhoneticGivenName = phoneticGivenName;
             return this;
         }
 
         public ApplePayPaymentContact WithPhoneticFamilyName(string phoneticFamilyName)
         {
-            PhoneticFamilyName = phoneticFamilyName;
+            this.PhoneticFamilyName = phoneticFamilyName;
             return this;
         }
 
         public ApplePayPaymentContact WithAddressLines(List<string> addressLines)
         {
-            AddressLines = addressLines;
+            this.AddressLines = addressLines;
             return this;
         }
 
         public ApplePayPaymentContact WithLocality(string locality)
         {
-            Locality = locality;
+            this.Locality = locality;
             return this;
         }
 
         public ApplePayPaymentContact WithPostalCode(string postalCode)
         {
-            PostalCode = postalCode;
+            this.PostalCode = postalCode;
             return this;
         }
 
         public ApplePayPaymentContact WithAdministrativeArea(string administrativeArea)
         {
-            AdministrativeArea = administrativeArea;
+            this.AdministrativeArea = administrativeArea;
             return this;
         }
 
         public ApplePayPaymentContact WithSubAdministrativeArea(string subAdministrativeArea)
         {
-            SubAdministrativeArea = subAdministrativeArea;
+            this.SubAdministrativeArea = subAdministrativeArea;
             return this;
         }
 
         public ApplePayPaymentContact WithCountry(string country)
         {
-            Country = country;
+            this.Country = country;
             return this;
         }
 
         public ApplePayPaymentContact WithCountryCode(string countryCode)
         {
-            CountryCode = countryCode;
+            this.CountryCode = countryCode;
             return this;
         }
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as ApplePayPaymentContact);
+            return this.Equals(obj as ApplePayPaymentContact);
         }
 
         public bool Equals(ApplePayPaymentContact other)
         {
             return other != null &&
-                   PhoneNumber == other.PhoneNumber &&
-                   EmailAddress == other.EmailAddress &&
-                   GivenName == other.GivenName &&
-                   FamilyName == other.FamilyName &&
-                   PhoneticGivenName == other.PhoneticGivenName &&
-                   PhoneticFamilyName == other.PhoneticFamilyName &&
-                   EqualityComparer<List<string>>.Default.Equals(AddressLines, other.AddressLines) &&
-                   Locality == other.Locality &&
-                   PostalCode == other.PostalCode &&
-                   AdministrativeArea == other.AdministrativeArea &&
-                   SubAdministrativeArea == other.SubAdministrativeArea &&
-                   Country == other.Country &&
-                   CountryCode == other.CountryCode;
+                   this.PhoneNumber == other.PhoneNumber &&
+                   this.EmailAddress == other.EmailAddress &&
+                   this.GivenName == other.GivenName &&
+                   this.FamilyName == other.FamilyName &&
+                   this.PhoneticGivenName == other.PhoneticGivenName &&
+                   this.PhoneticFamilyName == other.PhoneticFamilyName &&
+                   EqualityComparer<List<string>>.Default.Equals(this.AddressLines, other.AddressLines) &&
+                   this.Locality == other.Locality &&
+                   this.PostalCode == other.PostalCode &&
+                   this.AdministrativeArea == other.AdministrativeArea &&
+                   this.SubAdministrativeArea == other.SubAdministrativeArea &&
+                   this.Country == other.Country &&
+                   this.CountryCode == other.CountryCode;
         }
 
         public override int GetHashCode()
         {
-            int hash = HashCode.Combine(PhoneNumber, EmailAddress, GivenName, FamilyName, PhoneticGivenName, PhoneticFamilyName, AddressLines, Locality);
-            hash = HashCode.Combine(hash, PostalCode, AdministrativeArea, SubAdministrativeArea, Country, CountryCode);
+            int hash = HashCode.Combine(this.PhoneNumber, this.EmailAddress, this.GivenName, this.FamilyName, this.PhoneticGivenName, this.PhoneticFamilyName, this.AddressLines, this.Locality);
+            hash = HashCode.Combine(hash, this.PostalCode, this.AdministrativeArea, this.SubAdministrativeArea, this.Country, this.CountryCode);
             return hash;
         }
 
         public override string ToString()
         {
             return $"class ApplePayPaymentContact {{\n" +
-                   $"    phoneNumber: {ToIndentedString(PhoneNumber)},\n" +
-                   $"    emailAddress: {ToIndentedString(EmailAddress)},\n" +
-                   $"    givenName: {ToIndentedString(GivenName)},\n" +
-                   $"    familyName: {ToIndentedString(FamilyName)},\n" +
-                   $"    phoneticGivenName: {ToIndentedString(PhoneticGivenName)},\n" +
-                   $"    phoneticFamilyName: {ToIndentedString(PhoneticFamilyName)},\n" +
-                   $"    addressLines: {ToIndentedString(AddressLines)},\n" +
-                   $"    locality: {ToIndentedString(Locality)},\n" +
-                   $"    postalCode: {ToIndentedString(PostalCode)},\n" +
-                   $"    administrativeArea: {ToIndentedString(AdministrativeArea)},\n" +
-                   $"    subAdministrativeArea: {ToIndentedString(SubAdministrativeArea)},\n" +
-                   $"    country: {ToIndentedString(Country)},\n" +
-                   $"    countryCode: {ToIndentedString(CountryCode)}\n" +
+                   $"    phoneNumber: {this.ToIndentedString(this.PhoneNumber)},\n" +
+                   $"    emailAddress: {this.ToIndentedString(this.EmailAddress)},\n" +
+                   $"    givenName: {this.ToIndentedString(this.GivenName)},\n" +
+                   $"    familyName: {this.ToIndentedString(this.FamilyName)},\n" +
+                   $"    phoneticGivenName: {this.ToIndentedString(this.PhoneticGivenName)},\n" +
+                   $"    phoneticFamilyName: {this.ToIndentedString(this.PhoneticFamilyName)},\n" +
+                   $"    addressLines: {this.ToIndentedString(this.AddressLines)},\n" +
+                   $"    locality: {this.ToIndentedString(this.Locality)},\n" +
+                   $"    postalCode: {this.ToIndentedString(this.PostalCode)},\n" +
+                   $"    administrativeArea: {this.ToIndentedString(this.AdministrativeArea)},\n" +
+                   $"    subAdministrativeArea: {this.ToIndentedString(this.SubAdministrativeArea)},\n" +
+                   $"    country: {this.ToIndentedString(this.Country)},\n" +
+                   $"    countryCode: {this.ToIndentedString(this.CountryCode)}\n" +
                    $"}}";
         }
 
@@ -202,6 +204,7 @@ namespace PCPServerSDKDotNet.Models.ApplePay
             {
                 return "null";
             }
+
             return o.ToString().Replace("\n", "\n    ");
         }
     }

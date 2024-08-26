@@ -1,7 +1,7 @@
-using Newtonsoft.Json;
-
 namespace PCPServerSDKDotNet.Models.ApplePay
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Information about the card used in the transaction.
     /// </summary>
@@ -23,40 +23,42 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         [JsonProperty("billingContact")]
         public ApplePayPaymentContact? BillingContact { get; set; }
 
-        public ApplePayPaymentMethod() { }
+        public ApplePayPaymentMethod()
+        {
+        }
 
         public ApplePayPaymentMethod(string displayName, string network, ApplePayPaymentMethodType type, string paymentPass, ApplePayPaymentContact billingContact)
         {
-            DisplayName = displayName;
-            Network = network;
-            Type = type;
-            PaymentPass = paymentPass;
-            BillingContact = billingContact;
+            this.DisplayName = displayName;
+            this.Network = network;
+            this.Type = type;
+            this.PaymentPass = paymentPass;
+            this.BillingContact = billingContact;
         }
 
         public override bool Equals(object obj)
         {
             return obj is ApplePayPaymentMethod method &&
-                   DisplayName == method.DisplayName &&
-                   Network == method.Network &&
-                   Type == method.Type &&
-                   PaymentPass == method.PaymentPass &&
-                   EqualityComparer<ApplePayPaymentContact>.Default.Equals(BillingContact, method.BillingContact);
+                   this.DisplayName == method.DisplayName &&
+                   this.Network == method.Network &&
+                   this.Type == method.Type &&
+                   this.PaymentPass == method.PaymentPass &&
+                   EqualityComparer<ApplePayPaymentContact>.Default.Equals(this.BillingContact, method.BillingContact);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(DisplayName, Network, Type, PaymentPass, BillingContact);
+            return HashCode.Combine(this.DisplayName, this.Network, this.Type, this.PaymentPass, this.BillingContact);
         }
 
         public override string ToString()
         {
             return $"class PaymentMethod {{\n" +
-                   $"    displayName: {ToIndentedString(DisplayName)}\n" +
-                   $"    network: {ToIndentedString(Network)}\n" +
-                   $"    type: {ToIndentedString(Type)}\n" +
-                   $"    paymentPass: {ToIndentedString(PaymentPass)}\n" +
-                   $"    billingContact: {ToIndentedString(BillingContact)}\n" +
+                   $"    displayName: {this.ToIndentedString(this.DisplayName)}\n" +
+                   $"    network: {this.ToIndentedString(this.Network)}\n" +
+                   $"    type: {this.ToIndentedString(this.Type)}\n" +
+                   $"    paymentPass: {this.ToIndentedString(this.PaymentPass)}\n" +
+                   $"    billingContact: {this.ToIndentedString(this.BillingContact)}\n" +
                    $"}}";
         }
 
@@ -66,6 +68,7 @@ namespace PCPServerSDKDotNet.Models.ApplePay
             {
                 return "null";
             }
+
             return obj.ToString().Replace("\n", "\n    ");
         }
     }

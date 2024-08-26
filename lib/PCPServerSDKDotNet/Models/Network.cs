@@ -1,8 +1,8 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace PCPServerSDKDotNet.Models
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
     [JsonConverter(typeof(StringEnumConverter))]
     public enum NetworkEnum
     {
@@ -22,6 +22,6 @@ namespace PCPServerSDKDotNet.Models
         Discover,
 
         [JsonProperty("JCB")]
-        Jcb
+        Jcb,
     }
 }

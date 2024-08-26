@@ -1,47 +1,44 @@
-using System.Text;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-
 namespace PCPServerSDKDotNet.Models
 {
-
-  /// <summary>
-  /// Delivery object contains additional information about the delivery/shipment, which is the basis for the Capture. The amountOfMoney in the cartItem will not be used in the request.
-  /// </summary>
-  [DataContract]
-  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-  public class DeliveryInformation
-  {
-    /// <summary>
-    /// Items delivered.
-    /// </summary>
-    /// <value>Items delivered.</value>
-    [DataMember(Name = "items", EmitDefaultValue = false)]
-    [JsonProperty(PropertyName = "items")]
-    public List<CartItemInput>? Items { get; set; }
-
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Get the string presentation of the object
+    /// Delivery object contains additional information about the delivery/shipment, which is the basis for the Capture. The amountOfMoney in the cartItem will not be used in the request.
     /// </summary>
-    /// <returns>String presentation of the object</returns>
-    public override string ToString()
+    [DataContract]
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+    public class DeliveryInformation
     {
-      var sb = new StringBuilder();
-      sb.Append("class DeliveryInformation {\n");
-      sb.Append("  Items: ").Append(Items).Append('\n');
-      sb.Append("}\n");
-      return sb.ToString();
-    }
+        /// <summary>
+        /// Gets or sets items delivered.
+        /// </summary>
+        /// <value>Items delivered.</value>
+        [DataMember(Name = "items", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "items")]
+        public List<CartItemInput>? Items { get; set; }
 
-    /// <summary>
-    /// Get the JSON string presentation of the object
-    /// </summary>
-    /// <returns>JSON string presentation of the object</returns>
-    public string ToJson()
-    {
-      return JsonConvert.SerializeObject(this, Formatting.Indented);
-    }
+        /// <summary>
+        /// Get the string presentation of the object.
+        /// </summary>
+        /// <returns>String presentation of the object.</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class DeliveryInformation {\n");
+            sb.Append("  Items: ").Append(this.Items).Append('\n');
+            sb.Append("}\n");
+            return sb.ToString();
+        }
 
-  }
+        /// <summary>
+        /// Get the JSON string presentation of the object.
+        /// </summary>
+        /// <returns>JSON string presentation of the object.</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+    }
 }

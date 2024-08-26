@@ -1,11 +1,11 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace PCPServerSDKDotNet.Models.ApplePay
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
     /// <summary>
     /// A string that represents the type of the payment method.
-    /// 
+    ///
     /// The type of card the customer uses to complete the transaction.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
@@ -21,7 +21,7 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         Prepaid,
 
         [JsonProperty("store")]
-        Store
+        Store,
     }
 
     public static class ApplePayPaymentMethodTypeExtensions
@@ -40,6 +40,7 @@ namespace PCPServerSDKDotNet.Models.ApplePay
                     return type;
                 }
             }
+
             throw new ArgumentException($"Unexpected value '{value}'");
         }
     }

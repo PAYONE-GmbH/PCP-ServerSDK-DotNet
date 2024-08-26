@@ -1,3 +1,6 @@
+
+root = true
+
 [*.cs]
 
 # CA1822: Mark members as static
@@ -5,3 +8,15 @@ dotnet_diagnostic.CA1822.severity = none
 
 # IDE0290: Use primary constructor
 dotnet_diagnostic.IDE0290.severity = none
+
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_between_query_expression_clauses = true
+
+# Trailing commas in multi-line initializers
+dotnet_style_require_trailing_commas = always
+
+# Ensure 'new' keyword is followed by a space
+csharp_space_after_keywords_in_control_flow_statements = true
