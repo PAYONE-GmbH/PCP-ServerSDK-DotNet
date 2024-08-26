@@ -104,7 +104,6 @@ public class RequestHeaderGenerator
     private string GetAuthHeader(HttpRequestMessage request)
     {
         string stringToSign = GetStringToSign(request);
-        Console.WriteLine(stringToSign);
         string signature = Sign(stringToSign.ToString());
         return $"GCS v1HMAC:{config.ApiKey}:{signature}";
     }

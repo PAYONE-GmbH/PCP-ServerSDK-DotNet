@@ -38,7 +38,6 @@ public class CheckoutApiClient : BaseApiClient
         {
             Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
-        Console.WriteLine(jsonString);
         request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await MakeApiCallAsync<CreateCheckoutResponse>(request);
@@ -77,8 +76,6 @@ public class CheckoutApiClient : BaseApiClient
             Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_CHECKOUTS}"
         };
 
-        Console.WriteLine(uriBuilder);
-
         Dictionary<string, string>? queryParameters = queryParams?.ToQueryMap();
         if (queryParameters != null)
         {
@@ -89,9 +86,6 @@ public class CheckoutApiClient : BaseApiClient
             }
             uriBuilder.Query = query.ToString();
         }
-
-
-        Console.WriteLine(uriBuilder.Uri);
 
         HttpRequestMessage request = new(HttpMethod.Get, uriBuilder.Uri);
 
