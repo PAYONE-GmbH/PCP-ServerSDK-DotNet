@@ -20,38 +20,38 @@ public class PaymentExecutionApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<CreatePaymentResponse>(request);
     }
@@ -60,17 +60,17 @@ public class PaymentExecutionApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(paymentExecutionId))
@@ -80,23 +80,23 @@ public class PaymentExecutionApiClient : BaseApiClient
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/capture",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/capture",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<CapturePaymentResponse>(request);
     }
@@ -105,17 +105,17 @@ public class PaymentExecutionApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(paymentExecutionId))
@@ -125,23 +125,23 @@ public class PaymentExecutionApiClient : BaseApiClient
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/cancel",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/cancel",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<CancelPaymentResponse>(request);
     }
@@ -150,17 +150,17 @@ public class PaymentExecutionApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(paymentExecutionId))
@@ -170,23 +170,23 @@ public class PaymentExecutionApiClient : BaseApiClient
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/refund",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/refund",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<RefundPaymentResponse>(request);
     }
@@ -195,17 +195,17 @@ public class PaymentExecutionApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(paymentExecutionId))
@@ -215,23 +215,23 @@ public class PaymentExecutionApiClient : BaseApiClient
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/complete",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/complete",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<CompletePaymentResponse>(request);
     }

@@ -8,21 +8,21 @@ using PCPServerSDKDotNet.Models;
 
 public class BaseApiClient
 {
-    protected static readonly string MERCHANTIDREQUIREDERROR = "Merchant ID is required";
-    protected static readonly string COMMERCECASEIDREQUIREDERROR = "Commerce Case ID is required";
-    protected static readonly string CHECKOUTIDREQUIREDERROR = "Checkout ID is required";
-    protected static readonly string PAYLOADREQUIREDERROR = "Payload is required";
+    protected static readonly string MERCHANT_ID_REQUIRED_ERROR = "Merchant ID is required";
+    protected static readonly string COMMERCE_CASE_ID_REQUIRED_ERROR = "Commerce Case ID is required";
+    protected static readonly string CHECKOUT_ID_REQUIRED_ERROR = "Checkout ID is required";
+    protected static readonly string PAYLOAD_REQUIRED_ERROR = "Payload is required";
 
-    protected static readonly string HTTPSSCHEME = "https";
-    protected static readonly string PCPPATHSEGMENTVERSION = "v1";
-    protected static readonly string PCPPATHSEGMENTCOMMERCECASES = "commerce-cases";
-    protected static readonly string PCPPATHSEGMENTCHECKOUTS = "checkouts";
+    protected static readonly string HTTPS_SCHEME = "https";
+    protected static readonly string PCP_PATH_SEGMENT_VERSION = "v1";
+    protected static readonly string PCP_PATH_SEGMENT_COMMERCE_CASES = "commerce-cases";
+    protected static readonly string PCP_PATH_SEGMENT_CHECKOUTS = "checkouts";
 
     protected static readonly string CONTENT_TYPE_HEADER_NAME = "Content-Type";
-    protected static readonly string JSONCONTENTTYPE = "application/json";
-    protected static readonly MediaTypeHeaderValue JSONMEDIATYPE = new(JSONCONTENTTYPE) { CharSet = "utf-8" };
+    protected static readonly string JSON_CONTENT_TYPE = "application/json";
+    protected static readonly MediaTypeHeaderValue JSON_MEDIA_TYPE = new(JSON_CONTENT_TYPE) { CharSet = "utf-8" };
 
-    private static readonly string JSONPARSEERROR = "Expected valid JSON response, but failed to parse";
+    private static readonly string JSON_PARSE_ERROR = "Expected valid JSON response, but failed to parse";
 
     private readonly HttpClient client;
     private readonly RequestHeaderGenerator requestHeaderGenerator;
@@ -75,7 +75,7 @@ public class BaseApiClient
         }
         catch (JsonException e)
         {
-            throw new InvalidOperationException(JSONPARSEERROR, e);
+            throw new InvalidOperationException(JSON_PARSE_ERROR, e);
         }
     }
 

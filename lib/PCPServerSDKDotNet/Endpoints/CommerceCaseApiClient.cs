@@ -20,28 +20,28 @@ public class CommerceCaseApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<CreateCommerceCaseResponse>(request);
     }
@@ -50,19 +50,19 @@ public class CommerceCaseApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}",
         }.Uri;
 
         HttpRequestMessage request = new(HttpMethod.Get, url);
@@ -74,14 +74,14 @@ public class CommerceCaseApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         UriBuilder uriBuilder = new()
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}",
         };
 
         Dictionary<string, string>? queryParameters = queryParams?.ToQueryMap();
@@ -105,33 +105,33 @@ public class CommerceCaseApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Patch, url)
         {
-            Content = new StringContent("{\"customer\":" + jsonString + "}", System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent("{\"customer\":" + jsonString + "}", System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         await this.MakeApiCallAsync(request);
     }

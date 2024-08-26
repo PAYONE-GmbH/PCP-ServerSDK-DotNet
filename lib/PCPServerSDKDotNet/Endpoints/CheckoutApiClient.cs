@@ -20,33 +20,33 @@ public class CheckoutApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<CreateCheckoutResponse>(request);
     }
@@ -55,24 +55,24 @@ public class CheckoutApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}",
         }.Uri;
 
         HttpRequestMessage request = new(HttpMethod.Get, url);
@@ -84,14 +84,14 @@ public class CheckoutApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         UriBuilder uriBuilder = new()
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCHECKOUTS}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_CHECKOUTS}",
         };
 
         Dictionary<string, string>? queryParameters = queryParams?.ToQueryMap();
@@ -115,38 +115,38 @@ public class CheckoutApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         if (payload == null)
         {
-            throw new ArgumentException(PAYLOADREQUIREDERROR);
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
 
         HttpRequestMessage request = new(HttpMethod.Patch, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSONCONTENTTYPE),
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
         };
-        request.Content.Headers.ContentType = JSONMEDIATYPE;
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
         await this.MakeApiCallAsync(request);
     }
 
@@ -154,24 +154,24 @@ public class CheckoutApiClient : BaseApiClient
     {
         if (string.IsNullOrEmpty(merchantId))
         {
-            throw new ArgumentException(MERCHANTIDREQUIREDERROR);
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(commerceCaseId))
         {
-            throw new ArgumentException(COMMERCECASEIDREQUIREDERROR);
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
         }
 
         if (string.IsNullOrEmpty(checkoutId))
         {
-            throw new ArgumentException(CHECKOUTIDREQUIREDERROR);
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
         }
 
         Uri url = new UriBuilder
         {
-            Scheme = HTTPSSCHEME,
+            Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCPPATHSEGMENTVERSION}/{merchantId}/{PCPPATHSEGMENTCOMMERCECASES}/{commerceCaseId}/{PCPPATHSEGMENTCHECKOUTS}/{checkoutId}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}",
         }.Uri;
 
         HttpRequestMessage request = new(HttpMethod.Delete, url);
