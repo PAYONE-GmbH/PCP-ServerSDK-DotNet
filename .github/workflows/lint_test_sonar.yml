@@ -42,6 +42,7 @@ jobs:
           /d:sonar.test.exclusions="**/bin/**,**/obj/**" \
           /d:sonar.exclusions="**/bin/**,**/obj/**,**/*.generated.cs,app/PCPServerSDKDotNetRunner" \
           /d:sonar.coverage.exclusions="**/*.Generated.cs,**/Migrations/**,**/Models/**" \
+          /d:sonar.cpd.exclusions="**/Endpoints/**" \
           /d:sonar.cs.dotnet.version="8.0.401"
           ./scripts.sh build
           dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
