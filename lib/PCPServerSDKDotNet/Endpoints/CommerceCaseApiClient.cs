@@ -2,6 +2,7 @@ namespace PCPServerSDKDotNet.Endpoints;
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -71,11 +72,11 @@ public class CommerceCaseApiClient : BaseApiClient
             Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}"
         };
 
-        var queryParameters = queryParams?.ToQueryMap();
+        Dictionary<string, string>? queryParameters = queryParams?.ToQueryMap();
         if (queryParameters != null)
         {
-            var query = System.Web.HttpUtility.ParseQueryString(string.Empty);
-            foreach (var param in queryParameters)
+            NameValueCollection query = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            foreach (KeyValuePair<string, string> param in queryParameters)
             {
                 query[param.Key] = param.Value;
             }
