@@ -8,6 +8,30 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     /// </summary>
     public class ApplePayPaymentContact : IEquatable<ApplePayPaymentContact>
     {
+        public ApplePayPaymentContact()
+        {
+        }
+
+        public ApplePayPaymentContact(string phoneNumber, string emailAddress, string givenName, string familyName,
+                                      string phoneticGivenName, string phoneticFamilyName, List<string> addressLines,
+                                      string locality, string postalCode, string administrativeArea,
+                                      string subAdministrativeArea, string country, string countryCode)
+        {
+            this.PhoneNumber = phoneNumber;
+            this.EmailAddress = emailAddress;
+            this.GivenName = givenName;
+            this.FamilyName = familyName;
+            this.PhoneticGivenName = phoneticGivenName;
+            this.PhoneticFamilyName = phoneticFamilyName;
+            this.AddressLines = addressLines;
+            this.Locality = locality;
+            this.PostalCode = postalCode;
+            this.AdministrativeArea = administrativeArea;
+            this.SubAdministrativeArea = subAdministrativeArea;
+            this.Country = country;
+            this.CountryCode = countryCode;
+        }
+
         [JsonProperty("phoneNumber")]
         public string? PhoneNumber { get; set; }
 
@@ -46,30 +70,6 @@ namespace PCPServerSDKDotNet.Models.ApplePay
 
         [JsonProperty("countryCode")]
         public string? CountryCode { get; set; }
-
-        public ApplePayPaymentContact()
-        {
-        }
-
-        public ApplePayPaymentContact(string phoneNumber, string emailAddress, string givenName, string familyName,
-                                      string phoneticGivenName, string phoneticFamilyName, List<string> addressLines,
-                                      string locality, string postalCode, string administrativeArea,
-                                      string subAdministrativeArea, string country, string countryCode)
-        {
-            this.PhoneNumber = phoneNumber;
-            this.EmailAddress = emailAddress;
-            this.GivenName = givenName;
-            this.FamilyName = familyName;
-            this.PhoneticGivenName = phoneticGivenName;
-            this.PhoneticFamilyName = phoneticFamilyName;
-            this.AddressLines = addressLines;
-            this.Locality = locality;
-            this.PostalCode = postalCode;
-            this.AdministrativeArea = administrativeArea;
-            this.SubAdministrativeArea = subAdministrativeArea;
-            this.Country = country;
-            this.CountryCode = countryCode;
-        }
 
         public ApplePayPaymentContact WithPhoneNumber(string phoneNumber)
         {

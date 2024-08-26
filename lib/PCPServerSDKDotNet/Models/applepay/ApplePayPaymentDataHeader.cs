@@ -8,6 +8,19 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     /// </summary>
     public class ApplePayPaymentDataHeader
     {
+        public ApplePayPaymentDataHeader()
+        {
+        }
+
+        public ApplePayPaymentDataHeader(string applicationData, string ephemeralPublicKey, string wrappedKey, string publicKeyHash, string transactionId)
+        {
+            this.ApplicationData = applicationData;
+            this.EphemeralPublicKey = ephemeralPublicKey;
+            this.WrappedKey = wrappedKey;
+            this.PublicKeyHash = publicKeyHash;
+            this.TransactionId = transactionId;
+        }
+
         [JsonPropertyName("applicationData")]
         [JsonInclude]
         public string? ApplicationData { get; set; }
@@ -27,19 +40,6 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         [JsonPropertyName("transactionId")]
         [JsonInclude]
         public string? TransactionId { get; set; }
-
-        public ApplePayPaymentDataHeader()
-        {
-        }
-
-        public ApplePayPaymentDataHeader(string applicationData, string ephemeralPublicKey, string wrappedKey, string publicKeyHash, string transactionId)
-        {
-            this.ApplicationData = applicationData;
-            this.EphemeralPublicKey = ephemeralPublicKey;
-            this.WrappedKey = wrappedKey;
-            this.PublicKeyHash = publicKeyHash;
-            this.TransactionId = transactionId;
-        }
 
         public ApplePayPaymentDataHeader WithApplicationData(string applicationData)
         {

@@ -8,6 +8,19 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class ApplePayPaymentMethod
     {
+        public ApplePayPaymentMethod()
+        {
+        }
+
+        public ApplePayPaymentMethod(string displayName, string network, ApplePayPaymentMethodType type, string paymentPass, ApplePayPaymentContact billingContact)
+        {
+            this.DisplayName = displayName;
+            this.Network = network;
+            this.Type = type;
+            this.PaymentPass = paymentPass;
+            this.BillingContact = billingContact;
+        }
+
         [JsonProperty("displayName")]
         public string? DisplayName { get; set; }
 
@@ -22,19 +35,6 @@ namespace PCPServerSDKDotNet.Models.ApplePay
 
         [JsonProperty("billingContact")]
         public ApplePayPaymentContact? BillingContact { get; set; }
-
-        public ApplePayPaymentMethod()
-        {
-        }
-
-        public ApplePayPaymentMethod(string displayName, string network, ApplePayPaymentMethodType type, string paymentPass, ApplePayPaymentContact billingContact)
-        {
-            this.DisplayName = displayName;
-            this.Network = network;
-            this.Type = type;
-            this.PaymentPass = paymentPass;
-            this.BillingContact = billingContact;
-        }
 
         public override bool Equals(object obj)
         {

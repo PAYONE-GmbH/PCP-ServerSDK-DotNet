@@ -8,6 +8,18 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     /// </summary>
     public class ApplePayPaymentData
     {
+        public ApplePayPaymentData()
+        {
+        }
+
+        public ApplePayPaymentData(string data, ApplePayPaymentDataHeader header, string signature, string version)
+        {
+            this.Data = data;
+            this.Header = header;
+            this.Signature = signature;
+            this.Version = version;
+        }
+
         [JsonPropertyName("data")]
         [JsonInclude]
         public string? Data { get; set; }
@@ -23,18 +35,6 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         [JsonPropertyName("version")]
         [JsonInclude]
         public string? Version { get; set; }
-
-        public ApplePayPaymentData()
-        {
-        }
-
-        public ApplePayPaymentData(string data, ApplePayPaymentDataHeader header, string signature, string version)
-        {
-            this.Data = data;
-            this.Header = header;
-            this.Signature = signature;
-            this.Version = version;
-        }
 
         public ApplePayPaymentData WithData(string data)
         {

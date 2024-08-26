@@ -9,6 +9,17 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public class ApplePayPayment
     {
+        public ApplePayPayment()
+        {
+        }
+
+        public ApplePayPayment(ApplePayPaymentToken token, ApplePayPaymentContact billingContact, ApplePayPaymentContact shippingContact)
+        {
+            this.Token = token;
+            this.BillingContact = billingContact;
+            this.ShippingContact = shippingContact;
+        }
+
         [JsonPropertyName("token")]
         [JsonInclude]
         public ApplePayPaymentToken? Token { get; set; }
@@ -20,17 +31,6 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         [JsonPropertyName("shippingContact")]
         [JsonInclude]
         public ApplePayPaymentContact? ShippingContact { get; set; }
-
-        public ApplePayPayment()
-        {
-        }
-
-        public ApplePayPayment(ApplePayPaymentToken token, ApplePayPaymentContact billingContact, ApplePayPaymentContact shippingContact)
-        {
-            this.Token = token;
-            this.BillingContact = billingContact;
-            this.ShippingContact = shippingContact;
-        }
 
         public ApplePayPayment WithToken(ApplePayPaymentToken token)
         {
