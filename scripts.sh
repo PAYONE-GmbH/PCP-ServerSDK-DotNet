@@ -57,7 +57,7 @@ version() {
     git tag -a v$NEW_VERSION -m "Version $NEW_VERSION"
     git commit -m "Update version to $VERSION"
     git push origin tag v$NEW_VERSION
-    git push origin HEAD
+    git push -u origin HEAD
 
     echo "Version complete."
 }
