@@ -2,12 +2,9 @@ namespace PCPServerSDKDotNet.Endpoints;
 
 using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using PCPServerSDKDotNet.Errors;
 using PCPServerSDKDotNet.Models;
-using PCPServerSDKDotNet.Utils;
 
 public class PaymentExecutionApiClient : BaseApiClient
 {

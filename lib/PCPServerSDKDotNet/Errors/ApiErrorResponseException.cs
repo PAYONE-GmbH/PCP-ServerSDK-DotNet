@@ -11,7 +11,7 @@ public class ApiErrorResponseException : ApiException
     public ApiErrorResponseException(int statusCode, string responseBody, List<APIError>? errors = null)
         : base(statusCode, responseBody)
     {
-        Errors = errors ?? new List<APIError>();
+        Errors = errors ?? [];
     }
 
     public List<APIError> GetErrors()
