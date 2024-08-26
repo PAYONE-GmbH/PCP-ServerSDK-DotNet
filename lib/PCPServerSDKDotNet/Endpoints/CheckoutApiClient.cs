@@ -39,10 +39,10 @@ public class CheckoutApiClient : BaseApiClient
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json")
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
         Console.WriteLine(jsonString);
-        request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await MakeApiCallAsync<CreateCheckoutResponse>(request);
     }
@@ -123,9 +123,9 @@ public class CheckoutApiClient : BaseApiClient
 
         HttpRequestMessage request = new(HttpMethod.Patch, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json")
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
-        request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
         await MakeApiCallAsync(request);
     }
 

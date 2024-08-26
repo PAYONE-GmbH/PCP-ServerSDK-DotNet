@@ -35,9 +35,9 @@ public class OrderManagementCheckoutActionsApiClient : BaseApiClient
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json")
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
-        request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await MakeApiCallAsync<OrderResponse>(request);
     }
@@ -64,9 +64,9 @@ public class OrderManagementCheckoutActionsApiClient : BaseApiClient
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json")
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
-        request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await MakeApiCallAsync<DeliverResponse>(request);
     }
@@ -93,9 +93,9 @@ public class OrderManagementCheckoutActionsApiClient : BaseApiClient
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json")
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
-        request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await MakeApiCallAsync<ReturnResponse>(request);
     }
@@ -122,9 +122,9 @@ public class OrderManagementCheckoutActionsApiClient : BaseApiClient
 
         HttpRequestMessage request = new(HttpMethod.Post, url)
         {
-            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json")
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE)
         };
-        request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await MakeApiCallAsync<CancelResponse>(request);
     }

@@ -21,7 +21,8 @@ public class BaseApiClient
     protected static readonly string PCP_PATH_SEGMENT_CHECKOUTS = "checkouts";
 
     protected static readonly string CONTENT_TYPE_HEADER_NAME = "Content-Type";
-    protected static readonly MediaTypeHeaderValue JSON_MEDIA_TYPE = new("application/json") { CharSet = "utf-8" };
+    protected static readonly string JSON_CONTENT_TYPE = "application/json";
+    protected static readonly MediaTypeHeaderValue JSON_MEDIA_TYPE = new(JSON_CONTENT_TYPE) { CharSet = "utf-8" };
 
     private readonly HttpClient client;
     private readonly RequestHeaderGenerator requestHeaderGenerator;
