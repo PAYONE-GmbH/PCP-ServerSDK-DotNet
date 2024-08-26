@@ -8,7 +8,7 @@ public class GetCheckoutsQueryTest
     [Fact]
     public void ToQueryMapTest()
     {
-        var query = new GetCheckoutsQuery();
+        GetCheckoutsQuery query = new();
         query.SetOffset(1)
              .SetSize(10)
              .SetFromDate("2021-01-01")
@@ -28,10 +28,10 @@ public class GetCheckoutsQueryTest
              .SetCheckoutId("123456")
              .SetMerchantReference("7890")
              .SetMerchantCustomerId("1234")
-             .SetIncludePaymentProductId(new List<int> { 12, 456 })
-             .SetIncludeCheckoutStatus(new List<StatusCheckout> { StatusCheckout.Billed, StatusCheckout.Chargebacked })
-             .SetIncludeExtendedCheckoutStatus(new List<ExtendedCheckoutStatus> { ExtendedCheckoutStatus.Open, ExtendedCheckoutStatus.Deleted })
-             .SetIncludePaymentChannel(new List<PaymentChannel> { PaymentChannel.Ecommerce, PaymentChannel.Pos })
+             .SetIncludePaymentProductId([12, 456])
+             .SetIncludeCheckoutStatus([StatusCheckout.Billed, StatusCheckout.Chargebacked])
+             .SetIncludeExtendedCheckoutStatus([ExtendedCheckoutStatus.Open, ExtendedCheckoutStatus.Deleted])
+             .SetIncludePaymentChannel([PaymentChannel.Ecommerce, PaymentChannel.Pos])
              .SetPaymentReference("1234")
              .SetPaymentId("5678")
              .SetFirstName("John")
@@ -41,7 +41,7 @@ public class GetCheckoutsQueryTest
              .SetDateOfBirth("1980-01-01")
              .SetCompanyInformation("Company Inc.");
 
-        var queryMap = query.ToQueryMap();
+        Dictionary<string, string> queryMap = query.ToQueryMap();
 
         Assert.Equal("1", queryMap["offset"]);
         Assert.Equal("10", queryMap["size"]);
@@ -79,7 +79,7 @@ public class GetCheckoutsQueryTest
     [Fact]
     public void GettersTest()
     {
-        var query = new GetCheckoutsQuery();
+        GetCheckoutsQuery query = new();
         query.SetOffset(1)
              .SetSize(10)
              .SetFromDate("2021-01-01")
@@ -99,10 +99,10 @@ public class GetCheckoutsQueryTest
              .SetCheckoutId("123456")
              .SetMerchantReference("7890")
              .SetMerchantCustomerId("1234")
-             .SetIncludePaymentProductId(new List<int> { 12, 456 })
-             .SetIncludeCheckoutStatus(new List<StatusCheckout> { StatusCheckout.Billed, StatusCheckout.Chargebacked })
-             .SetIncludeExtendedCheckoutStatus(new List<ExtendedCheckoutStatus> { ExtendedCheckoutStatus.Open, ExtendedCheckoutStatus.Deleted })
-             .SetIncludePaymentChannel(new List<PaymentChannel> { PaymentChannel.Ecommerce, PaymentChannel.Pos })
+             .SetIncludePaymentProductId([12, 456])
+             .SetIncludeCheckoutStatus([StatusCheckout.Billed, StatusCheckout.Chargebacked])
+             .SetIncludeExtendedCheckoutStatus([ExtendedCheckoutStatus.Open, ExtendedCheckoutStatus.Deleted])
+             .SetIncludePaymentChannel([PaymentChannel.Ecommerce, PaymentChannel.Pos])
              .SetPaymentReference("1234")
              .SetPaymentId("5678")
              .SetFirstName("John")
@@ -131,10 +131,10 @@ public class GetCheckoutsQueryTest
         Assert.Equal("123456", query.CheckoutId);
         Assert.Equal("7890", query.MerchantReference);
         Assert.Equal("1234", query.MerchantCustomerId);
-        Assert.Equal(new List<int> { 12, 456 }, query.IncludePaymentProductId);
-        Assert.Equal(new List<StatusCheckout> { StatusCheckout.Billed, StatusCheckout.Chargebacked }, query.IncludeCheckoutStatus);
-        Assert.Equal(new List<ExtendedCheckoutStatus> { ExtendedCheckoutStatus.Open, ExtendedCheckoutStatus.Deleted }, query.IncludeExtendedCheckoutStatus);
-        Assert.Equal(new List<PaymentChannel> { PaymentChannel.Ecommerce, PaymentChannel.Pos }, query.IncludePaymentChannel);
+        Assert.Equal([12, 456], query.IncludePaymentProductId);
+        Assert.Equal([StatusCheckout.Billed, StatusCheckout.Chargebacked], query.IncludeCheckoutStatus);
+        Assert.Equal([ExtendedCheckoutStatus.Open, ExtendedCheckoutStatus.Deleted], query.IncludeExtendedCheckoutStatus);
+        Assert.Equal([PaymentChannel.Ecommerce, PaymentChannel.Pos], query.IncludePaymentChannel);
         Assert.Equal("1234", query.PaymentReference);
         Assert.Equal("5678", query.PaymentId);
         Assert.Equal("John", query.FirstName);
@@ -148,8 +148,8 @@ public class GetCheckoutsQueryTest
     [Fact]
     public void NullsTest()
     {
-        var query = new GetCheckoutsQuery();
-        var queryMap = query.ToQueryMap();
+        GetCheckoutsQuery query = new();
+        Dictionary<string, string> queryMap = query.ToQueryMap();
 
         Assert.Empty(queryMap);
     }

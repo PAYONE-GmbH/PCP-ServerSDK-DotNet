@@ -10,7 +10,7 @@ public class ApplePayTransformerTest
     [Fact]
     public void TestApplePayPaymentToMobilePaymentMethodSpecificInput()
     {
-        var payment = new ApplePayPayment
+        ApplePayPayment payment = new()
         {
             Token = new ApplePayPaymentToken
             {
@@ -52,7 +52,7 @@ public class ApplePayTransformerTest
             ShippingContact = null
         };
 
-        var expected = new MobilePaymentMethodSpecificInput
+        MobilePaymentMethodSpecificInput expected = new()
         {
             PaymentProductId = 302,
             PublicKeyHash = "hashhashhash",
@@ -72,7 +72,7 @@ public class ApplePayTransformerTest
             }
         };
 
-        var result = ApplePayTransformer.TransformApplePayPaymentToMobilePaymentMethodSpecificInput(payment);
+        MobilePaymentMethodSpecificInput result = ApplePayTransformer.TransformApplePayPaymentToMobilePaymentMethodSpecificInput(payment);
 
         Assert.Equal(JsonConvert.SerializeObject(expected), JsonConvert.SerializeObject(result));
     }

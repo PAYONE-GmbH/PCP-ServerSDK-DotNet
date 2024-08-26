@@ -14,7 +14,7 @@ public class ApiResponseRetrievalExceptionTests
         string responseBody = "Internal Server Error";
 
         // Act
-        var exception = new ApiResponseRetrievalException(statusCode, responseBody);
+        ApiResponseRetrievalException exception = new(statusCode, responseBody);
 
         // Assert
         Assert.Equal(statusCode, exception.StatusCode);
@@ -29,7 +29,7 @@ public class ApiResponseRetrievalExceptionTests
         string responseBody = "Internal Server Error";
 
         // Act
-        var exception = new ApiResponseRetrievalException(statusCode, responseBody);
+        ApiResponseRetrievalException exception = new(statusCode, responseBody);
 
         // Assert
         Assert.IsType<ApiResponseRetrievalException>(exception);

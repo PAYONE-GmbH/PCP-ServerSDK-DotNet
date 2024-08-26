@@ -231,7 +231,7 @@ public class GetCheckoutsQuery : IQueryConfig
 
     public Dictionary<string, string> ToQueryMap()
     {
-        var query = new Dictionary<string, string>();
+        Dictionary<string, string> query = [];
 
         if (Offset.HasValue)
         {
@@ -330,8 +330,8 @@ public class GetCheckoutsQuery : IQueryConfig
 
         if (IncludePaymentProductId != null && IncludePaymentProductId.Count > 0)
         {
-            var productIdList = new List<string>();
-            foreach (var productId in IncludePaymentProductId)
+            List<string> productIdList = [];
+            foreach (int productId in IncludePaymentProductId)
             {
                 productIdList.Add(productId.ToString());
             }
@@ -340,31 +340,19 @@ public class GetCheckoutsQuery : IQueryConfig
 
         if (IncludeCheckoutStatus != null && IncludeCheckoutStatus.Count > 0)
         {
-            var statusList = new List<StatusCheckout>();
-            foreach (StatusCheckout status in IncludeCheckoutStatus)
-            {
-                statusList.Add(status);
-            }
+            List<StatusCheckout> statusList = [.. IncludeCheckoutStatus];
             query.Add("includeCheckoutStatus", string.Join(",", statusList));
         }
 
         if (IncludeExtendedCheckoutStatus != null && IncludeExtendedCheckoutStatus.Count > 0)
         {
-            var statusList = new List<ExtendedCheckoutStatus>();
-            foreach (ExtendedCheckoutStatus status in IncludeExtendedCheckoutStatus)
-            {
-                statusList.Add(status);
-            }
+            List<ExtendedCheckoutStatus> statusList = [.. IncludeExtendedCheckoutStatus];
             query.Add("includeExtendedCheckoutStatus", string.Join(",", statusList));
         }
 
         if (IncludePaymentChannel != null && IncludePaymentChannel.Count > 0)
         {
-            var channelList = new List<PaymentChannel>();
-            foreach (PaymentChannel channel in IncludePaymentChannel)
-            {
-                channelList.Add(channel);
-            }
+            List<PaymentChannel> channelList = [.. IncludePaymentChannel];
             query.Add("includePaymentChannel", string.Join(",", channelList));
         }
 

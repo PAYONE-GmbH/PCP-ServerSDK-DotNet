@@ -53,7 +53,7 @@ public class RequestHeaderGenerator
     private string GetStringToSign(HttpRequestMessage request)
     {
         // 1. method
-        var stringToSign = new StringBuilder(request.Method.Method);
+        StringBuilder stringToSign = new(request.Method.Method);
         stringToSign.Append('\n');
 
         // 2. Content-Type

@@ -13,7 +13,7 @@ public static class ApiResponseMocks
 {
     public static HttpResponseMessage CreateResponse<T>(HttpStatusCode statusCode, T obj)
     {
-        var jsonString = JsonConvert.SerializeObject(obj);
+        string jsonString = JsonConvert.SerializeObject(obj);
         return new HttpResponseMessage(statusCode)
         {
             Content = new StringContent(jsonString, Encoding.UTF8, "application/json"),
@@ -43,7 +43,7 @@ public static class ApiResponseMocks
 
     public static HttpResponseMessage CreateErrorResponse(HttpStatusCode statusCode)
     {
-        var apiError = new APIError
+        APIError apiError = new()
         {
             HttpStatusCode = (int)statusCode
         };
@@ -57,12 +57,12 @@ public static class ApiResponseMocks
 
     public static HttpResponseMessage CreateErrorResponse(HttpStatusCode statusCode, List<APIError> apiErrors)
     {
-        var errorResponse = new ErrorResponse
+        ErrorResponse errorResponse = new()
         {
             Errors = apiErrors
         };
 
-        var jsonString = JsonConvert.SerializeObject(errorResponse);
+        string jsonString = JsonConvert.SerializeObject(errorResponse);
         return new HttpResponseMessage(statusCode)
         {
             Content = new StringContent(jsonString, Encoding.UTF8, "application/json"),

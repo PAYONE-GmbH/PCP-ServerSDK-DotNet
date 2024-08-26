@@ -13,13 +13,13 @@ public class ApiErrorResponseExceptionTests
         // Arrange
         int statusCode = 404;
         string responseBody = "Not Found";
-        var errors = new List<APIError>
+        List<APIError> errors = new List<APIError>
             {
-                new APIError { Id = "error_id", ErrorCode = "error_message" }
+                new() { Id = "error_id", ErrorCode = "error_message" }
             };
 
         // Act
-        var exception = new ApiErrorResponseException(statusCode, responseBody, errors);
+        ApiErrorResponseException exception = new(statusCode, responseBody, errors);
 
         // Assert
         Assert.Equal(statusCode, exception.StatusCode);
@@ -35,7 +35,7 @@ public class ApiErrorResponseExceptionTests
         string responseBody = "Not Found";
 
         // Act
-        var exception = new ApiErrorResponseException(statusCode, responseBody);
+        ApiErrorResponseException exception = new(statusCode, responseBody);
 
         // Assert
         Assert.Equal(statusCode, exception.StatusCode);
@@ -47,14 +47,14 @@ public class ApiErrorResponseExceptionTests
     public void GetErrors_ShouldReturnErrors()
     {
         // Arrange
-        var errors = new List<APIError>
-            {
+        List<APIError> errors =
+        [
                 new APIError { Id = "error_id", ErrorCode = "error_message" }
-            };
-        var exception = new ApiErrorResponseException(404, "Not Found", errors);
+            ];
+        ApiErrorResponseException exception = new(404, "Not Found", errors);
 
         // Act
-        var result = exception.Errors;
+        List<APIError> result = exception.Errors;
 
         // Assert
         Assert.Equal(errors, result);

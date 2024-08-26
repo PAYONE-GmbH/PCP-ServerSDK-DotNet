@@ -73,7 +73,7 @@ public class GetCommerceCasesQuery : IQueryConfig
 
     public Dictionary<string, string> ToQueryMap()
     {
-        var query = new Dictionary<string, string>();
+        Dictionary<string, string> query = [];
 
         if (Offset.HasValue)
         {
@@ -105,20 +105,12 @@ public class GetCommerceCasesQuery : IQueryConfig
         }
         if (IncludeCheckoutStatus != null && IncludeCheckoutStatus.Count > 0)
         {
-            var statusList = new List<StatusCheckout>();
-            foreach (StatusCheckout status in IncludeCheckoutStatus)
-            {
-                statusList.Add(status);
-            }
+            List<StatusCheckout> statusList = [.. IncludeCheckoutStatus];
             query["includeCheckoutStatus"] = string.Join(",", statusList);
         }
         if (IncludePaymentChannel != null && IncludePaymentChannel.Count > 0)
         {
-            var channelList = new List<PaymentChannel>();
-            foreach (PaymentChannel channel in IncludePaymentChannel)
-            {
-                channelList.Add(channel);
-            }
+            List<PaymentChannel> channelList = [.. IncludePaymentChannel];
             query["includePaymentChannel"] = string.Join(",", channelList);
         }
 

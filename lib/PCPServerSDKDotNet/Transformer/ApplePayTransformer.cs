@@ -37,9 +37,9 @@ public class ApplePayTransformer
             network = payment.Token.PaymentMethod.Network;
         }
 
-        var input = new MobilePaymentMethodSpecificInput();
-        var paymentProduct320SpecificInput = new PaymentProduct320SpecificInput();
-        var applePaymentDataTokenInformation = new ApplePaymentDataTokenInformation();
+        MobilePaymentMethodSpecificInput input = new();
+        PaymentProduct320SpecificInput paymentProduct320SpecificInput = new();
+        ApplePaymentDataTokenInformation applePaymentDataTokenInformation = new();
 
         if (network != null)
         {

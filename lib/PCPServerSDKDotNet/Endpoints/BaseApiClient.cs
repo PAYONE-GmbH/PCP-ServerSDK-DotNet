@@ -54,14 +54,14 @@ public class BaseApiClient
     protected async Task MakeApiCallAsync(HttpRequestMessage request)
     {
         request = GetRequestHeaderGenerator().GenerateAdditionalRequestHeaders(request);
-        var response = await GetResponseAsync(request);
+        HttpResponseMessage response = await GetResponseAsync(request);
         await HandleErrorAsync(response);
     }
 
     protected async Task<T> MakeApiCallAsync<T>(HttpRequestMessage request)
     {
         request = GetRequestHeaderGenerator().GenerateAdditionalRequestHeaders(request);
-        var response = await GetResponseAsync(request);
+        HttpResponseMessage response = await GetResponseAsync(request);
         Console.WriteLine(response.ToString());
         await HandleErrorAsync(response);
         try
@@ -83,7 +83,7 @@ public class BaseApiClient
             return;
         }
 
-        var responseBody = await response.Content.ReadAsStringAsync();
+        string responseBody = await response.Content.ReadAsStringAsync();
         if (string.IsNullOrEmpty(responseBody))
         {
             throw new ApiResponseRetrievalException((int)response.StatusCode, responseBody);
@@ -91,7 +91,7 @@ public class BaseApiClient
 
         try
         {
-            var error = JsonConvert.DeserializeObject<ErrorResponse>(responseBody)!;
+            ErrorResponse error = JsonConvert.DeserializeObject<ErrorResponse>(responseBody)!;
             throw new ApiErrorResponseException((int)response.StatusCode, responseBody, error.Errors);
         }
         catch (JsonException)

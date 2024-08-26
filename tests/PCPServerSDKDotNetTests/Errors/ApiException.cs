@@ -13,7 +13,7 @@ public class ApiExceptionTests
         string expectedMessage = $"Status code: {expectedStatusCode}, Response body: {expectedResponseBody}";
 
         // Act
-        var exception = new ApiException(expectedStatusCode, expectedResponseBody);
+        ApiException exception = new(expectedStatusCode, expectedResponseBody);
 
         // Assert
         Assert.Equal(expectedStatusCode, exception.StatusCode);
@@ -30,7 +30,7 @@ public class ApiExceptionTests
         string expectedMessage = $"Status code: {expectedStatusCode}, Response body: {expectedResponseBody}";
 
         // Act
-        var exception = new ApiException(expectedStatusCode, expectedResponseBody);
+        ApiException exception = new(expectedStatusCode, expectedResponseBody);
 
         // Assert
         Assert.Equal(expectedStatusCode, exception.StatusCode);
@@ -47,7 +47,7 @@ public class ApiExceptionTests
         string expectedMessage = $"Status code: {expectedStatusCode}, Response body: ";
 
         // Act
-        var exception = new ApiException(expectedStatusCode, expectedResponseBody);
+        ApiException exception = new(expectedStatusCode, expectedResponseBody);
 
         // Assert
         Assert.Equal(expectedStatusCode, exception.StatusCode);
