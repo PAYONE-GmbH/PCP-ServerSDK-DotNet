@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object that holds the number of found Checkouts and the requested page of Checkouts
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CheckoutsResponse
   {
     /// <summary>

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// URL and content type information for an web resource.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class LinkInformation
   {
     /// <summary>

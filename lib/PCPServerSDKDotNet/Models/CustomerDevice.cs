@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing information about the device of the end customer. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CustomerDevice
   {
     /// <summary>

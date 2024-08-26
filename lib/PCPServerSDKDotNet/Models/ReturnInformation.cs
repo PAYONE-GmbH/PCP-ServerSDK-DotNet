@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Return object contains additional information about the return/shipment, which is the basis for the Refund. The amountOfMoney in the cartItem will not be used in the request.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ReturnInformation
   {
     /// <summary>

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing specific information for PAYONE Secured Direct. Debit.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentProduct3392SpecificInput
   {
     /// <summary>

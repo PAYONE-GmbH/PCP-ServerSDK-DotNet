@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Detailed information regarding an occurred payment event.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CartItemOrderStatus
   {
     /// <summary>

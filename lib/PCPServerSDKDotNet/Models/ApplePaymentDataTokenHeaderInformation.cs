@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Additional information about the Apple payment data token header.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ApplePaymentDataTokenHeaderInformation
   {
     /// <summary>

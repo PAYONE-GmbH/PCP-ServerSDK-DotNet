@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Information for card payments realized at a POS.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CardPaymentDetails
   {
     /// <summary>

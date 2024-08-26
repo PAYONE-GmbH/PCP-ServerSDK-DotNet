@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// To complete the Payment the completeFinancingMethodSpecificInput has to be provided. At the moment it is only available for PAYONE Secured Installment (paymentProductId 3391). 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CompleteFinancingPaymentMethodSpecificInput
   {
     /// <summary>

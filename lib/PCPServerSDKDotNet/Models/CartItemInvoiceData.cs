@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the line items of the invoice or shopping cart.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CartItemInvoiceData
   {
     /// <summary>

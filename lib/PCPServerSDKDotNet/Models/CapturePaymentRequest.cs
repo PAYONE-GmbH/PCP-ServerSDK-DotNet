@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// If the shopping cart is specified, a Capture is made with the amount of the shopping cart for the items that are specified. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CapturePaymentRequest
   {
     /// <summary>

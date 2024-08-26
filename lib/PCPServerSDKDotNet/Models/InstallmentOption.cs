@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class InstallmentOption
   {
     /// <summary>
@@ -36,7 +37,7 @@ namespace PCPServerSDKDotNet.Models
     /// <value>Monthly rate amount.</value>
     [DataMember(Name = "monthlyAmount", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "monthlyAmount")]
-    public AllOfInstallmentOptionMonthlyAmount? MonthlyAmount { get; set; }
+    public AmountOfMoney? MonthlyAmount { get; set; }
 
     /// <summary>
     /// Last rate amount.
@@ -44,7 +45,7 @@ namespace PCPServerSDKDotNet.Models
     /// <value>Last rate amount.</value>
     [DataMember(Name = "lastRateAmount", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "lastRateAmount")]
-    public AllOfInstallmentOptionLastRateAmount? LastRateAmount { get; set; }
+    public AmountOfMoney? LastRateAmount { get; set; }
 
     /// <summary>
     /// Effective interest amount in percent with two decimals.
@@ -68,7 +69,7 @@ namespace PCPServerSDKDotNet.Models
     /// <value>Total rate amount.</value>
     [DataMember(Name = "totalAmount", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "totalAmount")]
-    public AllOfInstallmentOptionTotalAmount? TotalAmount { get; set; }
+    public AmountOfMoney? TotalAmount { get; set; }
 
     /// <summary>
     /// Due date of first rate. Format: YYYYMMDD
@@ -84,7 +85,7 @@ namespace PCPServerSDKDotNet.Models
     /// <value>Link with credit information.</value>
     [DataMember(Name = "creditInformation", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "creditInformation")]
-    public AllOfInstallmentOptionCreditInformation? CreditInformation { get; set; }
+    public LinkInformation? CreditInformation { get; set; }
 
 
     /// <summary>

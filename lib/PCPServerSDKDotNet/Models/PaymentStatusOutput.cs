@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource. In case of failed payments and negative scenarios, detailed error information is listed. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentStatusOutput
   {
     /// <summary>

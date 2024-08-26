@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Update the customer data of the given Commerce Case 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PatchCommerceCaseRequest
   {
     /// <summary>

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing details of the company.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CompanyInformation
   {
     /// <summary>

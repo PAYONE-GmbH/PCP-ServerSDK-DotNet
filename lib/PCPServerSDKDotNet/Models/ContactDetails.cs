@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing contact details like email address and phone number.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ContactDetails
   {
     /// <summary>

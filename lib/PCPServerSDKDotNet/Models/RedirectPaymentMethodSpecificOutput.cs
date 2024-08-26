@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the redirect payment product details. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RedirectPaymentMethodSpecificOutput
   {
     /// <summary>

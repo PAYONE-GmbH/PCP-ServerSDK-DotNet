@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing additional Information needed for Apple Pay payment transactions.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentProduct320SpecificInput
   {
     /// <summary>

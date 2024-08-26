@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// This object has the numeric representation of the current Refund status, timestamp of last status change and performable action on the current Refund resource. In case of a rejected Refund, detailed error information is listed.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RefundPaymentResponse
   {
     /// <summary>

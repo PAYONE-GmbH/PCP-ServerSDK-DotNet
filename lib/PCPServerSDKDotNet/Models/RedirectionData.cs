@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing browser specific redirection related data.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RedirectionData
   {
     /// <summary>

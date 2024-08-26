@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object that holds all reference properties that are linked to this transaction.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class References
   {
     /// <summary>

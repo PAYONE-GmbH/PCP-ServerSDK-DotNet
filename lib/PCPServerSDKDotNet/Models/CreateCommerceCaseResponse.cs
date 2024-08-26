@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// The response contains references to the created Commerce case and the Checkout. It also contains the payment response if the flag &#x27;autoExecuteOrder&#x27; was set to true.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CreateCommerceCaseResponse
   {
     /// <summary>

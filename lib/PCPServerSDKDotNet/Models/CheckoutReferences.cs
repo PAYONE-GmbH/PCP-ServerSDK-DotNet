@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing all details that are linked to the Checkout.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CheckoutReferences
   {
     /// <summary>

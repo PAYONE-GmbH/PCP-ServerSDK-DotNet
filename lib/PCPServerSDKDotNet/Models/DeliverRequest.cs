@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Request to mark items of the respective Checkout as delivered and to automatically execute a Capture.  A Deliver can be created for a full or the partial ShoppingCart of the Checkout.  The platform will automatically calculate the respective amount to trigger the Capture. For a partial Deliver a list of items must be provided. The item details for the Capture will be automatically loaded from the Checkout.     The cancellationReason must be provided if deliverType is set to PARTIAL and isFinal is set to true for BNPL payment methods (paymentProductId 3390, 3391 and 3392). For other payment methods the cancellationReason is not mandatory in this case but can be used for reporting and reconciliation purposes. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class DeliverRequest
   {
     /// <summary>

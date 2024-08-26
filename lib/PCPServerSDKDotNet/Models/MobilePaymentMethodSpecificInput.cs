@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the specific input details for mobile payments.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class MobilePaymentMethodSpecificInput
   {
     /// <summary>

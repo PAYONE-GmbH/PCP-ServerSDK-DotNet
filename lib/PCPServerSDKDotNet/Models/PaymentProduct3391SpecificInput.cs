@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing specific information for PAYONE Secured Installment.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentProduct3391SpecificInput
   {
     /// <summary>

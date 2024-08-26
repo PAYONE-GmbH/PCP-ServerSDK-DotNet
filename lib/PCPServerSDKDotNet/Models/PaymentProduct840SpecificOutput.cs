@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// PayPal (payment product 840) specific details. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentProduct840SpecificOutput
   {
     /// <summary>

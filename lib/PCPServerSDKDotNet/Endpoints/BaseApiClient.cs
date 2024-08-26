@@ -62,10 +62,12 @@ public class BaseApiClient
     {
         request = GetRequestHeaderGenerator().GenerateAdditionalRequestHeaders(request);
         var response = await GetResponseAsync(request);
+        Console.WriteLine(response.ToString());
         await HandleErrorAsync(response);
         try
         {
-            var responseBody = await response.Content.ReadAsStringAsync();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(responseBody);
             return JsonConvert.DeserializeObject<T>(responseBody)!;
         }
         catch (JsonException e)

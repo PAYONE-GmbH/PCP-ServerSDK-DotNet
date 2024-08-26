@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Order object containing order related data Please note that this object is required to be able to submit the amount.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Order
   {
     /// <summary>

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing specific input required for PayPal payments (Payment product ID 840)
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RedirectPaymentProduct840SpecificInput
   {
     /// <summary>

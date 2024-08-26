@@ -1,40 +1,33 @@
-using System;
-using System.Text;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace PCPServerSDKDotNet.Models
 {
-
   /// <summary>
-  /// Indicates in which status the line item is
+  /// Indicates in which status the line item is.
   /// </summary>
-  [DataContract]
-  public class CartItemStatus
+  [JsonConverter(typeof(StringEnumConverter))]
+  public enum CartItemStatus
   {
+    [JsonProperty("ORDERED")]
+    [EnumMember(Value = "ORDERED")]
+    Ordered,
 
-    /// <summary>
-    /// Get the string presentation of the object
-    /// </summary>
-    /// <returns>String presentation of the object</returns>
-    public override string ToString()
-    {
-      var sb = new StringBuilder();
-      sb.Append("class CartItemStatus {\n");
-      sb.Append("}\n");
-      return sb.ToString();
-    }
+    [JsonProperty("DELIVERED")]
+    [EnumMember(Value = "DELIVERED")]
+    Delivered,
 
-    /// <summary>
-    /// Get the JSON string presentation of the object
-    /// </summary>
-    /// <returns>JSON string presentation of the object</returns>
-    public string ToJson()
-    {
-      return JsonConvert.SerializeObject(this, Formatting.Indented);
-    }
+    [JsonProperty("CANCELLED")]
+    [EnumMember(Value = "CANCELLED")]
+    Cancelled,
 
+    [JsonProperty("RETURNED")]
+    [EnumMember(Value = "RETURNED")]
+    Returned,
+
+    [JsonProperty("WAITING_FOR_PAYMENT")]
+    [EnumMember(Value = "WAITING_FOR_PAYMENT")]
+    WaitingForPayment
   }
 }

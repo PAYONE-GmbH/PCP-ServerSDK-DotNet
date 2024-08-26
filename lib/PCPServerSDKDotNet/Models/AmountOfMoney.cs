@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing amount and ISO currency code attributes
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class AmountOfMoney
   {
     /// <summary>

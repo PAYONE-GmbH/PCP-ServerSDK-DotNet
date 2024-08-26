@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the specific output details for financing payment methods (Buy Now Pay Later)
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class FinancingPaymentMethodSpecificOutput
   {
     /// <summary>

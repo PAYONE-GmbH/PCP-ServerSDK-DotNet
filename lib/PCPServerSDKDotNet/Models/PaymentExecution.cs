@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object contains information of the payment with a specific payment method.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentExecution
   {
     /// <summary>

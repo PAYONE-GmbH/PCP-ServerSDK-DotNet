@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object that contains the action, including the needed data, that you should perform next, like showing instructions, showing the transaction results or redirect to a third party to complete the payment
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class MerchantAction
   {
     /// <summary>

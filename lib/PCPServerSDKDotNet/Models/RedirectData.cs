@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing all data needed to redirect the customer.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RedirectData
   {
     /// <summary>

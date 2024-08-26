@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing information regarding shipping / delivery 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Shipping
   {
     /// <summary>

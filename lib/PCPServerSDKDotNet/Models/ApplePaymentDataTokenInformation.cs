@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Additional information about the Apple payment data token. This information are needed for checking the validity of the payment data token before decryption.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ApplePaymentDataTokenInformation
   {
     /// <summary>

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Shopping cart data, including items and specific amounts. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ShoppingCartPatch
   {
     /// <summary>

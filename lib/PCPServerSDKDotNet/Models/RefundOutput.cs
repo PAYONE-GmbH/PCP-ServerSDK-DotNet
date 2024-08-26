@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing Refund details 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RefundOutput
   {
     /// <summary>

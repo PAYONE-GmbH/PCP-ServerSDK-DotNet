@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the details of the PayPal account. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentProduct840CustomerAccount
   {
     /// <summary>

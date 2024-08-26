@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the relevant information of a SEPA Direct Debit mandate for processing (mandatory fields in pain.008). Renamed from CreateMandateWithReturnUrl to ProcessingMandateInformation. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ProcessingMandateInformation
   {
     /// <summary>

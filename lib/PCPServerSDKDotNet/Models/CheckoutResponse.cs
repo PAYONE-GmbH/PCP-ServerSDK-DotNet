@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// The Checkout corresponds to the order of the WL API. We do not take additionalInput from the WL API. We have no  shipping and use deliveryAddress instead of address. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CheckoutResponse
   {
     /// <summary>

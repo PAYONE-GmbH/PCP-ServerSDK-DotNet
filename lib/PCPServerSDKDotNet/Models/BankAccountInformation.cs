@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing information about the end customer&#x27;s bank account.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class BankAccountInformation
   {
     /// <summary>

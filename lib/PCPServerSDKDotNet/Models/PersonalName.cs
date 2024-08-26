@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the name details of the customer
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PersonalName
   {
     /// <summary>

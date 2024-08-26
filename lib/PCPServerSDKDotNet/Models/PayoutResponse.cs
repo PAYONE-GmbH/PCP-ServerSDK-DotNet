@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object that holds the payment related properties for the refund of a Payment Information.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PayoutResponse
   {
     /// <summary>

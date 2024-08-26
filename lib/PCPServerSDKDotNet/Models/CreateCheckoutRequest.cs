@@ -1,7 +1,4 @@
-using System;
 using System.Text;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
@@ -12,6 +9,7 @@ namespace PCPServerSDKDotNet.Models
   /// Request to create a Checkout for a Commerce Case. The payment for the Checkout can be directly executed if autoExecuteOrder &#x3D; true. In this case, the paymentMethodSpecificInput must be provided and only a full order is possible.  If no amountOfMoney is provided, the platform will calculate the respective Checkout amount based on the cartItem productPrice and quantity.  In case of a payment error, the payment can be retried by providing the respective commerceCaseId and checkoutId to the the Order or Payment Execution endpoint. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CreateCheckoutRequest
   {
     /// <summary>

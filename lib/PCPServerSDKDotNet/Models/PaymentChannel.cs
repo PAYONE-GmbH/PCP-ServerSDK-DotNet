@@ -1,40 +1,21 @@
-using System;
-using System.Text;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace PCPServerSDKDotNet.Models
 {
-
   /// <summary>
-  /// 
+  /// Gets or Sets PaymentChannel
   /// </summary>
-  [DataContract]
-  public class PaymentChannel
+  [JsonConverter(typeof(StringEnumConverter))]
+  public enum PaymentChannel
   {
+    [JsonProperty("ECOMMERCE")]
+    [EnumMember(Value = "ECOMMERCE")]
+    Ecommerce,
 
-    /// <summary>
-    /// Get the string presentation of the object
-    /// </summary>
-    /// <returns>String presentation of the object</returns>
-    public override string ToString()
-    {
-      var sb = new StringBuilder();
-      sb.Append("class PaymentChannel {\n");
-      sb.Append("}\n");
-      return sb.ToString();
-    }
-
-    /// <summary>
-    /// Get the JSON string presentation of the object
-    /// </summary>
-    /// <returns>JSON string presentation of the object</returns>
-    public string ToJson()
-    {
-      return JsonConvert.SerializeObject(this, Formatting.Indented);
-    }
-
+    [JsonProperty("POS")]
+    [EnumMember(Value = "POS")]
+    Pos
   }
 }

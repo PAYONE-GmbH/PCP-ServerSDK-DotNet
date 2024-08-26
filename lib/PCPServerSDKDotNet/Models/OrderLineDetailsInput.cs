@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing additional information that when supplied can have a beneficial effect on the discountrates. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class OrderLineDetailsInput
   {
     /// <summary>

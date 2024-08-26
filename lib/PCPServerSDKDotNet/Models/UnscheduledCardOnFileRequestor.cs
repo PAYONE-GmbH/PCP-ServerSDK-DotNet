@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Indicates which party initiated the unscheduled recurring transaction. Allowed values:   * merchantInitiated - Merchant Initiated Transaction.   * cardholderInitiated - Cardholder Initiated Transaction. Note:   * When a customer has chosen to use a token on a hosted Checkout this property is set to \&quot;cardholderInitiated\&quot;.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class UnscheduledCardOnFileRequestor
   {
 

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Items should only be provided for orderType &#x3D; PARTIAL
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class OrderItem
   {
     /// <summary>

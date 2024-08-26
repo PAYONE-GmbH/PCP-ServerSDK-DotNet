@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing billing address details
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class Address
   {
     /// <summary>

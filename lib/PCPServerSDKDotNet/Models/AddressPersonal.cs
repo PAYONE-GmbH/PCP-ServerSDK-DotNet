@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing personal or shipping address information.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class AddressPersonal
   {
     /// <summary>

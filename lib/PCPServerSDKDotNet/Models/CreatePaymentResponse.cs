@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing details on the created payment it has directly be executed.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CreatePaymentResponse
   {
     /// <summary>

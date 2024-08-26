@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing information specific to SEPA Direct Debit
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class SepaDirectDebitPaymentProduct771SpecificInput
   {
     /// <summary>

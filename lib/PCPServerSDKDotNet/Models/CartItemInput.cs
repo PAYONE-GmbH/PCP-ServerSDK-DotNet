@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// This object contains information of all items in the cart. If a cart item is provided, the productPrice and quantity is required.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CartItemInput
   {
     /// <summary>

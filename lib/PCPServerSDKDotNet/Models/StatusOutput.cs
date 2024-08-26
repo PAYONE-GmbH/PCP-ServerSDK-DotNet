@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Contains information about whether the payment of the Checkout has already been completed and how much of the total sum has been collected already.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class StatusOutput
   {
     /// <summary>
@@ -20,7 +21,7 @@ namespace PCPServerSDKDotNet.Models
     /// <value>* WAITING_FOR_PAYMENT - There does not yet exist a PaymentExecution nor a PaymentInformation for this Checkout. * PAYMENT_NOT_COMPLETED - There exists a PaymentExecution or a PaymentInformation for this Checkout, but all or some part of the total amount is still unpaid. * PAYMENT_COMPLETED - There exists a PaymentExecution or a PaymentInformation for this Checkout and the total amount is fully paid. * NO_PAYMENT - Checkout was created and deleted. No Payment Execution and no other actions can be triggered on the Checkout.</value>
     [DataMember(Name = "paymentStatus", EmitDefaultValue = false)]
     [JsonProperty(PropertyName = "paymentStatus")]
-    public string? PaymentStatus { get; set; }
+    public PaymentStatus? PaymentStatus { get; set; }
 
     /// <summary>
     /// Indicates whether the Checkout can still be modified. False if any payment is already in progress, true otherwise.

@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// List of Commerce Cases
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CommerceCasesResponse : List<CommerceCaseResponse>
   {
 

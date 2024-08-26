@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing the specific input details for payments that involve redirects to 3rd parties to complete, like iDeal and PayPal
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class RedirectPaymentMethodSpecificInput
   {
     /// <summary>

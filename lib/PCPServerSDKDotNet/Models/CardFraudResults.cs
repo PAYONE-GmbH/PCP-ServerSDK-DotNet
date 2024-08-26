@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Fraud results contained in the CardFraudResults object. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CardFraudResults
   {
     /// <summary>

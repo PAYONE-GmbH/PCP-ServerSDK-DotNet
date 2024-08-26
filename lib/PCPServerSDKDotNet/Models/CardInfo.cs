@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing additional non PCI DSS relevant card information. used instead of card (missing fields: cardNumber, expiryDate, cvv) 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CardInfo
   {
     /// <summary>

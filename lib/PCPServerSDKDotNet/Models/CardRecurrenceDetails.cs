@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing data related to recurring.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CardRecurrenceDetails
   {
     /// <summary>

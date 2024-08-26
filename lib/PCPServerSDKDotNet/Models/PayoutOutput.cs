@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing details from the created payout. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PayoutOutput
   {
     /// <summary>

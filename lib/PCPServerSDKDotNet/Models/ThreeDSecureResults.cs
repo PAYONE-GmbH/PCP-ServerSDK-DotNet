@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// 3D Secure results object
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class ThreeDSecureResults
   {
     /// <summary>

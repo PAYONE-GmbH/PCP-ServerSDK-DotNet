@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// To complete the Order the completePaymentMethodSpecificInput has to be provided, containing the selected installmentOptionId as well as the the bankAccountInformation of the customer. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CompletePaymentMethodSpecificInput
   {
     /// <summary>

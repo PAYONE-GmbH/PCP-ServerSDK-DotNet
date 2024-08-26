@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Object containing Capture details. 
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class CaptureOutput
   {
     /// <summary>

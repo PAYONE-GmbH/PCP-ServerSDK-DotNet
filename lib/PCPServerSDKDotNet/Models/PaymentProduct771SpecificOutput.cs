@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Output that is SEPA Direct Debit specific (i.e. the used mandate).
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class PaymentProduct771SpecificOutput
   {
     /// <summary>

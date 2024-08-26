@@ -12,6 +12,7 @@ namespace PCPServerSDKDotNet.Models
   /// Contains detailed information on one single error.
   /// </summary>
   [DataContract]
+  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
   public class APIError
   {
     /// <summary>
