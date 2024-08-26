@@ -11,19 +11,19 @@ namespace PCPServerSDKDotNet.Models.ApplePay
 
         [JsonPropertyName("data")]
         [JsonInclude]
-        public string Data { get; set; }
+        public string? Data { get; set; }
 
         [JsonPropertyName("header")]
         [JsonInclude]
-        public ApplePayPaymentDataHeader Header { get; set; }
+        public ApplePayPaymentDataHeader? Header { get; set; }
 
         [JsonPropertyName("signature")]
         [JsonInclude]
-        public string Signature { get; set; }
+        public string? Signature { get; set; }
 
         [JsonPropertyName("version")]
         [JsonInclude]
-        public string Version { get; set; }
+        public string? Version { get; set; }
 
         public ApplePayPaymentData() { }
 

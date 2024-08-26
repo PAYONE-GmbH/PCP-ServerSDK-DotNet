@@ -6,8 +6,7 @@ using PCPServerSDKDotNet.Models;
 
 public class Program
 {
-
-    static async Task Main(string[] args)
+    public static async Task Main(string[] args)
     {
         // get env
         string? apiKey = Environment.GetEnvironmentVariable("API_KEY");
@@ -37,9 +36,5 @@ public class Program
         Console.WriteLine(res);
         CreateCheckoutResponse res2 = await client.CreateCheckoutRequestAsync(merchantId, commerceCaseId, new CreateCheckoutRequest());
         Console.WriteLine(res2);
-
-
-
     }
 }
-

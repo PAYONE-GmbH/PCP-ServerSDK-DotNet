@@ -9,19 +9,19 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     public class ApplePayPaymentMethod
     {
         [JsonProperty("displayName")]
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
 
         [JsonProperty("network")]
-        public string Network { get; set; }
+        public string? Network { get; set; }
 
         [JsonProperty("type")]
-        public ApplePayPaymentMethodType Type { get; set; }
+        public ApplePayPaymentMethodType? Type { get; set; }
 
         [JsonProperty("paymentPass")]
-        public string PaymentPass { get; set; }
+        public string? PaymentPass { get; set; }
 
         [JsonProperty("billingContact")]
-        public ApplePayPaymentContact BillingContact { get; set; }
+        public ApplePayPaymentContact? BillingContact { get; set; }
 
         public ApplePayPaymentMethod() { }
 

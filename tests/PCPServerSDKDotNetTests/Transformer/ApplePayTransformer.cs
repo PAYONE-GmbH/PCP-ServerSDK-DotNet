@@ -3,7 +3,7 @@ namespace PCPServerSDKDotNetTests.Transformer;
 using Newtonsoft.Json;
 using PCPServerSDKDotNet.Models;
 using PCPServerSDKDotNet.Models.ApplePay;
-using YourNamespace.Transformer;
+using PCPServerSDKDotNet.Transformer;
 
 public class ApplePayTransformerTest
 {

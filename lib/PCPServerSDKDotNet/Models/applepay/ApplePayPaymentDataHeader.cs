@@ -11,23 +11,23 @@ namespace PCPServerSDKDotNet.Models.ApplePay
 
         [JsonPropertyName("applicationData")]
         [JsonInclude]
-        public string ApplicationData { get; set; }
+        public string? ApplicationData { get; set; }
 
         [JsonPropertyName("ephemeralPublicKey")]
         [JsonInclude]
-        public string EphemeralPublicKey { get; set; }
+        public string? EphemeralPublicKey { get; set; }
 
         [JsonPropertyName("wrappedKey")]
         [JsonInclude]
-        public string WrappedKey { get; set; }
+        public string? WrappedKey { get; set; }
 
         [JsonPropertyName("publicKeyHash")]
         [JsonInclude]
-        public string PublicKeyHash { get; set; }
+        public string? PublicKeyHash { get; set; }
 
         [JsonPropertyName("transactionId")]
         [JsonInclude]
-        public string TransactionId { get; set; }
+        public string? TransactionId { get; set; }
 
         public ApplePayPaymentDataHeader() { }
 

@@ -9,43 +9,43 @@ namespace PCPServerSDKDotNet.Models.ApplePay
     public class ApplePayPaymentContact : IEquatable<ApplePayPaymentContact>
     {
         [JsonProperty("phoneNumber")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [JsonProperty("emailAddress")]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
 
         [JsonProperty("givenName")]
-        public string GivenName { get; set; }
+        public string? GivenName { get; set; }
 
         [JsonProperty("familyName")]
-        public string FamilyName { get; set; }
+        public string? FamilyName { get; set; }
 
         [JsonProperty("phoneticGivenName")]
-        public string PhoneticGivenName { get; set; }
+        public string? PhoneticGivenName { get; set; }
 
         [JsonProperty("phoneticFamilyName")]
-        public string PhoneticFamilyName { get; set; }
+        public string? PhoneticFamilyName { get; set; }
 
         [JsonProperty("addressLines")]
-        public List<string> AddressLines { get; set; }
+        public List<string>? AddressLines { get; set; }
 
         [JsonProperty("locality")]
-        public string Locality { get; set; }
+        public string? Locality { get; set; }
 
         [JsonProperty("postalCode")]
-        public string PostalCode { get; set; }
+        public string? PostalCode { get; set; }
 
         [JsonProperty("administrativeArea")]
-        public string AdministrativeArea { get; set; }
+        public string? AdministrativeArea { get; set; }
 
         [JsonProperty("subAdministrativeArea")]
-        public string SubAdministrativeArea { get; set; }
+        public string? SubAdministrativeArea { get; set; }
 
         [JsonProperty("country")]
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
         [JsonProperty("countryCode")]
-        public string CountryCode { get; set; }
+        public string? CountryCode { get; set; }
 
         public ApplePayPaymentContact() { }
 
