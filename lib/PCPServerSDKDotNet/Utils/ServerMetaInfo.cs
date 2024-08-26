@@ -9,7 +9,7 @@ public class ServerMetaInfo
     {
         return new ServerMetaInfo()
             .WithPlatformIdentifier($"{Environment.OSVersion}, .NET version is: {Environment.Version}")
-            .WithSdkIdentifier("DotNetServerSDK/v1.0.0")
+            .WithSdkIdentifier("DotNetServerSDK/v0.0.1")
             .WithSdkCreator("PAYONE GmbH")
             .WithIntegrator(integrator);
     }

@@ -16,7 +16,7 @@ public class ServerMetaInfoTest
         // Assert
         Assert.NotNull(result.PlatformIdentifier);
         Assert.Equal($"{Environment.OSVersion}, .NET version is: {Environment.Version}", result.PlatformIdentifier);
-        Assert.Equal("DotNetServerSDK/v1.0.0", result.SdkIdentifier);
+        Assert.Equal("DotNetServerSDK/v0.0.1", result.SdkIdentifier);
         Assert.Equal("PAYONE GmbH", result.SdkCreator);
         Assert.Equal(integrator, result.Integrator);
     }
@@ -30,7 +30,7 @@ public class ServerMetaInfoTest
         // Assert
         Assert.NotNull(result.PlatformIdentifier);
         Assert.Equal($"{Environment.OSVersion}, .NET version is: {Environment.Version}", result.PlatformIdentifier);
-        Assert.Equal("DotNetServerSDK/v1.0.0", result.SdkIdentifier);
+        Assert.Equal("DotNetServerSDK/v0.0.1", result.SdkIdentifier);
         Assert.Equal("PAYONE GmbH", result.SdkCreator);
         Assert.Null(result.Integrator);
     }
