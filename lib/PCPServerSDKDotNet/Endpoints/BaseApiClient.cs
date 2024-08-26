@@ -100,7 +100,9 @@ public class BaseApiClient
         }
     }
 
-    public async Task<HttpResponseMessage> GetResponseAsync(HttpRequestMessage request)
+
+    // Virtual needed for testing (moq)
+    public virtual async Task<HttpResponseMessage> GetResponseAsync(HttpRequestMessage request)
     {
         return await GetClient().SendAsync(request);
     }
