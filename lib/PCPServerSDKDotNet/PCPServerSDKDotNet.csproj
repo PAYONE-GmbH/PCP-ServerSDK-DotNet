@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>PCPServerSDKDotNet</PackageId>
+    <Authors>PAYONE-GmbH</Authors>
+    <Description>The PAYONE PCP SDK</Description>
     <TargetFramework>net8.0</TargetFramework>
     <Version>0.0.2</Version>
     <AssemblyVersion>0.0.2.0</AssemblyVersion>
@@ -9,10 +12,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>../../.ruleset</CodeAnalysisRuleSet>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <None Include="../../README.md">
+      <Pack>true</Pack>
+      <PackagePath>README.md</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

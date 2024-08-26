@@ -1,20 +1,9 @@
 #!/bin/sh
 
-setup() {
-    echo "Setting up the environment..."
-    echo "Environment set up."
-}
-
-# Function to install dependencies
-install() {
-    echo "Installing dependencies..."
-    echo "Dependencies installed."
-}
-
 # Function to build the package
 build() {
     echo "Building the package..."
-    dotnet build lib/PCPServerSDKDotNet/PCPServerSDKDotNet.csproj
+    dotnet pack lib/PCPServerSDKDotNet --configuration Release
     echo "Build complete."
 }
 
@@ -23,11 +12,6 @@ test() {
     echo "Running tests..."
     dotnet test tests/PCPServerSDKDotNetTests --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     echo "Tests complete."
-}
-
-lint() {
-    echo "Running lint..."
-    echo "Lint complete."
 }
 
 version() {
@@ -64,6 +48,13 @@ version() {
 
 clear() {
     echo "Removing temp directories..."
+    rm -rf lib/PCPServerSDKDotNet/bin/
+    rm -rf lib/PCPServerSDKDotNet/obj/
+    rm -rf tests/PCPServerSDKDotNetTests/bin/
+    rm -rf tests/PCPServerSDKDotNetTests/obj/
+    rm -rf app/PCPServerSDKDotNetRunner/bin/
+    rm -rf app/PCPServerSDKDotNetRunner/obj/
+    rm -rf node_modules/
     echo "All temp directories have been removed."
 }
 
@@ -76,6 +67,8 @@ publish() {
     fi
     echo "Uploading the package..."
     TOKEN=$2
+    PACKAGE_PATH=$(find lib/PCPServerSDKDotNet/bin/Release/ -type f -name 'PCPServerSDKDotNet.*.nupkg')
+    dotnet nuget push $PACKAGE_PATH --api-key $TOKEN --source https://api.nuget.org/v3/index.json
     echo "Upload complete."
 }
 
@@ -86,20 +79,11 @@ run() {
 
 # Check the first argument passed to the script
 case "$1" in
-setup)
-    setup
-    ;;
-install)
-    install
-    ;;
 build)
     build
     ;;
 test)
     test
-    ;;
-lint)
-    lint
     ;;
 clear)
     clear
@@ -114,7 +98,7 @@ run)
     run
     ;;
 *)
-    echo "Usage: $0 {setup|install|build|test|lint|clear|version|publish|run}"
+    echo "Usage: $0 {build|test|clear|version|publish|run}"
     exit 1
     ;;
 esac
