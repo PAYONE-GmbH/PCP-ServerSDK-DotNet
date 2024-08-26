@@ -92,15 +92,15 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class OrderLineDetailsInput {\n");
-      sb.Append("  ProductCode: ").Append(ProductCode).Append("\n");
-      sb.Append("  ProductPrice: ").Append(ProductPrice).Append("\n");
-      sb.Append("  ProductType: ").Append(ProductType).Append("\n");
-      sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-      sb.Append("  TaxAmount: ").Append(TaxAmount).Append("\n");
-      sb.Append("  ProductUrl: ").Append(ProductUrl).Append("\n");
-      sb.Append("  ProductImageUrl: ").Append(ProductImageUrl).Append("\n");
-      sb.Append("  ProductCategoryPath: ").Append(ProductCategoryPath).Append("\n");
-      sb.Append("  MerchantShopDeliveryReference: ").Append(MerchantShopDeliveryReference).Append("\n");
+      sb.Append("  ProductCode: ").Append(ProductCode).Append('\n');
+      sb.Append("  ProductPrice: ").Append(ProductPrice).Append('\n');
+      sb.Append("  ProductType: ").Append(ProductType).Append('\n');
+      sb.Append("  Quantity: ").Append(Quantity).Append('\n');
+      sb.Append("  TaxAmount: ").Append(TaxAmount).Append('\n');
+      sb.Append("  ProductUrl: ").Append(ProductUrl).Append('\n');
+      sb.Append("  ProductImageUrl: ").Append(ProductImageUrl).Append('\n');
+      sb.Append("  ProductCategoryPath: ").Append(ProductCategoryPath).Append('\n');
+      sb.Append("  MerchantShopDeliveryReference: ").Append(MerchantShopDeliveryReference).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

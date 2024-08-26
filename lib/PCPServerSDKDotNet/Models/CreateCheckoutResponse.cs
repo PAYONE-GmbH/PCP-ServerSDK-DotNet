@@ -106,18 +106,18 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CreateCheckoutResponse {\n");
-      sb.Append("  CheckoutId: ").Append(CheckoutId).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
-      sb.Append("  PaymentResponse: ").Append(PaymentResponse).Append("\n");
-      sb.Append("  ErrorResponse: ").Append(ErrorResponse).Append("\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Shipping: ").Append(Shipping).Append("\n");
-      sb.Append("  PaymentExecution: ").Append(PaymentExecution).Append("\n");
-      sb.Append("  CheckoutStatus: ").Append(CheckoutStatus).Append("\n");
-      sb.Append("  StatusOutput: ").Append(StatusOutput).Append("\n");
-      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append("\n");
-      sb.Append("  AllowedPaymentActions: ").Append(AllowedPaymentActions).Append("\n");
+      sb.Append("  CheckoutId: ").Append(CheckoutId).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
+      sb.Append("  PaymentResponse: ").Append(PaymentResponse).Append('\n');
+      sb.Append("  ErrorResponse: ").Append(ErrorResponse).Append('\n');
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Shipping: ").Append(Shipping).Append('\n');
+      sb.Append("  PaymentExecution: ").Append(PaymentExecution).Append('\n');
+      sb.Append("  CheckoutStatus: ").Append(CheckoutStatus).Append('\n');
+      sb.Append("  StatusOutput: ").Append(StatusOutput).Append('\n');
+      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append('\n');
+      sb.Append("  AllowedPaymentActions: ").Append(AllowedPaymentActions).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

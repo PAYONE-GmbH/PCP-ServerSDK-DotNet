@@ -106,17 +106,17 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentInformationResponse {\n");
-      sb.Append("  CommerceCaseId: ").Append(CommerceCaseId).Append("\n");
-      sb.Append("  CheckoutId: ").Append(CheckoutId).Append("\n");
-      sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-      sb.Append("  PaymentInformationId: ").Append(PaymentInformationId).Append("\n");
-      sb.Append("  PaymentChannel: ").Append(PaymentChannel).Append("\n");
-      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append("\n");
-      sb.Append("  TerminalId: ").Append(TerminalId).Append("\n");
-      sb.Append("  CardAcceptorId: ").Append(CardAcceptorId).Append("\n");
-      sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-      sb.Append("  CardPaymentDetails: ").Append(CardPaymentDetails).Append("\n");
-      sb.Append("  Events: ").Append(Events).Append("\n");
+      sb.Append("  CommerceCaseId: ").Append(CommerceCaseId).Append('\n');
+      sb.Append("  CheckoutId: ").Append(CheckoutId).Append('\n');
+      sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append('\n');
+      sb.Append("  PaymentInformationId: ").Append(PaymentInformationId).Append('\n');
+      sb.Append("  PaymentChannel: ").Append(PaymentChannel).Append('\n');
+      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append('\n');
+      sb.Append("  TerminalId: ").Append(TerminalId).Append('\n');
+      sb.Append("  CardAcceptorId: ").Append(CardAcceptorId).Append('\n');
+      sb.Append("  MerchantReference: ").Append(MerchantReference).Append('\n');
+      sb.Append("  CardPaymentDetails: ").Append(CardPaymentDetails).Append('\n');
+      sb.Append("  Events: ").Append(Events).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

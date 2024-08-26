@@ -36,8 +36,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class MerchantAction {\n");
-      sb.Append("  ActionType: ").Append(ActionType).Append("\n");
-      sb.Append("  RedirectData: ").Append(RedirectData).Append("\n");
+      sb.Append("  ActionType: ").Append(ActionType).Append('\n');
+      sb.Append("  RedirectData: ").Append(RedirectData).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

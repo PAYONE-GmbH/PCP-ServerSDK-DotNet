@@ -77,13 +77,13 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class StatusOutput {\n");
-      sb.Append("  PaymentStatus: ").Append(PaymentStatus).Append("\n");
-      sb.Append("  IsModifiable: ").Append(IsModifiable).Append("\n");
-      sb.Append("  OpenAmount: ").Append(OpenAmount).Append("\n");
-      sb.Append("  CollectedAmount: ").Append(CollectedAmount).Append("\n");
-      sb.Append("  CancelledAmount: ").Append(CancelledAmount).Append("\n");
-      sb.Append("  RefundedAmount: ").Append(RefundedAmount).Append("\n");
-      sb.Append("  ChargebackAmount: ").Append(ChargebackAmount).Append("\n");
+      sb.Append("  PaymentStatus: ").Append(PaymentStatus).Append('\n');
+      sb.Append("  IsModifiable: ").Append(IsModifiable).Append('\n');
+      sb.Append("  OpenAmount: ").Append(OpenAmount).Append('\n');
+      sb.Append("  CollectedAmount: ").Append(CollectedAmount).Append('\n');
+      sb.Append("  CancelledAmount: ").Append(CancelledAmount).Append('\n');
+      sb.Append("  RefundedAmount: ").Append(RefundedAmount).Append('\n');
+      sb.Append("  ChargebackAmount: ").Append(ChargebackAmount).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

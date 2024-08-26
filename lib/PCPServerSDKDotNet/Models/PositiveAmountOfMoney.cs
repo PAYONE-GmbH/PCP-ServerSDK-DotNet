@@ -37,8 +37,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PositiveAmountOfMoney {\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
-      sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+      sb.Append("  Amount: ").Append(Amount).Append('\n');
+      sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

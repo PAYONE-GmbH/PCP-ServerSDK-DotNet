@@ -28,7 +28,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PatchCommerceCaseRequest {\n");
-      sb.Append("  Customer: ").Append(Customer).Append("\n");
+      sb.Append("  Customer: ").Append(Customer).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

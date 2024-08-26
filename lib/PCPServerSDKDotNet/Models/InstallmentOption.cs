@@ -93,15 +93,15 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class InstallmentOption {\n");
-      sb.Append("  InstallmentOptionId: ").Append(InstallmentOptionId).Append("\n");
-      sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append("\n");
-      sb.Append("  MonthlyAmount: ").Append(MonthlyAmount).Append("\n");
-      sb.Append("  LastRateAmount: ").Append(LastRateAmount).Append("\n");
-      sb.Append("  EffectiveInterestRate: ").Append(EffectiveInterestRate).Append("\n");
-      sb.Append("  NominalInterestRate: ").Append(NominalInterestRate).Append("\n");
-      sb.Append("  TotalAmount: ").Append(TotalAmount).Append("\n");
-      sb.Append("  FirstRateDate: ").Append(FirstRateDate).Append("\n");
-      sb.Append("  CreditInformation: ").Append(CreditInformation).Append("\n");
+      sb.Append("  InstallmentOptionId: ").Append(InstallmentOptionId).Append('\n');
+      sb.Append("  NumberOfPayments: ").Append(NumberOfPayments).Append('\n');
+      sb.Append("  MonthlyAmount: ").Append(MonthlyAmount).Append('\n');
+      sb.Append("  LastRateAmount: ").Append(LastRateAmount).Append('\n');
+      sb.Append("  EffectiveInterestRate: ").Append(EffectiveInterestRate).Append('\n');
+      sb.Append("  NominalInterestRate: ").Append(NominalInterestRate).Append('\n');
+      sb.Append("  TotalAmount: ").Append(TotalAmount).Append('\n');
+      sb.Append("  FirstRateDate: ").Append(FirstRateDate).Append('\n');
+      sb.Append("  CreditInformation: ").Append(CreditInformation).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

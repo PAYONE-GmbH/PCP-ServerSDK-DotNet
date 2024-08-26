@@ -63,12 +63,12 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PatchCheckoutRequest {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Shipping: ").Append(Shipping).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
-      sb.Append("  PaymentMethodSpecificInput: ").Append(PaymentMethodSpecificInput).Append("\n");
-      sb.Append("  PaymentReferences: ").Append(PaymentReferences).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Shipping: ").Append(Shipping).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
+      sb.Append("  PaymentMethodSpecificInput: ").Append(PaymentMethodSpecificInput).Append('\n');
+      sb.Append("  PaymentReferences: ").Append(PaymentReferences).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

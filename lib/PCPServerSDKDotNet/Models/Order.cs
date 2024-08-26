@@ -56,11 +56,11 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class Order {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  Customer: ").Append(Customer).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Shipping: ").Append(Shipping).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  Customer: ").Append(Customer).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Shipping: ").Append(Shipping).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

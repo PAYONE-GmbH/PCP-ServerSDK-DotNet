@@ -89,11 +89,11 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         {
             var sb = new System.Text.StringBuilder();
             sb.Append("class PaymentDataHeader {\n");
-            sb.Append("    applicationData: ").Append(ToIndentedString(ApplicationData)).Append("\n");
-            sb.Append("    ephemeralPublicKey: ").Append(ToIndentedString(EphemeralPublicKey)).Append("\n");
-            sb.Append("    wrappedKey: ").Append(ToIndentedString(WrappedKey)).Append("\n");
-            sb.Append("    publicKeyHash: ").Append(ToIndentedString(PublicKeyHash)).Append("\n");
-            sb.Append("    transactionId: ").Append(ToIndentedString(TransactionId)).Append("\n");
+            sb.Append("    applicationData: ").Append(ToIndentedString(ApplicationData)).Append('\n');
+            sb.Append("    ephemeralPublicKey: ").Append(ToIndentedString(EphemeralPublicKey)).Append('\n');
+            sb.Append("    wrappedKey: ").Append(ToIndentedString(WrappedKey)).Append('\n');
+            sb.Append("    publicKeyHash: ").Append(ToIndentedString(PublicKeyHash)).Append('\n');
+            sb.Append("    transactionId: ").Append(ToIndentedString(TransactionId)).Append('\n');
             sb.Append("}");
             return sb.ToString();
         }

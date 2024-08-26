@@ -35,8 +35,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ReturnResponse {\n");
-      sb.Append("  ReturnPaymentResponse: ").Append(ReturnPaymentResponse).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
+      sb.Append("  ReturnPaymentResponse: ").Append(ReturnPaymentResponse).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

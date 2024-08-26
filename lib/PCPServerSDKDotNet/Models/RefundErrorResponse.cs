@@ -36,8 +36,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class RefundErrorResponse {\n");
-      sb.Append("  ErrorId: ").Append(ErrorId).Append("\n");
-      sb.Append("  Errors: ").Append(Errors).Append("\n");
+      sb.Append("  ErrorId: ").Append(ErrorId).Append('\n');
+      sb.Append("  Errors: ").Append(Errors).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

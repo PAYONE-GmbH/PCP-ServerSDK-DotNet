@@ -37,8 +37,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ApplePaymentDataTokenHeaderInformation {\n");
-      sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
-      sb.Append("  ApplicationData: ").Append(ApplicationData).Append("\n");
+      sb.Append("  TransactionId: ").Append(TransactionId).Append('\n');
+      sb.Append("  ApplicationData: ").Append(ApplicationData).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

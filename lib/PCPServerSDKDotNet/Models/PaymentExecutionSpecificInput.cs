@@ -42,9 +42,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentExecutionSpecificInput {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
-      sb.Append("  PaymentReferences: ").Append(PaymentReferences).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
+      sb.Append("  PaymentReferences: ").Append(PaymentReferences).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

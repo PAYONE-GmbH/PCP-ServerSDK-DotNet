@@ -52,10 +52,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentStatusOutput {\n");
-      sb.Append("  IsCancellable: ").Append(IsCancellable).Append("\n");
-      sb.Append("  StatusCategory: ").Append(StatusCategory).Append("\n");
-      sb.Append("  IsAuthorized: ").Append(IsAuthorized).Append("\n");
-      sb.Append("  IsRefundable: ").Append(IsRefundable).Append("\n");
+      sb.Append("  IsCancellable: ").Append(IsCancellable).Append('\n');
+      sb.Append("  StatusCategory: ").Append(StatusCategory).Append('\n');
+      sb.Append("  IsAuthorized: ").Append(IsAuthorized).Append('\n');
+      sb.Append("  IsRefundable: ").Append(IsRefundable).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

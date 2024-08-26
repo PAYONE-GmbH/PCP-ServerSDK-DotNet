@@ -77,13 +77,13 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class Address {\n");
-      sb.Append("  AdditionalInfo: ").Append(AdditionalInfo).Append("\n");
-      sb.Append("  City: ").Append(City).Append("\n");
-      sb.Append("  CountryCode: ").Append(CountryCode).Append("\n");
-      sb.Append("  HouseNumber: ").Append(HouseNumber).Append("\n");
-      sb.Append("  State: ").Append(State).Append("\n");
-      sb.Append("  Street: ").Append(Street).Append("\n");
-      sb.Append("  Zip: ").Append(Zip).Append("\n");
+      sb.Append("  AdditionalInfo: ").Append(AdditionalInfo).Append('\n');
+      sb.Append("  City: ").Append(City).Append('\n');
+      sb.Append("  CountryCode: ").Append(CountryCode).Append('\n');
+      sb.Append("  HouseNumber: ").Append(HouseNumber).Append('\n');
+      sb.Append("  State: ").Append(State).Append('\n');
+      sb.Append("  Street: ").Append(Street).Append('\n');
+      sb.Append("  Zip: ").Append(Zip).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

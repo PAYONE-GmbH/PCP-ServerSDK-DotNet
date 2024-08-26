@@ -69,12 +69,12 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class APIError {\n");
-      sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
-      sb.Append("  Category: ").Append(Category).Append("\n");
-      sb.Append("  HttpStatusCode: ").Append(HttpStatusCode).Append("\n");
-      sb.Append("  Id: ").Append(Id).Append("\n");
-      sb.Append("  Message: ").Append(Message).Append("\n");
-      sb.Append("  PropertyName: ").Append(PropertyName).Append("\n");
+      sb.Append("  ErrorCode: ").Append(ErrorCode).Append('\n');
+      sb.Append("  Category: ").Append(Category).Append('\n');
+      sb.Append("  HttpStatusCode: ").Append(HttpStatusCode).Append('\n');
+      sb.Append("  Id: ").Append(Id).Append('\n');
+      sb.Append("  Message: ").Append(Message).Append('\n');
+      sb.Append("  PropertyName: ").Append(PropertyName).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

@@ -65,9 +65,9 @@ namespace PCPServerSDKDotNet.Models.ApplePay
         {
             var sb = new System.Text.StringBuilder();
             sb.Append("class Payment {\n");
-            sb.Append("    token: ").Append(ToIndentedString(Token)).Append("\n");
-            sb.Append("    billingContact: ").Append(ToIndentedString(BillingContact)).Append("\n");
-            sb.Append("    shippingContact: ").Append(ToIndentedString(ShippingContact)).Append("\n");
+            sb.Append("    token: ").Append(ToIndentedString(Token)).Append('\n');
+            sb.Append("    billingContact: ").Append(ToIndentedString(BillingContact)).Append('\n');
+            sb.Append("    shippingContact: ").Append(ToIndentedString(ShippingContact)).Append('\n');
             sb.Append("}");
             return sb.ToString();
         }

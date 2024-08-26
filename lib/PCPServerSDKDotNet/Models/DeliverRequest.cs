@@ -50,10 +50,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class DeliverRequest {\n");
-      sb.Append("  DeliverType: ").Append(DeliverType).Append("\n");
-      sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
-      sb.Append("  CancellationReason: ").Append(CancellationReason).Append("\n");
-      sb.Append("  DeliverItems: ").Append(DeliverItems).Append("\n");
+      sb.Append("  DeliverType: ").Append(DeliverType).Append('\n');
+      sb.Append("  IsFinal: ").Append(IsFinal).Append('\n');
+      sb.Append("  CancellationReason: ").Append(CancellationReason).Append('\n');
+      sb.Append("  DeliverItems: ").Append(DeliverItems).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

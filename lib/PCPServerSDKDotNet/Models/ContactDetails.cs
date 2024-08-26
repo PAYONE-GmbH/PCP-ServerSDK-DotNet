@@ -37,8 +37,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ContactDetails {\n");
-      sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
-      sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+      sb.Append("  EmailAddress: ").Append(EmailAddress).Append('\n');
+      sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

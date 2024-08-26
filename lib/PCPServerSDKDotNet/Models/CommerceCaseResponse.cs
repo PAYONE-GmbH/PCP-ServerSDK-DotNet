@@ -58,11 +58,11 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CommerceCaseResponse {\n");
-      sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-      sb.Append("  CommerceCaseId: ").Append(CommerceCaseId).Append("\n");
-      sb.Append("  Customer: ").Append(Customer).Append("\n");
-      sb.Append("  Checkouts: ").Append(Checkouts).Append("\n");
-      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append("\n");
+      sb.Append("  MerchantReference: ").Append(MerchantReference).Append('\n');
+      sb.Append("  CommerceCaseId: ").Append(CommerceCaseId).Append('\n');
+      sb.Append("  Customer: ").Append(Customer).Append('\n');
+      sb.Append("  Checkouts: ").Append(Checkouts).Append('\n');
+      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

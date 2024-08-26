@@ -42,9 +42,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class RefundRequest {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  _Return: ").Append(_Return).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  _Return: ").Append(_Return).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

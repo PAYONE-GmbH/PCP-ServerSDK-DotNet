@@ -111,18 +111,18 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CardPaymentMethodSpecificInput {\n");
-      sb.Append("  AuthorizationMode: ").Append(AuthorizationMode).Append("\n");
-      sb.Append("  Recurring: ").Append(Recurring).Append("\n");
-      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append("\n");
-      sb.Append("  ReportingToken: ").Append(ReportingToken).Append("\n");
-      sb.Append("  TransactionChannel: ").Append(TransactionChannel).Append("\n");
-      sb.Append("  UnscheduledCardOnFileRequestor: ").Append(UnscheduledCardOnFileRequestor).Append("\n");
-      sb.Append("  UnscheduledCardOnFileSequenceIndicator: ").Append(UnscheduledCardOnFileSequenceIndicator).Append("\n");
-      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append("\n");
-      sb.Append("  Card: ").Append(Card).Append("\n");
-      sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
-      sb.Append("  CardOnFileRecurringFrequency: ").Append(CardOnFileRecurringFrequency).Append("\n");
-      sb.Append("  CardOnFileRecurringExpiration: ").Append(CardOnFileRecurringExpiration).Append("\n");
+      sb.Append("  AuthorizationMode: ").Append(AuthorizationMode).Append('\n');
+      sb.Append("  Recurring: ").Append(Recurring).Append('\n');
+      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append('\n');
+      sb.Append("  ReportingToken: ").Append(ReportingToken).Append('\n');
+      sb.Append("  TransactionChannel: ").Append(TransactionChannel).Append('\n');
+      sb.Append("  UnscheduledCardOnFileRequestor: ").Append(UnscheduledCardOnFileRequestor).Append('\n');
+      sb.Append("  UnscheduledCardOnFileSequenceIndicator: ").Append(UnscheduledCardOnFileSequenceIndicator).Append('\n');
+      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append('\n');
+      sb.Append("  Card: ").Append(Card).Append('\n');
+      sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append('\n');
+      sb.Append("  CardOnFileRecurringFrequency: ").Append(CardOnFileRecurringFrequency).Append('\n');
+      sb.Append("  CardOnFileRecurringExpiration: ").Append(CardOnFileRecurringExpiration).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

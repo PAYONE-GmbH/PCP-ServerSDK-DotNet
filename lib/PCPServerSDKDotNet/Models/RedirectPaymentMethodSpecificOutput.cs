@@ -52,10 +52,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class RedirectPaymentMethodSpecificOutput {\n");
-      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append("\n");
-      sb.Append("  PaymentProduct840SpecificOutput: ").Append(PaymentProduct840SpecificOutput).Append("\n");
-      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append("\n");
-      sb.Append("  ReportingToken: ").Append(ReportingToken).Append("\n");
+      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append('\n');
+      sb.Append("  PaymentProduct840SpecificOutput: ").Append(PaymentProduct840SpecificOutput).Append('\n');
+      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append('\n');
+      sb.Append("  ReportingToken: ").Append(ReportingToken).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

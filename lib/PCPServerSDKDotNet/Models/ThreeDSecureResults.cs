@@ -45,9 +45,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ThreeDSecureResults {\n");
-      sb.Append("  Version: ").Append(Version).Append("\n");
-      sb.Append("  SchemeEci: ").Append(SchemeEci).Append("\n");
-      sb.Append("  AppliedExemption: ").Append(AppliedExemption).Append("\n");
+      sb.Append("  Version: ").Append(Version).Append('\n');
+      sb.Append("  SchemeEci: ").Append(SchemeEci).Append('\n');
+      sb.Append("  AppliedExemption: ").Append(AppliedExemption).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

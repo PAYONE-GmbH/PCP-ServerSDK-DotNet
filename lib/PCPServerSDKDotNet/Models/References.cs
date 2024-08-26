@@ -45,9 +45,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class References {\n");
-      sb.Append("  Descriptor: ").Append(Descriptor).Append("\n");
-      sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
-      sb.Append("  MerchantParameters: ").Append(MerchantParameters).Append("\n");
+      sb.Append("  Descriptor: ").Append(Descriptor).Append('\n');
+      sb.Append("  MerchantReference: ").Append(MerchantReference).Append('\n');
+      sb.Append("  MerchantParameters: ").Append(MerchantParameters).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

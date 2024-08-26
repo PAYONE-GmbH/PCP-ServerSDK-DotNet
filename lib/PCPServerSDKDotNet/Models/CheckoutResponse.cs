@@ -115,19 +115,19 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CheckoutResponse {\n");
-      sb.Append("  CommerceCaseId: ").Append(CommerceCaseId).Append("\n");
-      sb.Append("  CheckoutId: ").Append(CheckoutId).Append("\n");
-      sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Shipping: ").Append(Shipping).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
-      sb.Append("  PaymentExecutions: ").Append(PaymentExecutions).Append("\n");
-      sb.Append("  CheckoutStatus: ").Append(CheckoutStatus).Append("\n");
-      sb.Append("  StatusOutput: ").Append(StatusOutput).Append("\n");
-      sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append("\n");
-      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append("\n");
-      sb.Append("  AllowedPaymentActions: ").Append(AllowedPaymentActions).Append("\n");
+      sb.Append("  CommerceCaseId: ").Append(CommerceCaseId).Append('\n');
+      sb.Append("  CheckoutId: ").Append(CheckoutId).Append('\n');
+      sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append('\n');
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Shipping: ").Append(Shipping).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
+      sb.Append("  PaymentExecutions: ").Append(PaymentExecutions).Append('\n');
+      sb.Append("  CheckoutStatus: ").Append(CheckoutStatus).Append('\n');
+      sb.Append("  StatusOutput: ").Append(StatusOutput).Append('\n');
+      sb.Append("  PaymentInformation: ").Append(PaymentInformation).Append('\n');
+      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append('\n');
+      sb.Append("  AllowedPaymentActions: ").Append(AllowedPaymentActions).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

@@ -37,8 +37,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CustomerDevice {\n");
-      sb.Append("  IpAddress: ").Append(IpAddress).Append("\n");
-      sb.Append("  DeviceToken: ").Append(DeviceToken).Append("\n");
+      sb.Append("  IpAddress: ").Append(IpAddress).Append('\n');
+      sb.Append("  DeviceToken: ").Append(DeviceToken).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

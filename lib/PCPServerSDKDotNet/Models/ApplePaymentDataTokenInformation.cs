@@ -44,9 +44,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ApplePaymentDataTokenInformation {\n");
-      sb.Append("  Version: ").Append(Version).Append("\n");
-      sb.Append("  Signature: ").Append(Signature).Append("\n");
-      sb.Append("  Header: ").Append(Header).Append("\n");
+      sb.Append("  Version: ").Append(Version).Append('\n');
+      sb.Append("  Signature: ").Append(Signature).Append('\n');
+      sb.Append("  Header: ").Append(Header).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

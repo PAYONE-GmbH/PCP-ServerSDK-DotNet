@@ -36,8 +36,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class SepaDirectDebitPaymentProduct771SpecificInput {\n");
-      sb.Append("  ExistingUniqueMandateReference: ").Append(ExistingUniqueMandateReference).Append("\n");
-      sb.Append("  Mandate: ").Append(Mandate).Append("\n");
+      sb.Append("  ExistingUniqueMandateReference: ").Append(ExistingUniqueMandateReference).Append('\n');
+      sb.Append("  Mandate: ").Append(Mandate).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

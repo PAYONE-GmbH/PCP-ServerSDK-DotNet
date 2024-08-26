@@ -58,11 +58,11 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CapturePaymentRequest {\n");
-      sb.Append("  Amount: ").Append(Amount).Append("\n");
-      sb.Append("  IsFinal: ").Append(IsFinal).Append("\n");
-      sb.Append("  CancellationReason: ").Append(CancellationReason).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Delivery: ").Append(Delivery).Append("\n");
+      sb.Append("  Amount: ").Append(Amount).Append('\n');
+      sb.Append("  IsFinal: ").Append(IsFinal).Append('\n');
+      sb.Append("  CancellationReason: ").Append(CancellationReason).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Delivery: ").Append(Delivery).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

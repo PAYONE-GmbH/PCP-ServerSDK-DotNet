@@ -28,7 +28,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentProduct3392SpecificInput {\n");
-      sb.Append("  BankAccountInformation: ").Append(BankAccountInformation).Append("\n");
+      sb.Append("  BankAccountInformation: ").Append(BankAccountInformation).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

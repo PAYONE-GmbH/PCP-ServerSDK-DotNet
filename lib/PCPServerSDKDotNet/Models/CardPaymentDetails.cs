@@ -53,10 +53,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CardPaymentDetails {\n");
-      sb.Append("  MaskedCardNumber: ").Append(MaskedCardNumber).Append("\n");
-      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append("\n");
-      sb.Append("  ReportingToken: ").Append(ReportingToken).Append("\n");
-      sb.Append("  CardAuthorizationId: ").Append(CardAuthorizationId).Append("\n");
+      sb.Append("  MaskedCardNumber: ").Append(MaskedCardNumber).Append('\n');
+      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append('\n');
+      sb.Append("  ReportingToken: ").Append(ReportingToken).Append('\n');
+      sb.Append("  CardAuthorizationId: ").Append(CardAuthorizationId).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

@@ -67,12 +67,12 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class MobilePaymentMethodSpecificInput {\n");
-      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append("\n");
-      sb.Append("  AuthorizationMode: ").Append(AuthorizationMode).Append("\n");
-      sb.Append("  EncryptedPaymentData: ").Append(EncryptedPaymentData).Append("\n");
-      sb.Append("  PublicKeyHash: ").Append(PublicKeyHash).Append("\n");
-      sb.Append("  EphemeralKey: ").Append(EphemeralKey).Append("\n");
-      sb.Append("  PaymentProduct302SpecificInput: ").Append(PaymentProduct302SpecificInput).Append("\n");
+      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append('\n');
+      sb.Append("  AuthorizationMode: ").Append(AuthorizationMode).Append('\n');
+      sb.Append("  EncryptedPaymentData: ").Append(EncryptedPaymentData).Append('\n');
+      sb.Append("  PublicKeyHash: ").Append(PublicKeyHash).Append('\n');
+      sb.Append("  EphemeralKey: ").Append(EphemeralKey).Append('\n');
+      sb.Append("  PaymentProduct302SpecificInput: ").Append(PaymentProduct302SpecificInput).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

@@ -28,7 +28,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class Shipping {\n");
-      sb.Append("  Address: ").Append(Address).Append("\n");
+      sb.Append("  Address: ").Append(Address).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

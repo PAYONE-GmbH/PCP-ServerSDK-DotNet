@@ -43,9 +43,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PayoutOutput {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

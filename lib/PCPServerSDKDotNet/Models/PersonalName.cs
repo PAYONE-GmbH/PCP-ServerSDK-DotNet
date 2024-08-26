@@ -45,9 +45,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PersonalName {\n");
-      sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-      sb.Append("  Surname: ").Append(Surname).Append("\n");
-      sb.Append("  Title: ").Append(Title).Append("\n");
+      sb.Append("  FirstName: ").Append(FirstName).Append('\n');
+      sb.Append("  Surname: ").Append(Surname).Append('\n');
+      sb.Append("  Title: ").Append(Title).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

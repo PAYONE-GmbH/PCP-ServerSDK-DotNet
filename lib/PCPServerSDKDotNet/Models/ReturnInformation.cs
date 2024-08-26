@@ -37,8 +37,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ReturnInformation {\n");
-      sb.Append("  ReturnReason: ").Append(ReturnReason).Append("\n");
-      sb.Append("  Items: ").Append(Items).Append("\n");
+      sb.Append("  ReturnReason: ").Append(ReturnReason).Append('\n');
+      sb.Append("  Items: ").Append(Items).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

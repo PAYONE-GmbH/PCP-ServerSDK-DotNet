@@ -59,11 +59,11 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class MobilePaymentMethodSpecificOutput {\n");
-      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append("\n");
-      sb.Append("  AuthorisationCode: ").Append(AuthorisationCode).Append("\n");
-      sb.Append("  FraudResults: ").Append(FraudResults).Append("\n");
-      sb.Append("  ThreeDSecureResults: ").Append(ThreeDSecureResults).Append("\n");
-      sb.Append("  Network: ").Append(Network).Append("\n");
+      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append('\n');
+      sb.Append("  AuthorisationCode: ").Append(AuthorisationCode).Append('\n');
+      sb.Append("  FraudResults: ").Append(FraudResults).Append('\n');
+      sb.Append("  ThreeDSecureResults: ").Append(ThreeDSecureResults).Append('\n');
+      sb.Append("  Network: ").Append(Network).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

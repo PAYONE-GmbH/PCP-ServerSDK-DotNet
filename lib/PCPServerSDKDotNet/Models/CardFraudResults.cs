@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CardFraudResults {\n");
-      sb.Append("  AvsResult: ").Append(AvsResult).Append("\n");
+      sb.Append("  AvsResult: ").Append(AvsResult).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

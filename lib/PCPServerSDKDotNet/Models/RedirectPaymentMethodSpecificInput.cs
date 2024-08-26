@@ -75,13 +75,13 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class RedirectPaymentMethodSpecificInput {\n");
-      sb.Append("  RequiresApproval: ").Append(RequiresApproval).Append("\n");
-      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append("\n");
-      sb.Append("  ReportingToken: ").Append(ReportingToken).Append("\n");
-      sb.Append("  Tokenize: ").Append(Tokenize).Append("\n");
-      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append("\n");
-      sb.Append("  PaymentProduct840SpecificInput: ").Append(PaymentProduct840SpecificInput).Append("\n");
-      sb.Append("  RedirectionData: ").Append(RedirectionData).Append("\n");
+      sb.Append("  RequiresApproval: ").Append(RequiresApproval).Append('\n');
+      sb.Append("  PaymentProcessingToken: ").Append(PaymentProcessingToken).Append('\n');
+      sb.Append("  ReportingToken: ").Append(ReportingToken).Append('\n');
+      sb.Append("  Tokenize: ").Append(Tokenize).Append('\n');
+      sb.Append("  PaymentProductId: ").Append(PaymentProductId).Append('\n');
+      sb.Append("  PaymentProduct840SpecificInput: ").Append(PaymentProduct840SpecificInput).Append('\n');
+      sb.Append("  RedirectionData: ").Append(RedirectionData).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

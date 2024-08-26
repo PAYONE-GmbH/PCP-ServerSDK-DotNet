@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class RedirectPaymentProduct840SpecificInput {\n");
-      sb.Append("  AddressSelectionAtPayPal: ").Append(AddressSelectionAtPayPal).Append("\n");
+      sb.Append("  AddressSelectionAtPayPal: ").Append(AddressSelectionAtPayPal).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

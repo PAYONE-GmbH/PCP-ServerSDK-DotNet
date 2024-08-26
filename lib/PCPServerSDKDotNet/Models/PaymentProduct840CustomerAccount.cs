@@ -53,10 +53,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentProduct840CustomerAccount {\n");
-      sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
-      sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-      sb.Append("  PayerId: ").Append(PayerId).Append("\n");
-      sb.Append("  Surname: ").Append(Surname).Append("\n");
+      sb.Append("  CompanyName: ").Append(CompanyName).Append('\n');
+      sb.Append("  FirstName: ").Append(FirstName).Append('\n');
+      sb.Append("  PayerId: ").Append(PayerId).Append('\n');
+      sb.Append("  Surname: ").Append(Surname).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

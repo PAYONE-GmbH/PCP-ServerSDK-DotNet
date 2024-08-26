@@ -50,10 +50,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CapturePaymentResponse {\n");
-      sb.Append("  CaptureOutput: ").Append(CaptureOutput).Append("\n");
-      sb.Append("  Status: ").Append(Status).Append("\n");
-      sb.Append("  StatusOutput: ").Append(StatusOutput).Append("\n");
-      sb.Append("  Id: ").Append(Id).Append("\n");
+      sb.Append("  CaptureOutput: ").Append(CaptureOutput).Append('\n');
+      sb.Append("  Status: ").Append(Status).Append('\n');
+      sb.Append("  StatusOutput: ").Append(StatusOutput).Append('\n');
+      sb.Append("  Id: ").Append(Id).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

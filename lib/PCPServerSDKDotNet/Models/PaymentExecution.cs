@@ -93,16 +93,16 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentExecution {\n");
-      sb.Append("  PaymentExecutionId: ").Append(PaymentExecutionId).Append("\n");
-      sb.Append("  PaymentId: ").Append(PaymentId).Append("\n");
-      sb.Append("  CardPaymentMethodSpecificInput: ").Append(CardPaymentMethodSpecificInput).Append("\n");
-      sb.Append("  MobilePaymentMethodSpecificInput: ").Append(MobilePaymentMethodSpecificInput).Append("\n");
-      sb.Append("  RedirectPaymentMethodSpecificInput: ").Append(RedirectPaymentMethodSpecificInput).Append("\n");
-      sb.Append("  SepaDirectDebitPaymentMethodSpecificInput: ").Append(SepaDirectDebitPaymentMethodSpecificInput).Append("\n");
-      sb.Append("  FinancingPaymentMethodSpecificInput: ").Append(FinancingPaymentMethodSpecificInput).Append("\n");
-      sb.Append("  PaymentChannel: ").Append(PaymentChannel).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Events: ").Append(Events).Append("\n");
+      sb.Append("  PaymentExecutionId: ").Append(PaymentExecutionId).Append('\n');
+      sb.Append("  PaymentId: ").Append(PaymentId).Append('\n');
+      sb.Append("  CardPaymentMethodSpecificInput: ").Append(CardPaymentMethodSpecificInput).Append('\n');
+      sb.Append("  MobilePaymentMethodSpecificInput: ").Append(MobilePaymentMethodSpecificInput).Append('\n');
+      sb.Append("  RedirectPaymentMethodSpecificInput: ").Append(RedirectPaymentMethodSpecificInput).Append('\n');
+      sb.Append("  SepaDirectDebitPaymentMethodSpecificInput: ").Append(SepaDirectDebitPaymentMethodSpecificInput).Append('\n');
+      sb.Append("  FinancingPaymentMethodSpecificInput: ").Append(FinancingPaymentMethodSpecificInput).Append('\n');
+      sb.Append("  PaymentChannel: ").Append(PaymentChannel).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Events: ").Append(Events).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

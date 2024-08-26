@@ -49,10 +49,10 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class OrderRequest {\n");
-      sb.Append("  OrderType: ").Append(OrderType).Append("\n");
-      sb.Append("  OrderReferences: ").Append(OrderReferences).Append("\n");
-      sb.Append("  Items: ").Append(Items).Append("\n");
-      sb.Append("  PaymentMethodSpecificInput: ").Append(PaymentMethodSpecificInput).Append("\n");
+      sb.Append("  OrderType: ").Append(OrderType).Append('\n');
+      sb.Append("  OrderReferences: ").Append(OrderReferences).Append('\n');
+      sb.Append("  Items: ").Append(Items).Append('\n');
+      sb.Append("  PaymentMethodSpecificInput: ").Append(PaymentMethodSpecificInput).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

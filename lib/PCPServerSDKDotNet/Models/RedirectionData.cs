@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class RedirectionData {\n");
-      sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
+      sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

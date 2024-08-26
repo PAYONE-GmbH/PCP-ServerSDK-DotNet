@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentProduct3391SpecificOutput {\n");
-      sb.Append("  InstallmentOptions: ").Append(InstallmentOptions).Append("\n");
+      sb.Append("  InstallmentOptions: ").Append(InstallmentOptions).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

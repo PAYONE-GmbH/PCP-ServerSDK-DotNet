@@ -86,15 +86,15 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentOutput {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  MerchantParameters: ").Append(MerchantParameters).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  CardPaymentMethodSpecificOutput: ").Append(CardPaymentMethodSpecificOutput).Append("\n");
-      sb.Append("  MobilePaymentMethodSpecificOutput: ").Append(MobilePaymentMethodSpecificOutput).Append("\n");
-      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-      sb.Append("  RedirectPaymentMethodSpecificOutput: ").Append(RedirectPaymentMethodSpecificOutput).Append("\n");
-      sb.Append("  SepaDirectDebitPaymentMethodSpecificOutput: ").Append(SepaDirectDebitPaymentMethodSpecificOutput).Append("\n");
-      sb.Append("  FinancingPaymentMethodSpecificOutput: ").Append(FinancingPaymentMethodSpecificOutput).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  MerchantParameters: ").Append(MerchantParameters).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  CardPaymentMethodSpecificOutput: ").Append(CardPaymentMethodSpecificOutput).Append('\n');
+      sb.Append("  MobilePaymentMethodSpecificOutput: ").Append(MobilePaymentMethodSpecificOutput).Append('\n');
+      sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append('\n');
+      sb.Append("  RedirectPaymentMethodSpecificOutput: ").Append(RedirectPaymentMethodSpecificOutput).Append('\n');
+      sb.Append("  SepaDirectDebitPaymentMethodSpecificOutput: ").Append(SepaDirectDebitPaymentMethodSpecificOutput).Append('\n');
+      sb.Append("  FinancingPaymentMethodSpecificOutput: ").Append(FinancingPaymentMethodSpecificOutput).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

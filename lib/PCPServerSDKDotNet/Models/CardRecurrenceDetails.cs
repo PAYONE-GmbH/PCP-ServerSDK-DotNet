@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CardRecurrenceDetails {\n");
-      sb.Append("  RecurringPaymentSequenceIndicator: ").Append(RecurringPaymentSequenceIndicator).Append("\n");
+      sb.Append("  RecurringPaymentSequenceIndicator: ").Append(RecurringPaymentSequenceIndicator).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

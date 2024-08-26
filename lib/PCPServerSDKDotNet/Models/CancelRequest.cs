@@ -42,9 +42,9 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CancelRequest {\n");
-      sb.Append("  CancelType: ").Append(CancelType).Append("\n");
-      sb.Append("  CancellationReason: ").Append(CancellationReason).Append("\n");
-      sb.Append("  CancelItems: ").Append(CancelItems).Append("\n");
+      sb.Append("  CancelType: ").Append(CancelType).Append('\n');
+      sb.Append("  CancellationReason: ").Append(CancellationReason).Append('\n');
+      sb.Append("  CancelItems: ").Append(CancelItems).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

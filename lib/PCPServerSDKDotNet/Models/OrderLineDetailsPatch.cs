@@ -36,8 +36,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class OrderLineDetailsPatch {\n");
-      sb.Append("  Id: ").Append(Id).Append("\n");
-      sb.Append("  Status: ").Append(Status).Append("\n");
+      sb.Append("  Id: ").Append(Id).Append('\n');
+      sb.Append("  Status: ").Append(Status).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

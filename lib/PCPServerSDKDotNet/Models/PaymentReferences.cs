@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class PaymentReferences {\n");
-      sb.Append("  MerchantReference: ").Append(MerchantReference).Append("\n");
+      sb.Append("  MerchantReference: ").Append(MerchantReference).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

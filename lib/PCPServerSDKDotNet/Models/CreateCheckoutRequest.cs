@@ -71,13 +71,13 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CreateCheckoutRequest {\n");
-      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append("\n");
-      sb.Append("  References: ").Append(References).Append("\n");
-      sb.Append("  Shipping: ").Append(Shipping).Append("\n");
-      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append("\n");
-      sb.Append("  OrderRequest: ").Append(OrderRequest).Append("\n");
-      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append("\n");
-      sb.Append("  AutoExecuteOrder: ").Append(AutoExecuteOrder).Append("\n");
+      sb.Append("  AmountOfMoney: ").Append(AmountOfMoney).Append('\n');
+      sb.Append("  References: ").Append(References).Append('\n');
+      sb.Append("  Shipping: ").Append(Shipping).Append('\n');
+      sb.Append("  ShoppingCart: ").Append(ShoppingCart).Append('\n');
+      sb.Append("  OrderRequest: ").Append(OrderRequest).Append('\n');
+      sb.Append("  CreationDateTime: ").Append(CreationDateTime).Append('\n');
+      sb.Append("  AutoExecuteOrder: ").Append(AutoExecuteOrder).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

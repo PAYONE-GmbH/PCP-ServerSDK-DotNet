@@ -37,8 +37,8 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class BankAccountInformation {\n");
-      sb.Append("  Iban: ").Append(Iban).Append("\n");
-      sb.Append("  AccountHolder: ").Append(AccountHolder).Append("\n");
+      sb.Append("  Iban: ").Append(Iban).Append('\n');
+      sb.Append("  AccountHolder: ").Append(AccountHolder).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

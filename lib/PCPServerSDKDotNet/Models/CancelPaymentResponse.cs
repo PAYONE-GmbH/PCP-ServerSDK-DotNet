@@ -28,7 +28,7 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class CancelPaymentResponse {\n");
-      sb.Append("  Payment: ").Append(Payment).Append("\n");
+      sb.Append("  Payment: ").Append(Payment).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

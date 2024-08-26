@@ -81,14 +81,14 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class Customer {\n");
-      sb.Append("  CompanyInformation: ").Append(CompanyInformation).Append("\n");
-      sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append("\n");
-      sb.Append("  BillingAddress: ").Append(BillingAddress).Append("\n");
-      sb.Append("  ContactDetails: ").Append(ContactDetails).Append("\n");
-      sb.Append("  FiscalNumber: ").Append(FiscalNumber).Append("\n");
-      sb.Append("  BusinessRelation: ").Append(BusinessRelation).Append("\n");
-      sb.Append("  Locale: ").Append(Locale).Append("\n");
-      sb.Append("  PersonalInformation: ").Append(PersonalInformation).Append("\n");
+      sb.Append("  CompanyInformation: ").Append(CompanyInformation).Append('\n');
+      sb.Append("  MerchantCustomerId: ").Append(MerchantCustomerId).Append('\n');
+      sb.Append("  BillingAddress: ").Append(BillingAddress).Append('\n');
+      sb.Append("  ContactDetails: ").Append(ContactDetails).Append('\n');
+      sb.Append("  FiscalNumber: ").Append(FiscalNumber).Append('\n');
+      sb.Append("  BusinessRelation: ").Append(BusinessRelation).Append('\n');
+      sb.Append("  Locale: ").Append(Locale).Append('\n');
+      sb.Append("  PersonalInformation: ").Append(PersonalInformation).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }

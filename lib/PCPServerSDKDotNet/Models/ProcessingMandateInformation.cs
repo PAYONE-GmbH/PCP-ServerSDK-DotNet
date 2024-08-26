@@ -59,11 +59,11 @@ namespace PCPServerSDKDotNet.Models
     {
       var sb = new StringBuilder();
       sb.Append("class ProcessingMandateInformation {\n");
-      sb.Append("  BankAccountIban: ").Append(BankAccountIban).Append("\n");
-      sb.Append("  RecurrenceType: ").Append(RecurrenceType).Append("\n");
-      sb.Append("  UniqueMandateReference: ").Append(UniqueMandateReference).Append("\n");
-      sb.Append("  DateOfSignature: ").Append(DateOfSignature).Append("\n");
-      sb.Append("  CreditorId: ").Append(CreditorId).Append("\n");
+      sb.Append("  BankAccountIban: ").Append(BankAccountIban).Append('\n');
+      sb.Append("  RecurrenceType: ").Append(RecurrenceType).Append('\n');
+      sb.Append("  UniqueMandateReference: ").Append(UniqueMandateReference).Append('\n');
+      sb.Append("  DateOfSignature: ").Append(DateOfSignature).Append('\n');
+      sb.Append("  CreditorId: ").Append(CreditorId).Append('\n');
       sb.Append("}\n");
       return sb.ToString();
     }
