@@ -34,7 +34,7 @@ public class RequestHeaderGenerator
         {
             request.Headers.Add(DATE_HEADER_NAME, DateTime.UtcNow.ToString("r", CultureInfo.InvariantCulture));
         }
-        
+
         if (!request.Headers.Contains(SERVER_META_INFO_HEADER_NAME))
         {
             request.Headers.Add(SERVER_META_INFO_HEADER_NAME, this.GetServerMetaInfo());

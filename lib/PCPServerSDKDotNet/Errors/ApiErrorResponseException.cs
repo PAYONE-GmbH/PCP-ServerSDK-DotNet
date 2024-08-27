@@ -8,7 +8,7 @@ public class ApiErrorResponseException : ApiException
     public ApiErrorResponseException(int statusCode, string responseBody, List<APIError>? errors = null)
         : base(statusCode, responseBody)
     {
-        this.Errors = errors ?? [];
+        this.Errors = errors ?? new List<APIError>();
     }
 
     public List<APIError> Errors { get; }

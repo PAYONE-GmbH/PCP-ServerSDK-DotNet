@@ -50,12 +50,12 @@ public class ServerMetaInfo
         return this;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         return this.Equals(obj as ServerMetaInfo);
     }
 
-    public bool Equals(ServerMetaInfo other)
+    public bool Equals(ServerMetaInfo? other)
     {
         return other != null &&
                this.PlatformIdentifier == other.PlatformIdentifier &&

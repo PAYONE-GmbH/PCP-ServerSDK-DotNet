@@ -261,7 +261,7 @@ public class GetCheckoutsQuery : IQueryConfig
 
     public Dictionary<string, string> ToQueryMap()
     {
-        Dictionary<string, string> query = [];
+        Dictionary<string, string> query = new();
 
         if (this.Offset.HasValue)
         {
@@ -360,7 +360,7 @@ public class GetCheckoutsQuery : IQueryConfig
 
         if (this.IncludePaymentProductId != null && this.IncludePaymentProductId.Count > 0)
         {
-            List<string> productIdList = [];
+            List<string> productIdList = new();
             foreach (int productId in this.IncludePaymentProductId)
             {
                 productIdList.Add(productId.ToString());
@@ -371,19 +371,19 @@ public class GetCheckoutsQuery : IQueryConfig
 
         if (this.IncludeCheckoutStatus != null && this.IncludeCheckoutStatus.Count > 0)
         {
-            List<StatusCheckout> statusList = [.. this.IncludeCheckoutStatus];
+            List<StatusCheckout> statusList = new(this.IncludeCheckoutStatus);
             query.Add("includeCheckoutStatus", string.Join(",", statusList));
         }
 
         if (this.IncludeExtendedCheckoutStatus != null && this.IncludeExtendedCheckoutStatus.Count > 0)
         {
-            List<ExtendedCheckoutStatus> statusList = [.. this.IncludeExtendedCheckoutStatus];
+            List<ExtendedCheckoutStatus> statusList = new(this.IncludeExtendedCheckoutStatus);
             query.Add("includeExtendedCheckoutStatus", string.Join(",", statusList));
         }
 
         if (this.IncludePaymentChannel != null && this.IncludePaymentChannel.Count > 0)
         {
-            List<PaymentChannel> channelList = [.. this.IncludePaymentChannel];
+            List<PaymentChannel> channelList = new(this.IncludePaymentChannel);
             query.Add("includePaymentChannel", string.Join(",", channelList));
         }
 
