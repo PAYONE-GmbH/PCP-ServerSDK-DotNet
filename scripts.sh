@@ -65,10 +65,10 @@ clear() {
 }
 
 publish() {
-    # example: ./scripts.sh publish <PyPI token>
-    # check if the PyPI token is passed
+    # example: ./scripts.sh publish <NuGet token>
+    # check if the NuGet token is passed
     if [ -z "$2" ]; then
-        echo "Please provide the PyPI token."
+        echo "Please provide the NuGet token."
         exit 1
     fi
     echo "Uploading the package..."
