@@ -88,7 +88,10 @@ For most [payment methods](https://docs.payone.com/pcp/commerce-platform-payment
 When a client is successfully made a payment via ApplePay it receives a [ApplePayPayment](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypayment). This structure is accessible as the `ApplePayPayment` class. You can use the `ApplePayTransformer` to map an `ApplePayPayment` to a `MobilePaymentMethodSpecificInput` which can be used for payment executions or order requests. The transformer has a static method `transformApplePayPaymentToMobilePaymentMethodSpecificInput()` which takes an `ApplePayPayment` and returns a `MobilePaymentMethodSpecificInput`. The transformer does not check if the response is complete, if anything is missing the field will be set to `null`.
 
 ```csharp
-#TODO
+using PCPServerSDKDotNet.Transformer;
+
+ApplePayPayment payment = JsonConvert.DeserializeObject<ApplePayPayment>(GetJsonStringFromRequestSomehow());
+MobilePaymentMethodSpecificInput input = TransformApplePayPaymentToMobilePaymentMethodSpecificInput(payment);
 ```
 
 **[back to top](#table-of-contents)**
