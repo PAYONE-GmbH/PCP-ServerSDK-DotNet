@@ -58,6 +58,11 @@ public class BaseApiClient
 
     protected async Task MakeApiCallAsync(HttpRequestMessage request)
     {
+        if (request == null)
+        {
+            throw new ArgumentNullException(nameof(request));
+        }
+
         request = this.GetRequestHeaderGenerator().GenerateAdditionalRequestHeaders(request);
         HttpResponseMessage response = await this.GetResponseAsync(request);
         await this.HandleErrorAsync(response);
@@ -65,6 +70,11 @@ public class BaseApiClient
 
     protected async Task<T> MakeApiCallAsync<T>(HttpRequestMessage request)
     {
+        if (request == null)
+        {
+            throw new ArgumentNullException(nameof(request));
+        }
+
         request = this.GetRequestHeaderGenerator().GenerateAdditionalRequestHeaders(request);
         HttpResponseMessage response = await this.GetResponseAsync(request);
         await this.HandleErrorAsync(response);
@@ -81,6 +91,11 @@ public class BaseApiClient
 
     private async Task HandleErrorAsync(HttpResponseMessage response)
     {
+        if (response == null)
+        {
+            throw new ArgumentNullException(nameof(response));
+        }
+
         if (response.IsSuccessStatusCode)
         {
             return;

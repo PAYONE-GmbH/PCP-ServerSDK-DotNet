@@ -52,13 +52,27 @@ public class ServerMetaInfo
 
     public override bool Equals(object? obj)
     {
-        return this.Equals(obj as ServerMetaInfo);
+        if (obj == null)
+        {
+            return false;
+        }
+
+        if (obj is ServerMetaInfo)
+        {
+            return this.Equals(obj as ServerMetaInfo);
+        }
+
+        return false;
     }
 
     public bool Equals(ServerMetaInfo? other)
     {
-        return other != null &&
-               this.PlatformIdentifier == other.PlatformIdentifier &&
+        if (other == null)
+        {
+            return false;
+        }
+
+        return this.PlatformIdentifier == other.PlatformIdentifier &&
                this.SdkIdentifier == other.SdkIdentifier &&
                this.SdkCreator == other.SdkCreator &&
                this.Integrator == other.Integrator;

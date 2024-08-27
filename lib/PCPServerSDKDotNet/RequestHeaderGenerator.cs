@@ -29,7 +29,11 @@ public class RequestHeaderGenerator
 
     public HttpRequestMessage GenerateAdditionalRequestHeaders(HttpRequestMessage request)
     {
-        Debug.WriteLine("Generating headers for request");
+        if (request == null)
+        {
+            throw new ArgumentException("Request must not be null");
+        }
+
         if (!request.Headers.Contains(DATE_HEADER_NAME))
         {
             request.Headers.Add(DATE_HEADER_NAME, DateTime.UtcNow.ToString("r", CultureInfo.InvariantCulture));
@@ -55,6 +59,11 @@ public class RequestHeaderGenerator
 
     private string GetStringToSign(HttpRequestMessage request)
     {
+        if (request == null)
+        {
+            throw new ArgumentException("Request must not be null");
+        }
+
         // 1. method
         StringBuilder stringToSign = new(request.Method.Method);
         stringToSign.Append('\n');
@@ -109,6 +118,11 @@ public class RequestHeaderGenerator
 
     private string GetAuthHeader(HttpRequestMessage request)
     {
+        if (request == null)
+        {
+            throw new ArgumentException("Request must not be null");
+        }
+
         string stringToSign = this.GetStringToSign(request);
         string signature = this.Sign(stringToSign.ToString());
         return $"GCS v1HMAC:{this.config.ApiKey}:{signature}";
@@ -116,6 +130,11 @@ public class RequestHeaderGenerator
 
     private string Sign(string target)
     {
+        if (string.IsNullOrEmpty(target))
+        {
+            throw new ArgumentException("Target must not be null or empty");
+        }
+
         byte[] hash = this.hmac.ComputeHash(Encoding.UTF8.GetBytes(target));
         return Convert.ToBase64String(hash);
     }

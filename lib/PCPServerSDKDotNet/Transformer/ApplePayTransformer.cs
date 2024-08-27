@@ -15,6 +15,11 @@ public class ApplePayTransformer
     public static MobilePaymentMethodSpecificInput TransformApplePayPaymentToMobilePaymentMethodSpecificInput(
         ApplePayPayment payment)
     {
+        if (payment == null)
+        {
+            throw new ArgumentNullException(nameof(payment));
+        }
+
         string? publicKeyHash = null;
         string? ephemeralKey = null;
         string? network = null;
