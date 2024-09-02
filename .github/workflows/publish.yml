@@ -21,5 +21,11 @@ jobs:
         run: ./scripts.sh install
       - name: Run Build
         run: ./scripts.sh build
-      - name: Run Publish
-        run: ./scripts.sh publish ${{ secrets.NUGET_TOKEN }}
+      # - name: Run Publish
+      #   run: ./scripts.sh publish ${{ secrets.NUGET_TOKEN }}
+      - name: Zip files
+        run: zip -r release.zip lib/PCPServerSDKDotNet/bin/Release
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release.zip
