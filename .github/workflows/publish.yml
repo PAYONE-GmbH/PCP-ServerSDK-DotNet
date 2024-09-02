@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - name: Checkout repository
@@ -23,7 +23,11 @@ jobs:
       #   run: ./scripts.sh publish ${{ secrets.NUGET_TOKEN }}
       - name: Zip files
         run: zip -r release.zip lib/PCPServerSDKDotNet/bin/Release
+      - name: Set latest given to github output
+        id: set-tag
+        run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: ncipollo/release-action@v1
         with:
-          files: release.zip
+          artifacts: release.zip
+          tag: ${{ steps.set-tag.outputs.tag }}
