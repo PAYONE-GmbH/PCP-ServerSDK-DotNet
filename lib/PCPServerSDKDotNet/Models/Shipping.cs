@@ -1,46 +1,43 @@
-using System.Text;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-
 namespace PCPServerSDKDotNet.Models
 {
-
-  /// <summary>
-  /// Object containing information regarding shipping / delivery 
-  /// </summary>
-  [DataContract]
-  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-  public class Shipping
-  {
-    /// <summary>
-    /// Gets or Sets Address
-    /// </summary>
-    [DataMember(Name = "address", EmitDefaultValue = false)]
-    [JsonProperty(PropertyName = "address")]
-    public AddressPersonal? Address { get; set; }
-
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Get the string presentation of the object
+    /// Object containing information regarding shipping / delivery.
     /// </summary>
-    /// <returns>String presentation of the object</returns>
-    public override string ToString()
+    [DataContract]
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+    public class Shipping
     {
-      var sb = new StringBuilder();
-      sb.Append("class Shipping {\n");
-      sb.Append("  Address: ").Append(Address).Append('\n');
-      sb.Append("}\n");
-      return sb.ToString();
-    }
+        /// <summary>
+        /// Gets or Sets Address.
+        /// </summary>
+        [DataMember(Name = "address", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "address")]
+        public AddressPersonal? Address { get; set; }
 
-    /// <summary>
-    /// Get the JSON string presentation of the object
-    /// </summary>
-    /// <returns>JSON string presentation of the object</returns>
-    public string ToJson()
-    {
-      return JsonConvert.SerializeObject(this, Formatting.Indented);
-    }
+        /// <summary>
+        /// Get the string presentation of the object.
+        /// </summary>
+        /// <returns>String presentation of the object.</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class Shipping {\n");
+            sb.Append("  Address: ").Append(this.Address).Append('\n');
+            sb.Append("}\n");
+            return sb.ToString();
+        }
 
-  }
+        /// <summary>
+        /// Get the JSON string presentation of the object.
+        /// </summary>
+        /// <returns>JSON string presentation of the object.</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+    }
 }

@@ -1,120 +1,139 @@
+namespace PCPServerSDKDotNet.Queries;
+
 using PCPServerSDKDotNet.Models;
 using PCPServerSDKDotNet.Utils;
 
-namespace PCPServerSDKDotNet.Queries;
-
 public class GetCommerceCasesQuery : IQueryConfig
 {
+    public GetCommerceCasesQuery()
+    {
+        // Empty constructor
+        // GetCheckoutsQuery should be populated using the setter methods
+    }
+
     public int? Offset { get; private set; }
+
     public int? Size { get; private set; }
+
     public string? FromDate { get; private set; }
+
     public string? ToDate { get; private set; }
+
     public string? CommerceCaseId { get; private set; }
+
     public string? MerchantReference { get; private set; }
+
     public string? MerchantCustomerId { get; private set; }
+
     public List<StatusCheckout>? IncludeCheckoutStatus { get; private set; }
+
     public List<PaymentChannel>? IncludePaymentChannel { get; private set; }
-
-
 
     public GetCommerceCasesQuery SetOffset(int? offset)
     {
-        Offset = offset;
+        this.Offset = offset;
         return this;
     }
 
     public GetCommerceCasesQuery SetSize(int? size)
     {
-        Size = size;
+        this.Size = size;
         return this;
     }
 
     public GetCommerceCasesQuery SetFromDate(string fromDate)
     {
-        FromDate = fromDate;
+        this.FromDate = fromDate;
         return this;
     }
 
     public GetCommerceCasesQuery SetToDate(string toDate)
     {
-        ToDate = toDate;
+        this.ToDate = toDate;
         return this;
     }
 
     public GetCommerceCasesQuery SetCommerceCaseId(string commerceCaseId)
     {
-        CommerceCaseId = commerceCaseId;
+        this.CommerceCaseId = commerceCaseId;
         return this;
     }
 
     public GetCommerceCasesQuery SetMerchantReference(string merchantReference)
     {
-        MerchantReference = merchantReference;
+        this.MerchantReference = merchantReference;
         return this;
     }
 
     public GetCommerceCasesQuery SetMerchantCustomerId(string merchantCustomerId)
     {
-        MerchantCustomerId = merchantCustomerId;
+        this.MerchantCustomerId = merchantCustomerId;
         return this;
     }
 
     public GetCommerceCasesQuery SetIncludeCheckoutStatus(List<StatusCheckout> includeCheckoutStatus)
     {
-        IncludeCheckoutStatus = includeCheckoutStatus;
+        this.IncludeCheckoutStatus = includeCheckoutStatus;
         return this;
     }
 
     public GetCommerceCasesQuery SetIncludePaymentChannel(List<PaymentChannel> includePaymentChannel)
     {
-        IncludePaymentChannel = includePaymentChannel;
+        this.IncludePaymentChannel = includePaymentChannel;
         return this;
     }
 
     public Dictionary<string, string> ToQueryMap()
     {
-        Dictionary<string, string> query = [];
+        Dictionary<string, string> query = new();
 
-        if (Offset.HasValue)
+        if (this.Offset.HasValue)
         {
-            query["offset"] = Offset.Value.ToString();
+            query["offset"] = this.Offset.Value.ToString();
         }
-        if (Size.HasValue)
+
+        if (this.Size.HasValue)
         {
-            query["size"] = Size.Value.ToString();
+            query["size"] = this.Size.Value.ToString();
         }
-        if (!string.IsNullOrEmpty(FromDate))
+
+        if (!string.IsNullOrEmpty(this.FromDate))
         {
-            query["fromDate"] = FromDate;
+            query["fromDate"] = this.FromDate;
         }
-        if (!string.IsNullOrEmpty(ToDate))
+
+        if (!string.IsNullOrEmpty(this.ToDate))
         {
-            query["toDate"] = ToDate;
+            query["toDate"] = this.ToDate;
         }
-        if (!string.IsNullOrEmpty(CommerceCaseId))
+
+        if (!string.IsNullOrEmpty(this.CommerceCaseId))
         {
-            query["commerceCaseId"] = CommerceCaseId;
+            query["commerceCaseId"] = this.CommerceCaseId;
         }
-        if (!string.IsNullOrEmpty(MerchantReference))
+
+        if (!string.IsNullOrEmpty(this.MerchantReference))
         {
-            query["merchantReference"] = MerchantReference;
+            query["merchantReference"] = this.MerchantReference;
         }
-        if (!string.IsNullOrEmpty(MerchantCustomerId))
+
+        if (!string.IsNullOrEmpty(this.MerchantCustomerId))
         {
-            query["merchantCustomerId"] = MerchantCustomerId;
+            query["merchantCustomerId"] = this.MerchantCustomerId;
         }
-        if (IncludeCheckoutStatus != null && IncludeCheckoutStatus.Count > 0)
+
+        if (this.IncludeCheckoutStatus != null && this.IncludeCheckoutStatus.Count > 0)
         {
-            List<StatusCheckout> statusList = [.. IncludeCheckoutStatus];
+            List<StatusCheckout> statusList = new(this.IncludeCheckoutStatus);
             query["includeCheckoutStatus"] = string.Join(",", statusList);
         }
-        if (IncludePaymentChannel != null && IncludePaymentChannel.Count > 0)
+
+        if (this.IncludePaymentChannel != null && this.IncludePaymentChannel.Count > 0)
         {
-            List<PaymentChannel> channelList = [.. IncludePaymentChannel];
+            List<PaymentChannel> channelList = new(this.IncludePaymentChannel);
             query["includePaymentChannel"] = string.Join(",", channelList);
         }
 
         return query;
     }
 }
-

@@ -5,15 +5,6 @@ using System.Text.Json.Serialization;
 
 public class ServerMetaInfo
 {
-    public static ServerMetaInfo WithDefaults(string? integrator = null)
-    {
-        return new ServerMetaInfo()
-            .WithPlatformIdentifier($"{Environment.OSVersion}, .NET version is: {Environment.Version}")
-            .WithSdkIdentifier("DotNetServerSDK/v0.0.1")
-            .WithSdkCreator("PAYONE GmbH")
-            .WithIntegrator(integrator);
-    }
-
     [JsonPropertyName("platformIdentifier")]
     public string? PlatformIdentifier { get; set; }
 
@@ -26,48 +17,69 @@ public class ServerMetaInfo
     [JsonPropertyName("integrator")]
     public string? Integrator { get; set; }
 
-
+    public static ServerMetaInfo WithDefaults(string? integrator = null)
+    {
+        return new ServerMetaInfo()
+            .WithPlatformIdentifier($"{Environment.OSVersion}, .NET version is: {Environment.Version}")
+            .WithSdkIdentifier("DotNetServerSDK/v0.0.2")
+            .WithSdkCreator("PAYONE GmbH")
+            .WithIntegrator(integrator);
+    }
 
     public ServerMetaInfo WithPlatformIdentifier(string platformIdentifier)
     {
-        PlatformIdentifier = platformIdentifier;
+        this.PlatformIdentifier = platformIdentifier;
         return this;
     }
 
     public ServerMetaInfo WithSdkIdentifier(string sdkIdentifier)
     {
-        SdkIdentifier = sdkIdentifier;
+        this.SdkIdentifier = sdkIdentifier;
         return this;
     }
 
     public ServerMetaInfo WithSdkCreator(string sdkCreator)
     {
-        SdkCreator = sdkCreator;
+        this.SdkCreator = sdkCreator;
         return this;
     }
 
     public ServerMetaInfo WithIntegrator(string? integrator)
     {
-        Integrator = integrator;
+        this.Integrator = integrator;
         return this;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
-        return Equals(obj as ServerMetaInfo);
+        if (obj == null)
+        {
+            return false;
+        }
+
+        if (obj is ServerMetaInfo)
+        {
+            return this.Equals(obj as ServerMetaInfo);
+        }
+
+        return false;
     }
 
-    public bool Equals(ServerMetaInfo other)
+    public bool Equals(ServerMetaInfo? other)
     {
-        return other != null &&
-               PlatformIdentifier == other.PlatformIdentifier &&
-               SdkIdentifier == other.SdkIdentifier &&
-               SdkCreator == other.SdkCreator &&
-               Integrator == other.Integrator;
+        if (other == null)
+        {
+            return false;
+        }
+
+        return this.PlatformIdentifier == other.PlatformIdentifier &&
+               this.SdkIdentifier == other.SdkIdentifier &&
+               this.SdkCreator == other.SdkCreator &&
+               this.Integrator == other.Integrator;
     }
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(PlatformIdentifier, SdkIdentifier, SdkCreator, Integrator);
+        return HashCode.Combine(this.PlatformIdentifier, this.SdkIdentifier, this.SdkCreator, this.Integrator);
     }
 }

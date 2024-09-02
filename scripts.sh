@@ -1,21 +1,16 @@
 #!/bin/sh
 
-setup() {
-    echo "Setting up the environment..."
-    echo "Environment set up."
-}
-
-# Function to install dependencies
-install() {
-    echo "Installing dependencies..."
-    echo "Dependencies installed."
-}
-
 # Function to build the package
 build() {
     echo "Building the package..."
-    dotnet build lib/PCPServerSDKDotNet/PCPServerSDKDotNet.csproj
+    dotnet pack lib/PCPServerSDKDotNet --configuration Release
     echo "Build complete."
+}
+
+format() {
+    echo "Formatting the code..."
+    dotnet format lib/PCPServerSDKDotNet
+    echo "Format complete."
 }
 
 # Function to run tests
@@ -23,11 +18,6 @@ test() {
     echo "Running tests..."
     dotnet test tests/PCPServerSDKDotNetTests --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
     echo "Tests complete."
-}
-
-lint() {
-    echo "Running lint..."
-    echo "Lint complete."
 }
 
 version() {
@@ -54,28 +44,37 @@ version() {
     npm install
     npm run changelog
     git add CHANGELOG.md
-    # git tag -a v$NEW_VERSION -m "Version $NEW_VERSION"
-    # git commit -m "Update version to $VERSION"
-    # git push origin tag v$NEW_VERSION
-    # git push origin HEAD
+    git tag -a v$NEW_VERSION -m "Version $NEW_VERSION"
+    git commit -m "Update version to $VERSION"
+    git push origin tag v$NEW_VERSION
+    git push -u origin HEAD
 
     echo "Version complete."
 }
 
 clear() {
     echo "Removing temp directories..."
+    rm -rf lib/PCPServerSDKDotNet/bin/
+    rm -rf lib/PCPServerSDKDotNet/obj/
+    rm -rf tests/PCPServerSDKDotNetTests/bin/
+    rm -rf tests/PCPServerSDKDotNetTests/obj/
+    rm -rf app/PCPServerSDKDotNetRunner/bin/
+    rm -rf app/PCPServerSDKDotNetRunner/obj/
+    rm -rf node_modules/
     echo "All temp directories have been removed."
 }
 
 publish() {
-    # example: ./scripts.sh publish <PyPI token>
-    # check if the PyPI token is passed
+    # example: ./scripts.sh publish <NuGet token>
+    # check if the NuGet token is passed
     if [ -z "$2" ]; then
-        echo "Please provide the PyPI token."
+        echo "Please provide the NuGet token."
         exit 1
     fi
     echo "Uploading the package..."
     TOKEN=$2
+    PACKAGE_PATH=$(find lib/PCPServerSDKDotNet/bin/Release/ -type f -name 'PCPServerSDKDotNet.*.nupkg')
+    dotnet nuget push $PACKAGE_PATH --api-key $TOKEN --source https://api.nuget.org/v3/index.json
     echo "Upload complete."
 }
 
@@ -86,20 +85,14 @@ run() {
 
 # Check the first argument passed to the script
 case "$1" in
-setup)
-    setup
-    ;;
-install)
-    install
-    ;;
 build)
     build
     ;;
 test)
     test
     ;;
-lint)
-    lint
+format)
+    format
     ;;
 clear)
     clear
@@ -114,7 +107,7 @@ run)
     run
     ;;
 *)
-    echo "Usage: $0 {setup|install|build|test|lint|clear|version|publish|run}"
+    echo "Usage: $0 {build|test|format|clear|version|publish|run}"
     exit 1
     ;;
 esac

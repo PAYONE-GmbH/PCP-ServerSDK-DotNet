@@ -1,72 +1,76 @@
+namespace PCPServerSDKDotNet.Models.ApplePay;
+
 using Newtonsoft.Json;
 
-namespace PCPServerSDKDotNet.Models.ApplePay
+/// <summary>
+/// Information about the card used in the transaction.
+/// </summary>
+[JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+public class ApplePayPaymentMethod
 {
-    /// <summary>
-    /// Information about the card used in the transaction.
-    /// </summary>
-    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class ApplePayPaymentMethod
+    public ApplePayPaymentMethod()
     {
-        [JsonProperty("displayName")]
-        public string? DisplayName { get; set; }
+    }
 
-        [JsonProperty("network")]
-        public string? Network { get; set; }
+    public ApplePayPaymentMethod(string displayName, string network, ApplePayPaymentMethodType type, string paymentPass, ApplePayPaymentContact billingContact)
+    {
+        this.DisplayName = displayName;
+        this.Network = network;
+        this.Type = type;
+        this.PaymentPass = paymentPass;
+        this.BillingContact = billingContact;
+    }
 
-        [JsonProperty("type")]
-        public ApplePayPaymentMethodType? Type { get; set; }
+    [JsonProperty("displayName")]
+    public string? DisplayName { get; set; }
 
-        [JsonProperty("paymentPass")]
-        public string? PaymentPass { get; set; }
+    [JsonProperty("network")]
+    public string? Network { get; set; }
 
-        [JsonProperty("billingContact")]
-        public ApplePayPaymentContact? BillingContact { get; set; }
+    [JsonProperty("type")]
+    public ApplePayPaymentMethodType? Type { get; set; }
 
-        public ApplePayPaymentMethod() { }
+    [JsonProperty("paymentPass")]
+    public string? PaymentPass { get; set; }
 
-        public ApplePayPaymentMethod(string displayName, string network, ApplePayPaymentMethodType type, string paymentPass, ApplePayPaymentContact billingContact)
+    [JsonProperty("billingContact")]
+    public ApplePayPaymentContact? BillingContact { get; set; }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is ApplePayPaymentMethod method &&
+               this.DisplayName == method.DisplayName &&
+               this.Network == method.Network &&
+               this.Type == method.Type &&
+               this.PaymentPass == method.PaymentPass &&
+               EqualityComparer<ApplePayPaymentContact>.Default.Equals(this.BillingContact, method.BillingContact);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(this.DisplayName, this.Network, this.Type, this.PaymentPass, this.BillingContact);
+    }
+
+    public override string ToString()
+    {
+        return $"class PaymentMethod {{\n" +
+               $"    displayName: {this.ToIndentedString(this.DisplayName)}\n" +
+               $"    network: {this.ToIndentedString(this.Network)}\n" +
+               $"    type: {this.ToIndentedString(this.Type)}\n" +
+               $"    paymentPass: {this.ToIndentedString(this.PaymentPass)}\n" +
+               $"    billingContact: {this.ToIndentedString(this.BillingContact)}\n" +
+               $"}}";
+    }
+
+    private string ToIndentedString(object? obj)
+    {
+        if (obj == null)
         {
-            DisplayName = displayName;
-            Network = network;
-            Type = type;
-            PaymentPass = paymentPass;
-            BillingContact = billingContact;
+            return "null";
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is ApplePayPaymentMethod method &&
-                   DisplayName == method.DisplayName &&
-                   Network == method.Network &&
-                   Type == method.Type &&
-                   PaymentPass == method.PaymentPass &&
-                   EqualityComparer<ApplePayPaymentContact>.Default.Equals(BillingContact, method.BillingContact);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(DisplayName, Network, Type, PaymentPass, BillingContact);
-        }
-
-        public override string ToString()
-        {
-            return $"class PaymentMethod {{\n" +
-                   $"    displayName: {ToIndentedString(DisplayName)}\n" +
-                   $"    network: {ToIndentedString(Network)}\n" +
-                   $"    type: {ToIndentedString(Type)}\n" +
-                   $"    paymentPass: {ToIndentedString(PaymentPass)}\n" +
-                   $"    billingContact: {ToIndentedString(BillingContact)}\n" +
-                   $"}}";
-        }
-
-        private string ToIndentedString(object obj)
-        {
-            if (obj == null)
-            {
-                return "null";
-            }
-            return obj.ToString().Replace("\n", "\n    ");
-        }
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        return obj.ToString().Replace("\n", "\n    ");
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

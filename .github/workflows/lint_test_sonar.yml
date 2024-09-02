@@ -13,16 +13,35 @@ on:
 jobs:
   test:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        dotnet: ['6.0.x', '7.0.x', '8.0.x']
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-dotnet@v4
+      - name: Setup .NET v${{ matrix.dotnet }}
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.401'
+          dotnet-version: ${{ matrix.dotnet }}
       - name: Run Build
         run: ./scripts.sh build
+      - name: Run Tests
+        run: ./scripts.sh test
+
+  sonar:
+    needs: [test]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.401'
       - name: Run Tests
         run: ./scripts.sh test
       - name: Install SonarScanner for .NET

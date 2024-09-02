@@ -48,20 +48,36 @@ dotnet add package pcp-serversdk-dotnet --version <version>
 To use this SDK you need to construct a `CommunicatorConfiguration` which encapsulate everything needed to connect to the PAYONE Commerce Platform.
 
 ```csharp
-#TODO
+using PCPServerSDKDotNet;
+
+string? apiKey = Environment.GetEnvironmentVariable("API_KEY");
+string? apiSecret = Environment.GetEnvironmentVariable("API_SECRET");
+
+CommunicatorConfiguration config = new(apiKey, apiSecret, "api.preprod.commerce.payone.com", null);
 ```
 
-All payloads and responses are availabe as C# classes within the `TODO` package. The serialization and deserialization is handled by the SDK internally. For example, to create an empty commerce case you can pass a `CreateCommerceCaseRequest` instance:
+All payloads and responses are availabe as C# classes within the `PCPServerSDKDotNet.Models` package. The serialization and deserialization is handled by the SDK internally. For example, to create an empty commerce case you can pass a `CreateCommerceCaseRequest` instance:
 
 ```csharp
-#TODO
+string? apiKey = Environment.GetEnvironmentVariable("API_KEY");
+string? apiSecret = Environment.GetEnvironmentVariable("API_SECRET");
+string? merchantId = Environment.GetEnvironmentVariable("MERCHANT_ID");
+
+CommunicatorConfiguration config = new(apiKey, apiSecret, "api.preprod.commerce.payone.com", null);
+
+CommerceCaseApiClient client = new(config);
+
+CreateCommerceCaseResponse res = await client.CreateCommerceCaseRequestAsync(merchantId, new CreateCommerceCaseRequest());
 ```
 
 The models directly map to the API as described in [PAYONE Commerce Platform API Reference](https://docs.payone.com/pcp/commerce-platform-api). For an in depth example you can take a look at the [demo app](#demo-app).
 
 ### Error Handling
 
-TODO
+When making a request any client may throw a `ApiException`. There two subtypes of this exception:
+
+- `ApiErrorReponseException`: This exception is thrown when the API returns an well-formed error response. The given errors are deserialized into `APIError` objects which are availble via the `GetErrors()` method on the exception. They usually contain useful information about what is wrong in your request or the state of the resource.
+- `ApiResponseRetrievalException`: This exception is a catch-all exception for any error that cannot be turned into a helpful error response. This includes malformed responses or unknown responses.
 
 ### Client Side
 
@@ -72,7 +88,10 @@ For most [payment methods](https://docs.payone.com/pcp/commerce-platform-payment
 When a client is successfully made a payment via ApplePay it receives a [ApplePayPayment](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypayment). This structure is accessible as the `ApplePayPayment` class. You can use the `ApplePayTransformer` to map an `ApplePayPayment` to a `MobilePaymentMethodSpecificInput` which can be used for payment executions or order requests. The transformer has a static method `transformApplePayPaymentToMobilePaymentMethodSpecificInput()` which takes an `ApplePayPayment` and returns a `MobilePaymentMethodSpecificInput`. The transformer does not check if the response is complete, if anything is missing the field will be set to `null`.
 
 ```csharp
-#TODO
+using PCPServerSDKDotNet.Transformer;
+
+ApplePayPayment payment = JsonConvert.DeserializeObject<ApplePayPayment>(GetJsonStringFromRequestSomehow());
+MobilePaymentMethodSpecificInput input = TransformApplePayPaymentToMobilePaymentMethodSpecificInput(payment);
 ```
 
 **[back to top](#table-of-contents)**
@@ -80,7 +99,7 @@ When a client is successfully made a payment via ApplePay it receives a [ApplePa
 ## Demo App
 
 ```sh
-#TODO
+API_KEY=api_key API_SECRET=api_secret MERCHANT_ID=123 COMMERCE_CASE_ID=234 CHECKOUT_ID=345 ./scripts.sh run
 ```
 
 **[back to top](#table-of-contents)**
@@ -102,15 +121,15 @@ See [Contributing](./CONTRIBUTING.md)
 git checkout -b release/0.1.0
 ```
 
-- Run prepare-release.sh script to set correct version
+- Run `scripts.sh` script to set correct version
 
 ```sh
-./prepare-release.sh
+./scripts.sh version 0.1.0
 ```
 
 ### Changelog Generation with Conventional Changelog
 
-When calling the `prepare_release.sh` script, the changelog will now be generated automatically using [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
+When calling the `./scripts.sh version` script, the changelog will now be generated automatically using [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
 
 1. **Conventional Commit Messages**:
 
@@ -124,7 +143,7 @@ When calling the `prepare_release.sh` script, the changelog will now be generate
 
 3. **Automatic Changelog Generation**:
 
-   - The `prepare_release.sh` script will automatically generate and update the `CHANGELOG.md` file.
+   - The `./scripts.sh version` script will automatically generate and update the `CHANGELOG.md` file.
    - After running the script, review the updated changelog to ensure accuracy before proceeding with the release.
 
 ### Merging the Release Branch
