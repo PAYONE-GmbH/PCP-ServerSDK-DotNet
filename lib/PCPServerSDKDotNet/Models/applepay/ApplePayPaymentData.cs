@@ -1,97 +1,100 @@
+namespace PCPServerSDKDotNet.Models.ApplePay;
+
 using System.Text.Json.Serialization;
 
-namespace PCPServerSDKDotNet.Models.ApplePay
+/// <summary>
+/// An object that contains the user's payment credentials.
+/// You access the payment token of an authorized payment request using the token property of the Payment object.
+/// </summary>
+public class ApplePayPaymentData
 {
-    /// <summary>
-    /// An object that contains the user's payment credentials.
-    /// You access the payment token of an authorized payment request using the token property of the Payment object.
-    /// </summary>
-    public class ApplePayPaymentData
+    public ApplePayPaymentData()
     {
+    }
 
-        [JsonPropertyName("data")]
-        [JsonInclude]
-        public string? Data { get; set; }
+    public ApplePayPaymentData(string data, ApplePayPaymentDataHeader header, string signature, string version)
+    {
+        this.Data = data;
+        this.Header = header;
+        this.Signature = signature;
+        this.Version = version;
+    }
 
-        [JsonPropertyName("header")]
-        [JsonInclude]
-        public ApplePayPaymentDataHeader? Header { get; set; }
+    [JsonPropertyName("data")]
+    [JsonInclude]
+    public string? Data { get; set; }
 
-        [JsonPropertyName("signature")]
-        [JsonInclude]
-        public string? Signature { get; set; }
+    [JsonPropertyName("header")]
+    [JsonInclude]
+    public ApplePayPaymentDataHeader? Header { get; set; }
 
-        [JsonPropertyName("version")]
-        [JsonInclude]
-        public string? Version { get; set; }
+    [JsonPropertyName("signature")]
+    [JsonInclude]
+    public string? Signature { get; set; }
 
-        public ApplePayPaymentData() { }
+    [JsonPropertyName("version")]
+    [JsonInclude]
+    public string? Version { get; set; }
 
-        public ApplePayPaymentData(string data, ApplePayPaymentDataHeader header, string signature, string version)
+    public ApplePayPaymentData WithData(string data)
+    {
+        this.Data = data;
+        return this;
+    }
+
+    public ApplePayPaymentData WithHeader(ApplePayPaymentDataHeader header)
+    {
+        this.Header = header;
+        return this;
+    }
+
+    public ApplePayPaymentData WithSignature(string signature)
+    {
+        this.Signature = signature;
+        return this;
+    }
+
+    public ApplePayPaymentData WithVersion(string version)
+    {
+        this.Version = version;
+        return this;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is ApplePayPaymentData data &&
+               this.Data == data.Data &&
+               EqualityComparer<ApplePayPaymentDataHeader>.Default.Equals(this.Header, data.Header) &&
+               this.Signature == data.Signature &&
+               this.Version == data.Version;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(this.Data, this.Header, this.Signature, this.Version);
+    }
+
+    public override string ToString()
+    {
+        var sb = new System.Text.StringBuilder();
+        sb.Append("class PaymentData {\n");
+        sb.Append("    data: ").Append(this.ToIndentedString(this.Data)).Append('\n');
+        sb.Append("    header: ").Append(this.ToIndentedString(this.Header)).Append('\n');
+        sb.Append("    signature: ").Append(this.ToIndentedString(this.Signature)).Append('\n');
+        sb.Append("    version: ").Append(this.ToIndentedString(this.Version)).Append('\n');
+        sb.Append("}");
+        return sb.ToString();
+    }
+
+    private string ToIndentedString(object? obj)
+    {
+        if (obj == null)
         {
-            Data = data;
-            Header = header;
-            Signature = signature;
-            Version = version;
+            return "null";
         }
 
-        public ApplePayPaymentData WithData(string data)
-        {
-            Data = data;
-            return this;
-        }
-
-        public ApplePayPaymentData WithHeader(ApplePayPaymentDataHeader header)
-        {
-            Header = header;
-            return this;
-        }
-
-        public ApplePayPaymentData WithSignature(string signature)
-        {
-            Signature = signature;
-            return this;
-        }
-
-        public ApplePayPaymentData WithVersion(string version)
-        {
-            Version = version;
-            return this;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is ApplePayPaymentData data &&
-                   Data == data.Data &&
-                   EqualityComparer<ApplePayPaymentDataHeader>.Default.Equals(Header, data.Header) &&
-                   Signature == data.Signature &&
-                   Version == data.Version;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Data, Header, Signature, Version);
-        }
-
-        public override string ToString()
-        {
-            var sb = new System.Text.StringBuilder();
-            sb.Append("class PaymentData {\n");
-            sb.Append("    data: ").Append(ToIndentedString(Data)).Append('\n');
-            sb.Append("    header: ").Append(ToIndentedString(Header)).Append('\n');
-            sb.Append("    signature: ").Append(ToIndentedString(Signature)).Append('\n');
-            sb.Append("    version: ").Append(ToIndentedString(Version)).Append('\n');
-            sb.Append("}");
-            return sb.ToString();
-        }
-
-        private string ToIndentedString(object obj)
-        {
-            if (obj == null)
-            {
-                return "null";
-            }
-            return obj.ToString().Replace("\n", "\n    ");
-        }
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        return obj.ToString().Replace("\n", "\n    ");
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
 }

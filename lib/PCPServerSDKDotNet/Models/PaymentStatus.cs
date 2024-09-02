@@ -1,9 +1,9 @@
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 namespace PCPServerSDKDotNet.Models
 {
+    using System.Runtime.Serialization;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+
     /// <summary>
     /// Enum representing the payment status.
     /// </summary>
@@ -24,7 +24,6 @@ namespace PCPServerSDKDotNet.Models
 
         [JsonProperty("NO_PAYMENT")]
         [EnumMember(Value = "NO_PAYMENT")]
-        NoPayment
+        NoPayment,
     }
-
 }

@@ -1,55 +1,52 @@
-using System.Text;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-
 namespace PCPServerSDKDotNet.Models
 {
-
-  /// <summary>
-  /// Object containing additional information that when supplied can have a beneficial effect on the discountrates. 
-  /// </summary>
-  [DataContract]
-  [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-  public class OrderLineDetailsPatch : OrderLineDetailsInput
-  {
-    /// <summary>
-    /// Unique identifier of a cart item
-    /// </summary>
-    /// <value>Unique identifier of a cart item</value>
-    [DataMember(Name = "id", EmitDefaultValue = false)]
-    [JsonProperty(PropertyName = "id")]
-    public string? Id { get; set; }
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
 
     /// <summary>
-    /// Gets or Sets Status
+    /// Object containing additional information that when supplied can have a beneficial effect on the discountrates.
     /// </summary>
-    [DataMember(Name = "status", EmitDefaultValue = false)]
-    [JsonProperty(PropertyName = "status")]
-    public List<CartItemOrderStatus>? Status { get; set; }
-
-
-    /// <summary>
-    /// Get the string presentation of the object
-    /// </summary>
-    /// <returns>String presentation of the object</returns>
-    public override string ToString()
+    [DataContract]
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+    public class OrderLineDetailsPatch : OrderLineDetailsInput
     {
-      var sb = new StringBuilder();
-      sb.Append("class OrderLineDetailsPatch {\n");
-      sb.Append("  Id: ").Append(Id).Append('\n');
-      sb.Append("  Status: ").Append(Status).Append('\n');
-      sb.Append("}\n");
-      return sb.ToString();
-    }
+        /// <summary>
+        /// Gets or sets unique identifier of a cart item.
+        /// </summary>
+        /// <value>Unique identifier of a cart item.</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "id")]
+        public string? Id { get; set; }
 
-    /// <summary>
-    /// Get the JSON string presentation of the object
-    /// </summary>
-    /// <returns>JSON string presentation of the object</returns>
-    public new string ToJson()
-    {
-      return JsonConvert.SerializeObject(this, Formatting.Indented);
-    }
+        /// <summary>
+        /// Gets or Sets Status.
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "status")]
+        public List<CartItemOrderStatus>? Status { get; set; }
 
-  }
+        /// <summary>
+        /// Get the string presentation of the object.
+        /// </summary>
+        /// <returns>String presentation of the object.</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class OrderLineDetailsPatch {\n");
+            sb.Append("  Id: ").Append(this.Id).Append('\n');
+            sb.Append("  Status: ").Append(this.Status).Append('\n');
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Get the JSON string presentation of the object.
+        /// </summary>
+        /// <returns>JSON string presentation of the object.</returns>
+        public new string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+    }
 }
