@@ -22,7 +22,7 @@ jobs:
       # - name: Run Publish
       #   run: ./scripts.sh publish ${{ secrets.NUGET_TOKEN }}
       - name: Zip files
-        run: cd lib/PCPServerSDKDotNet/bin/Release && zip -r ../../../../asset.zip . && cd -
+        run: cd lib/PCPServerSDKDotNet/bin/Release && zip -r ../../../../release.zip . && cd -
       - name: Set latest given to github output
         id: set-tag
         run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
