@@ -35,8 +35,11 @@ Welcome to the .NET SDK for the PAYONE Commerce Platform! This repository contai
 
 ## Installation
 
+Currently this package is *not* available on NuGet.  
+You need to download the package from the [Github Releases Page](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/releases) and install it locally.
+
 ```sh
-dotnet add package pcp-serversdk-dotnet --version <version>
+dotnet add package pcp-serversdk-dotnet --source /path/to/your/packages/directory
 ```
 
 **[back to top](#table-of-contents)**
