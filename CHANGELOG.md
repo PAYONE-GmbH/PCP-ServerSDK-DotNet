@@ -1,3 +1,10 @@
+## [0.0.1](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v0.0.2...v0.0.1) (2024-09-03)
+
+### Documentation
+
+* docs: extend readme with applepay ([ff7be9125f1c6e9bb3999b0e5c7d338096d21cbd](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/ff7be9125f1c6e9bb3999b0e5c7d338096d21cbd))
+* docs: update readme ([df96f7ea54b398f217d6b3c922796d7302e86f16](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/df96f7ea54b398f217d6b3c922796d7302e86f16))
+
 ## 0.0.1 (2024-08-26)
 
 ### Bug Fixes
