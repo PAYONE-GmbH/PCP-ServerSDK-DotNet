@@ -1,3 +1,9 @@
+## [0.0.1](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.0.0...v0.0.1) (2024-12-12)
+
+### Documentation
+
+* docs: update readme ([4c2c5e522b5c80aa690d8194b24d45ac67327696](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/4c2c5e522b5c80aa690d8194b24d45ac67327696))
+
 ## [0.0.1](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v0.0.2...v0.0.1) (2024-09-03)
 
 ### Documentation
