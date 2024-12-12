@@ -33,6 +33,10 @@ Welcome to the .NET SDK for the PAYONE Commerce Platform! This repository contai
 - **Well-Documented**: Detailed documentation to help you get started.
 - **Open Source**: Community-driven and open source.
 
+## Requirements
+
+This SDK requires .NET 7 or higher.
+
 ## Installation
 
 Currently this package is *not* available on NuGet.  
