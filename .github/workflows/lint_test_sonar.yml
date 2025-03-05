@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        dotnet: ['7.0.x', '8.0.x']
+        dotnet: ['7.0.x', '8.0.x', '9.0.x']
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
