@@ -178,4 +178,28 @@ public class CheckoutApiClient : BaseApiClient
 
         await this.MakeApiCallAsync(request);
     }
+
+    public async Task<CompletePaymentResponse> CompleteCheckoutRequestAsync(string merchantId, string commerceCaseId, string checkoutId, CompleteOrderRequest payload)
+    {
+        if (string.IsNullOrEmpty(merchantId) || string.IsNullOrEmpty(commerceCaseId) || string.IsNullOrEmpty(checkoutId) || payload == null)
+        {
+            throw new ArgumentException("Invalid arguments provided.");
+        }
+
+        Uri url = new UriBuilder
+        {
+            Scheme = HTTPS_SCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/complete-order",
+        }.Uri;
+
+        string jsonString = JsonConvert.SerializeObject(payload);
+        HttpRequestMessage request = new(HttpMethod.Post, url)
+        {
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
+        };
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+
+        return await this.MakeApiCallAsync<CompletePaymentResponse>(request);
+    }
 }

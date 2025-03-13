@@ -12,31 +12,30 @@ namespace PCPServerSDKDotNet.Models
     public class PayoutOutput
     {
         /// <summary>
-        /// Gets or Sets AmountOfMoney.
+        /// Gets or sets the amount of money.
         /// </summary>
         [DataMember(Name = "amountOfMoney", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "amountOfMoney")]
         public AmountOfMoney? AmountOfMoney { get; set; }
 
         /// <summary>
-        /// Gets or Sets References.
+        /// Gets or sets the references.
         /// </summary>
         [DataMember(Name = "references", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "references")]
         public PaymentReferences? References { get; set; }
 
         /// <summary>
-        /// Gets or sets payment method identifier based on the paymentProductId.
+        /// Gets or sets the payment method identifier based on the paymentProductId.
         /// </summary>
-        /// <value>Payment method identifier based on the paymentProductId.</value>
         [DataMember(Name = "paymentMethod", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentMethod")]
         public string? PaymentMethod { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object.
+        /// Get the string representation of the object.
         /// </summary>
-        /// <returns>String presentation of the object.</returns>
+        /// <returns>A string representation of the object.</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -49,9 +48,9 @@ namespace PCPServerSDKDotNet.Models
         }
 
         /// <summary>
-        /// Get the JSON string presentation of the object.
+        /// Get the JSON string representation of the object.
         /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
+        /// <returns>A JSON string representation of the object.</returns>
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);

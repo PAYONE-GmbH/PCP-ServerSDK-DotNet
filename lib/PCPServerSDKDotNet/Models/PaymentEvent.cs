@@ -40,17 +40,23 @@ namespace PCPServerSDKDotNet.Models
         public CancellationReason? CancellationReason { get; set; }
 
         /// <summary>
-        /// Gets or sets reason of the Refund (e.g. communicated by or to the costumer).
+        /// Gets or sets reason of the Refund (e.g. communicated by or to the customer).
         /// </summary>
-        /// <value>Reason of the Refund (e.g. communicated by or to the costumer).</value>
         [DataMember(Name = "returnReason", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "returnReason")]
         public string? ReturnReason { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object.
+        /// Gets or Sets PaymentInstructions.
         /// </summary>
-        /// <returns>String presentation of the object.</returns>
+        [DataMember(Name = "paymentInstructions", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "paymentInstructions")]
+        public PaymentInstructions? PaymentInstructions { get; set; }
+
+        /// <summary>
+        /// Get the string representation of the object.
+        /// </summary>
+        /// <returns>String representation of the object.</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -60,14 +66,15 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  PaymentStatus: ").Append(this.PaymentStatus).Append('\n');
             sb.Append("  CancellationReason: ").Append(this.CancellationReason).Append('\n');
             sb.Append("  ReturnReason: ").Append(this.ReturnReason).Append('\n');
+            sb.Append("  PaymentInstructions: ").Append(this.PaymentInstructions).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
 
         /// <summary>
-        /// Get the JSON string presentation of the object.
+        /// Get the JSON string representation of the object.
         /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
+        /// <returns>JSON string representation of the object.</returns>
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);

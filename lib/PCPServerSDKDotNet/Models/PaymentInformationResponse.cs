@@ -14,15 +14,13 @@ namespace PCPServerSDKDotNet.Models
         /// <summary>
         /// Gets or sets unique ID of the Commerce Case.
         /// </summary>
-        /// <value>Unique ID of the Commerce Case.</value>
         [DataMember(Name = "commerceCaseId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "commerceCaseId")]
         public string? CommerceCaseId { get; set; }
 
         /// <summary>
-        /// Gets or sets unique ID of the Commerce Case.
+        /// Gets or sets unique ID of the Checkout.
         /// </summary>
-        /// <value>Unique ID of the Commerce Case.</value>
         [DataMember(Name = "checkoutId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "checkoutId")]
         public string? CheckoutId { get; set; }
@@ -30,7 +28,6 @@ namespace PCPServerSDKDotNet.Models
         /// <summary>
         /// Gets or sets unique identifier of the customer.
         /// </summary>
-        /// <value>Unique identifier of the customer.</value>
         [DataMember(Name = "merchantCustomerId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "merchantCustomerId")]
         public string? MerchantCustomerId { get; set; }
@@ -38,7 +35,6 @@ namespace PCPServerSDKDotNet.Models
         /// <summary>
         /// Gets or sets unique ID of the Payment Information.
         /// </summary>
-        /// <value>Unique ID of the Payment Information.</value>
         [DataMember(Name = "paymentInformationId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentInformationId")]
         public string? PaymentInformationId { get; set; }
@@ -51,9 +47,8 @@ namespace PCPServerSDKDotNet.Models
         public PaymentChannel? PaymentChannel { get; set; }
 
         /// <summary>
-        /// Gets or sets payment product identifier - please check see product documentation for a full overview of possible values.
+        /// Gets or sets the payment product identifier.
         /// </summary>
-        /// <value>Payment product identifier - please check see product documentation for a full overview of possible values.</value>
         [DataMember(Name = "paymentProductId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentProductId")]
         public int? PaymentProductId { get; set; }
@@ -61,26 +56,37 @@ namespace PCPServerSDKDotNet.Models
         /// <summary>
         /// Gets or sets unique identifier of the POS terminal of the payment transaction.
         /// </summary>
-        /// <value>Unique identifier of the POS terminal of the payment transaction.</value>
         [DataMember(Name = "terminalId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "terminalId")]
         public string? TerminalId { get; set; }
 
         /// <summary>
-        /// Gets or sets unique ID that identifies a store location or transaction point and which refers to the contract number of the merchant accepting the card.
+        /// Gets or sets unique ID that identifies a store location or transaction point.
         /// </summary>
-        /// <value>Unique ID that identifies a store location or transaction point and which refers to the contract number of the merchant accepting the card.</value>
         [DataMember(Name = "cardAcceptorId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "cardAcceptorId")]
         public string? CardAcceptorId { get; set; }
 
         /// <summary>
-        /// Gets or sets unique reference of the PaymentInformation. In case of card present transactions, the reference from the ECR or terminal will be used. It is always the reference for external transactions. (e.g. card present payments, cash payments or payments processed by other payment providers).
+        /// Gets or sets unique reference of the PaymentInformation.
         /// </summary>
-        /// <value>Unique reference of the PaymentInformation. In case of card present transactions, the reference from the ECR or terminal will be used. It is always the reference for external transactions. (e.g. card present payments, cash payments or payments processed by other payment providers). </value>
         [DataMember(Name = "merchantReference", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "merchantReference")]
         public string? MerchantReference { get; set; }
+
+        /// <summary>
+        /// Gets or sets the creation date and time of the payment.
+        /// </summary>
+        [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "creationDateTime")]
+        public DateTimeOffset? CreationDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last updated date and time of the payment.
+        /// </summary>
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "lastUpdated")]
+        public DateTimeOffset? LastUpdated { get; set; }
 
         /// <summary>
         /// Gets or Sets CardPaymentDetails.
@@ -97,9 +103,9 @@ namespace PCPServerSDKDotNet.Models
         public List<PaymentEvent>? Events { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object.
+        /// Get the string representation of the object.
         /// </summary>
-        /// <returns>String presentation of the object.</returns>
+        /// <returns>String representation of the object.</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -113,6 +119,8 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  TerminalId: ").Append(this.TerminalId).Append('\n');
             sb.Append("  CardAcceptorId: ").Append(this.CardAcceptorId).Append('\n');
             sb.Append("  MerchantReference: ").Append(this.MerchantReference).Append('\n');
+            sb.Append("  CreationDateTime: ").Append(this.CreationDateTime).Append('\n');
+            sb.Append("  LastUpdated: ").Append(this.LastUpdated).Append('\n');
             sb.Append("  CardPaymentDetails: ").Append(this.CardPaymentDetails).Append('\n');
             sb.Append("  Events: ").Append(this.Events).Append('\n');
             sb.Append("}\n");
@@ -120,9 +128,9 @@ namespace PCPServerSDKDotNet.Models
         }
 
         /// <summary>
-        /// Get the JSON string presentation of the object.
+        /// Get the JSON string representation of the object.
         /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
+        /// <returns>JSON string representation of the object.</returns>
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);

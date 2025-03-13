@@ -5,32 +5,34 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object containing information about the end customer's bank account.
+    /// Payee bank account details as part of the payment instructions.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class BankAccountInformation
+    public class Payee
     {
         /// <summary>
-        /// Gets or sets IBAN of the end customer's bank account. The IBAN is the International Bank Account Number. It is an internationally agreed format for the BBAN and includes the ISO country code and two check digits.
+        /// Gets or sets IBAN of the payee's or beneficiary's bank account.
+        /// The IBAN is the International Bank Account Number. It is an internationally agreed format for
+        /// the BBAN and includes the ISO country code and two check digits.
         /// </summary>
         [DataMember(Name = "iban", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "iban")]
         public string? Iban { get; set; }
 
         /// <summary>
-        /// Gets or sets BIC (Bank Identification Code).
+        /// Gets or sets the Bank Identification Code (BIC).
         /// </summary>
         [DataMember(Name = "bic", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "bic")]
         public string? Bic { get; set; }
 
         /// <summary>
-        /// Gets or sets account holder of the bank account with the given IBAN. Does not necessarily have to be the end customer (e.g. joint accounts).
+        /// Gets or sets the name of the payee.
         /// </summary>
-        [DataMember(Name = "accountHolder", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "accountHolder")]
-        public string? AccountHolder { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Get the string representation of the object.
@@ -39,10 +41,10 @@ namespace PCPServerSDKDotNet.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BankAccountInformation {\n");
+            sb.Append("class Payee {\n");
             sb.Append("  Iban: ").Append(this.Iban).Append('\n');
             sb.Append("  Bic: ").Append(this.Bic).Append('\n');
-            sb.Append("  AccountHolder: ").Append(this.AccountHolder).Append('\n');
+            sb.Append("  Name: ").Append(this.Name).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

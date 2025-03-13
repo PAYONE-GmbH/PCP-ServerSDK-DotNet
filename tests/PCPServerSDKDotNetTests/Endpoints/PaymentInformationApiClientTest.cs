@@ -110,4 +110,56 @@ public class PaymentInformationApiClientTests
 
         Assert.Equal(500, e.StatusCode);
     }
+
+    [Fact]
+    public async Task RefundPaymentInformationSuccessful()
+    {
+        Mock<PaymentInformationApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        PaymentInformationRefundResponse expected = new();
+        HttpResponseMessage response = ApiResponseMocks.CreateResponse(HttpStatusCode.OK, new PaymentInformationRefundResponse());
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        PaymentInformationRefundRequest payload = new();
+        PaymentInformationRefundResponse result = await mockClient.Object.RefundPaymentInformationAsync("1", "2", "3", "4", payload);
+
+        Assert.Equivalent(expected, result);
+    }
+
+    [Fact]
+    public async Task RefundPaymentInformationUnsuccessful400()
+    {
+        Mock<PaymentInformationApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateErrorResponse(HttpStatusCode.BadRequest);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        PaymentInformationRefundRequest payload = new();
+
+        ApiErrorResponseException e = await Assert.ThrowsAsync<ApiErrorResponseException>(async () =>
+        {
+            await mockClient.Object.RefundPaymentInformationAsync("1", "2", "3", "4", payload);
+        });
+
+        Assert.Equal(400, e.StatusCode);
+    }
+
+    [Fact]
+    public async Task RefundPaymentInformationUnsuccessful500()
+    {
+        Mock<PaymentInformationApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateEmptyErrorResponse(HttpStatusCode.InternalServerError);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        PaymentInformationRefundRequest payload = new();
+
+        ApiResponseRetrievalException e = await Assert.ThrowsAsync<ApiResponseRetrievalException>(async () =>
+        {
+            await mockClient.Object.RefundPaymentInformationAsync("1", "2", "3", "4", payload);
+        });
+
+        Assert.Equal(500, e.StatusCode);
+    }
+
 }

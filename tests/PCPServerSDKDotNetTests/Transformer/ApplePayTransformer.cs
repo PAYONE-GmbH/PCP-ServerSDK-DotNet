@@ -57,7 +57,7 @@ public class ApplePayTransformerTest
             PaymentProductId = 302,
             PublicKeyHash = "hashhashhash",
             EphemeralKey = null,
-            PaymentProduct302SpecificInput = new PaymentProduct320SpecificInput
+            PaymentProduct302SpecificInput = new PaymentProduct302SpecificInput
             {
                 Network = NetworkEnum.Mastercard,
                 Token = new ApplePaymentDataTokenInformation

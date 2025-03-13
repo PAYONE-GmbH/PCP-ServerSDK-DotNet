@@ -271,7 +271,58 @@ public class CheckoutApiClientTests
     }
 
 
+    [Fact]
+    public async Task CompleteCheckoutRequestSuccessful()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        CompletePaymentResponse expected = new() { };
+        HttpResponseMessage response = ApiResponseMocks.CreateResponse(HttpStatusCode.OK, expected);
 
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        CompleteOrderRequest payload = new();
+        CompletePaymentResponse result = await mockClient.Object.CompleteCheckoutRequestAsync("1", "2", "3", payload);
+
+        Assert.Equivalent(expected, result);
+    }
+
+    // ✅ TEST: Unsuccessful Checkout Completion (400 Bad Request)
+    [Fact]
+    public async Task CompleteCheckoutRequestUnsuccessful()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateErrorResponse(HttpStatusCode.BadRequest);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        CompleteOrderRequest payload = new();
+
+        ApiErrorResponseException e = await Assert.ThrowsAsync<ApiErrorResponseException>(async () =>
+        {
+            await mockClient.Object.CompleteCheckoutRequestAsync("1", "2", "3", payload);
+        });
+
+        Assert.Equal(400, e.StatusCode);
+    }
+
+    // ✅ TEST: Unsuccessful Checkout Completion (500 Internal Server Error)
+    [Fact]
+    public async Task CompleteCheckoutRequestUnsuccessful500()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateEmptyErrorResponse(HttpStatusCode.InternalServerError);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        CompleteOrderRequest payload = new();
+
+        ApiResponseRetrievalException e = await Assert.ThrowsAsync<ApiResponseRetrievalException>(async () =>
+        {
+            await mockClient.Object.CompleteCheckoutRequestAsync("1", "2", "3", payload);
+        });
+
+        Assert.Equal(500, e.StatusCode);
+    }
 
 
 

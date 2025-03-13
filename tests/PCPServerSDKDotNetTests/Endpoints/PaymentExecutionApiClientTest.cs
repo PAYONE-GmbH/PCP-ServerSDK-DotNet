@@ -273,4 +273,108 @@ public class PaymentExecutionApiClientTests
 
         Assert.Equal(500, e.StatusCode);
     }
+
+    [Fact]
+    public async Task PausePaymentRequestSuccessful()
+    {
+        Mock<PaymentExecutionApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        PausePaymentResponse expected = new();
+        HttpResponseMessage response = ApiResponseMocks.CreateResponse(HttpStatusCode.OK, new PausePaymentResponse());
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        PausePaymentRequest payload = new();
+        PausePaymentResponse result = await mockClient.Object.PausePaymentAsync("1", "2", "3", "4", payload);
+
+        Assert.Equivalent(expected, result);
+    }
+
+    [Fact]
+    public async Task PausePaymentRequestUnsuccessful400()
+    {
+        Mock<PaymentExecutionApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateErrorResponse(HttpStatusCode.BadRequest);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        PausePaymentRequest payload = new();
+
+        ApiErrorResponseException e = await Assert.ThrowsAsync<ApiErrorResponseException>(async () =>
+        {
+            await mockClient.Object.PausePaymentAsync("1", "2", "3", "4", payload);
+        });
+
+        Assert.Equal(400, e.StatusCode);
+    }
+
+    [Fact]
+    public async Task PausePaymentRequestUnsuccessful500()
+    {
+        Mock<PaymentExecutionApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateEmptyErrorResponse(HttpStatusCode.InternalServerError);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        PausePaymentRequest payload = new();
+
+        ApiResponseRetrievalException e = await Assert.ThrowsAsync<ApiResponseRetrievalException>(async () =>
+        {
+            await mockClient.Object.PausePaymentAsync("1", "2", "3", "4", payload);
+        });
+
+        Assert.Equal(500, e.StatusCode);
+    }
+
+
+    [Fact]
+    public async Task RefreshPaymentRequestSuccessful()
+    {
+        Mock<PaymentExecutionApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        PaymentExecution expected = new();
+        HttpResponseMessage response = ApiResponseMocks.CreateResponse(HttpStatusCode.OK, new PaymentExecution());
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        RefreshPaymentRequest payload = new();
+        PaymentExecution result = await mockClient.Object.RefreshPaymentAsync("1", "2", "3", "4", payload);
+
+        Assert.Equivalent(expected, result);
+    }
+
+    [Fact]
+    public async Task RefreshPaymentRequestUnsuccessful400()
+    {
+        Mock<PaymentExecutionApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateErrorResponse(HttpStatusCode.BadRequest);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        RefreshPaymentRequest payload = new();
+
+        ApiErrorResponseException e = await Assert.ThrowsAsync<ApiErrorResponseException>(async () =>
+        {
+            await mockClient.Object.RefreshPaymentAsync("1", "2", "3", "4", payload);
+        });
+
+        Assert.Equal(400, e.StatusCode);
+    }
+
+    [Fact]
+    public async Task RefreshPaymentRequestUnsuccessful500()
+    {
+        Mock<PaymentExecutionApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateEmptyErrorResponse(HttpStatusCode.InternalServerError);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        RefreshPaymentRequest payload = new();
+
+        ApiResponseRetrievalException e = await Assert.ThrowsAsync<ApiResponseRetrievalException>(async () =>
+        {
+            await mockClient.Object.RefreshPaymentAsync("1", "2", "3", "4", payload);
+        });
+
+        Assert.Equal(500, e.StatusCode);
+    }
+
 }
