@@ -29,6 +29,25 @@ public class PaymentInformationApiClientTests
         Assert.Equivalent(expected, result);
     }
 
+    [Theory]
+    [InlineData(null, "2", "3")] // Merchant ID is null
+    [InlineData("1", null, "3")] // Commerce Case ID is null
+    [InlineData("1", "2", null)] // Checkout ID is null
+    public async Task CreatePaymentInformation_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId)
+    {
+        Mock<PaymentInformationApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        PaymentInformationRequest payload = new();
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.CreatePaymentInformationAsync(merchantId, commerceCaseId, checkoutId, payload);
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
+
     [Fact]
     public async Task CreatePaymentInformationUnsuccessful()
     {
@@ -79,6 +98,23 @@ public class PaymentInformationApiClientTests
         Assert.Equivalent(expected, result);
     }
 
+    [Theory]
+    [InlineData(null, "2", "3", "4")] // Merchant ID is null
+    [InlineData("1", null, "3", "4")] // Commerce Case ID is null
+    [InlineData("1", "2", null, "4")] // Checkout ID is null
+    [InlineData("1", "2", "3", null)] // Payment Information ID is null
+    public async Task GetPaymentInformation_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId, string paymentInformationId)
+    {
+        Mock<PaymentInformationApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.GetPaymentInformationAsync(merchantId, commerceCaseId, checkoutId, paymentInformationId);
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
     [Fact]
     public async Task GetPaymentInformationRequestUnsuccessful400()
     {
@@ -124,6 +160,25 @@ public class PaymentInformationApiClientTests
         PaymentInformationRefundResponse result = await mockClient.Object.RefundPaymentInformationAsync("1", "2", "3", "4", payload);
 
         Assert.Equivalent(expected, result);
+    }
+
+    [Theory]
+    [InlineData(null, "2", "3", "4")] // Merchant ID is null
+    [InlineData("1", null, "3", "4")] // Commerce Case ID is null
+    [InlineData("1", "2", null, "4")] // Checkout ID is null
+    [InlineData("1", "2", "3", null)] // Payment Information ID is null
+    public async Task RefundPaymentInformation_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId, string paymentInformationId)
+    {
+        Mock<PaymentInformationApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        PaymentInformationRefundRequest payload = new();
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.RefundPaymentInformationAsync(merchantId, commerceCaseId, checkoutId, paymentInformationId, payload);
+        });
+
+        Assert.IsType<ArgumentException>(e);
     }
 
     [Fact]
