@@ -28,9 +28,13 @@ version() {
     fi
     echo "Running version..."
     NEW_VERSION=$2
+    PACKAGE_JSON_PATH="./package.json"
+    PACKAGE_LOCK_JSON_PATH="./package-lock.json"
     CSPROJ_PATH="./lib/PCPServerSDKDotNet/PCPServerSDKDotNet.csproj"
     SERVER_META_INFO_PATH='./lib/PCPServerSDKDotNet/Utils/ServerMetaInfo.cs'
     SERVER_META_INFO_TEST_PATH='./tests/PCPServerSDKDotNetTests/Utils/ServerMetaInfo.cs'
+    sed -i "" "s/\"version\": \".*\"/\"version\": \"$NEW_VERSION\"/" ${PACKAGE_JSON_PATH}
+    sed -i "" "s/\"version\": \".*\"/\"version\": \"$NEW_VERSION\"/" ${PACKAGE_LOCK_JSON_PATH}
     sed -i "" "s/<Version>.*<\/Version>/<Version>$NEW_VERSION<\/Version>/" ${CSPROJ_PATH}
     sed -i "" "s/<AssemblyVersion>.*<\/AssemblyVersion>/<AssemblyVersion>$NEW_VERSION.0<\/AssemblyVersion>/" ${CSPROJ_PATH}
     sed -i "" "s/<FileVersion>.*<\/FileVersion>/<FileVersion>$NEW_VERSION.0<\/FileVersion>/" ${CSPROJ_PATH}
@@ -38,6 +42,8 @@ version() {
     sed -i '' "s|DotNetServerSDK/v[0-9]*\.[0-9]*\.[0-9]*|DotNetServerSDK/v$NEW_VERSION|g" ${SERVER_META_INFO_PATH}
     sed -i '' "s|DotNetServerSDK/v[0-9]*\.[0-9]*\.[0-9]*|DotNetServerSDK/v$NEW_VERSION|g" ${SERVER_META_INFO_TEST_PATH}
 
+    git add $PACKAGE_JSON_PATH
+    git add $PACKAGE_LOCK_JSON_PATH
     git add $CSPROJ_PATH
     git add $SERVER_META_INFO_PATH
     git add $SERVER_META_INFO_TEST_PATH
