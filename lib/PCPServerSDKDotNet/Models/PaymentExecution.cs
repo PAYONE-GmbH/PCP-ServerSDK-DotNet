@@ -12,17 +12,15 @@ namespace PCPServerSDKDotNet.Models
     public class PaymentExecution
     {
         /// <summary>
-        /// Gets or sets unique ID of paymentExecution.
+        /// Gets or sets the unique ID of paymentExecution.
         /// </summary>
-        /// <value>Unique ID of paymentExecution.</value>
         [DataMember(Name = "paymentExecutionId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentExecutionId")]
         public string? PaymentExecutionId { get; set; }
 
         /// <summary>
-        /// Gets or sets unique payment transaction identifier of the payment gateway.
+        /// Gets or sets the unique payment transaction identifier of the payment gateway.
         /// </summary>
-        /// <value>Unique payment transaction identifier of the payment gateway.</value>
         [DataMember(Name = "paymentId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentId")]
         public string? PaymentId { get; set; }
@@ -63,6 +61,13 @@ namespace PCPServerSDKDotNet.Models
         public FinancingPaymentMethodSpecificInput? FinancingPaymentMethodSpecificInput { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankPayoutMethodSpecificInput.
+        /// </summary>
+        [DataMember(Name = "bankPayoutMethodSpecificInput", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "bankPayoutMethodSpecificInput")]
+        public BankPayoutMethodSpecificInput? BankPayoutMethodSpecificInput { get; set; }
+
+        /// <summary>
         /// Gets or Sets PaymentChannel.
         /// </summary>
         [DataMember(Name = "paymentChannel", EmitDefaultValue = false)]
@@ -77,6 +82,27 @@ namespace PCPServerSDKDotNet.Models
         public References? References { get; set; }
 
         /// <summary>
+        /// Gets or Sets PreviousPayment.
+        /// </summary>
+        [DataMember(Name = "previousPayment", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "previousPayment")]
+        public string? PreviousPayment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CreationDateTime.
+        /// </summary>
+        [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "creationDateTime")]
+        public DateTimeOffset? CreationDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastUpdated.
+        /// </summary>
+        [DataMember(Name = "lastUpdated", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "lastUpdated")]
+        public DateTimeOffset? LastUpdated { get; set; }
+
+        /// <summary>
         /// Gets or Sets Events.
         /// </summary>
         [DataMember(Name = "events", EmitDefaultValue = false)]
@@ -84,9 +110,9 @@ namespace PCPServerSDKDotNet.Models
         public List<PaymentEvent>? Events { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object.
+        /// Get the string representation of the object.
         /// </summary>
-        /// <returns>String presentation of the object.</returns>
+        /// <returns>String representation of the object.</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -98,17 +124,21 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  RedirectPaymentMethodSpecificInput: ").Append(this.RedirectPaymentMethodSpecificInput).Append('\n');
             sb.Append("  SepaDirectDebitPaymentMethodSpecificInput: ").Append(this.SepaDirectDebitPaymentMethodSpecificInput).Append('\n');
             sb.Append("  FinancingPaymentMethodSpecificInput: ").Append(this.FinancingPaymentMethodSpecificInput).Append('\n');
+            sb.Append("  BankPayoutMethodSpecificInput: ").Append(this.BankPayoutMethodSpecificInput).Append('\n');
             sb.Append("  PaymentChannel: ").Append(this.PaymentChannel).Append('\n');
             sb.Append("  References: ").Append(this.References).Append('\n');
+            sb.Append("  PreviousPayment: ").Append(this.PreviousPayment).Append('\n');
+            sb.Append("  CreationDateTime: ").Append(this.CreationDateTime).Append('\n');
+            sb.Append("  LastUpdated: ").Append(this.LastUpdated).Append('\n');
             sb.Append("  Events: ").Append(this.Events).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
 
         /// <summary>
-        /// Get the JSON string presentation of the object.
+        /// Get the JSON string representation of the object.
         /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
+        /// <returns>JSON string representation of the object.</returns>
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);

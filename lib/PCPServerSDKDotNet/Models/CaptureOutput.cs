@@ -19,9 +19,9 @@ namespace PCPServerSDKDotNet.Models
         public AmountOfMoney? AmountOfMoney { get; set; }
 
         /// <summary>
-        /// Gets or sets it allows you to store additional parameters for the transaction in JSON format. This field must not contain any personal data.
+        /// Gets or sets merchant parameters. It allows you to store additional parameters for the transaction in JSON format.
+        /// This field must not contain any personal data.
         /// </summary>
-        /// <value>It allows you to store additional parameters for the transaction in JSON format. This field must not contain any personal data.</value>
         [DataMember(Name = "merchantParameters", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "merchantParameters")]
         public string? MerchantParameters { get; set; }
@@ -36,15 +36,21 @@ namespace PCPServerSDKDotNet.Models
         /// <summary>
         /// Gets or sets payment method identifier used by our payment engine.
         /// </summary>
-        /// <value>Payment method identifier used by our payment engine.</value>
         [DataMember(Name = "paymentMethod", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentMethod")]
         public string? PaymentMethod { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object.
+        /// Gets or Sets PaymentInstructions.
         /// </summary>
-        /// <returns>String presentation of the object.</returns>
+        [DataMember(Name = "paymentInstructions", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "paymentInstructions")]
+        public PaymentInstructions? PaymentInstructions { get; set; }
+
+        /// <summary>
+        /// Get the string representation of the object.
+        /// </summary>
+        /// <returns>String representation of the object.</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -53,14 +59,15 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  MerchantParameters: ").Append(this.MerchantParameters).Append('\n');
             sb.Append("  References: ").Append(this.References).Append('\n');
             sb.Append("  PaymentMethod: ").Append(this.PaymentMethod).Append('\n');
+            sb.Append("  PaymentInstructions: ").Append(this.PaymentInstructions).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
 
         /// <summary>
-        /// Get the JSON string presentation of the object.
+        /// Get the JSON string representation of the object.
         /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
+        /// <returns>JSON string representation of the object.</returns>
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);

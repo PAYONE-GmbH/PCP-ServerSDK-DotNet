@@ -39,7 +39,9 @@ public class GetCheckoutsQueryTest
              .SetEmail("john.doe@example.com")
              .SetPhoneNumber("1234567890")
              .SetDateOfBirth("1980-01-01")
-             .SetCompanyInformation("Company Inc.");
+             .SetCompanyInformation("Company Inc.")
+             .SetTerminalId("1234")
+             .SetReportingToken("5678");
 
         Dictionary<string, string> queryMap = query.ToQueryMap();
 
@@ -74,6 +76,8 @@ public class GetCheckoutsQueryTest
         Assert.Equal("1234567890", queryMap["phoneNumber"]);
         Assert.Equal("1980-01-01", queryMap["dateOfBirth"]);
         Assert.Equal("Company Inc.", queryMap["companyInformation"]);
+        Assert.Equal("1234", queryMap["terminalId"]);
+        Assert.Equal("5678", queryMap["reportingToken"]);
     }
 
     [Fact]
@@ -110,7 +114,9 @@ public class GetCheckoutsQueryTest
              .SetEmail("john.doe@example.com")
              .SetPhoneNumber("1234567890")
              .SetDateOfBirth("1980-01-01")
-             .SetCompanyInformation("Company Inc.");
+           .SetCompanyInformation("Company Inc.")
+             .SetTerminalId("1234")
+             .SetReportingToken("5678");
 
         Assert.Equal(1, query.Offset);
         Assert.Equal(10, query.Size);
@@ -143,6 +149,8 @@ public class GetCheckoutsQueryTest
         Assert.Equal("1234567890", query.PhoneNumber);
         Assert.Equal("1980-01-01", query.DateOfBirth);
         Assert.Equal("Company Inc.", query.CompanyInformation);
+        Assert.Equal("1234", query.TerminalId);
+        Assert.Equal("5678", query.ReportingToken);
     }
 
     [Fact]

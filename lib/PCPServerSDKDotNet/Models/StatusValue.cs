@@ -26,6 +26,14 @@ namespace PCPServerSDKDotNet.Models
         [EnumMember(Value = "REJECTED_CAPTURE")]
         RejectedCapture,
 
+        [JsonProperty("REJECTED_PAUSE")]
+        [EnumMember(Value = "REJECTED_PAUSE")]
+        RejectedPause,
+
+        [JsonProperty("REJECTED_UPDATE")]
+        [EnumMember(Value = "REJECTED_UPDATE")]
+        RejectedUpdate,
+
         [JsonProperty("REDIRECTED")]
         [EnumMember(Value = "REDIRECTED")]
         Redirected,
@@ -93,5 +101,17 @@ namespace PCPServerSDKDotNet.Models
         [JsonProperty("ACCOUNT_DEBITED")]
         [EnumMember(Value = "ACCOUNT_DEBITED")]
         AccountDebited,
+
+        [JsonProperty("PAYOUT_REQUESTED")]
+        [EnumMember(Value = "PAYOUT_REQUESTED")]
+        PayoutRequested,
+
+        [JsonProperty("REJECTED_CREDIT")]
+        [EnumMember(Value = "REJECTED_CREDIT")]
+        RejectedCredit,
+
+        [JsonProperty("UPDATED")]
+        [EnumMember(Value = "UPDATED")]
+        Updated,
     }
 }
