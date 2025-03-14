@@ -73,6 +73,10 @@ public class GetCheckoutsQuery : IQueryConfig
 
     public string? CompanyInformation { get; set; }
 
+    public string? TerminalId { get; set; }
+
+    public string? ReportingToken { get; set; }
+
     public GetCheckoutsQuery SetOffset(int? offset)
     {
         this.Offset = offset;
@@ -259,6 +263,18 @@ public class GetCheckoutsQuery : IQueryConfig
         return this;
     }
 
+    public GetCheckoutsQuery SetTerminalId(string terminalId)
+    {
+        this.TerminalId = terminalId;
+        return this;
+    }
+
+    public GetCheckoutsQuery SetReportingToken(string reportingToken)
+    {
+        this.ReportingToken = reportingToken;
+        return this;
+    }
+
     public Dictionary<string, string> ToQueryMap()
     {
         Dictionary<string, string> query = new();
@@ -425,6 +441,16 @@ public class GetCheckoutsQuery : IQueryConfig
         if (!string.IsNullOrEmpty(this.CompanyInformation))
         {
             query.Add("companyInformation", this.CompanyInformation);
+        }
+
+        if (!string.IsNullOrEmpty(this.TerminalId))
+        {
+            query.Add("terminalId", this.TerminalId);
+        }
+
+        if (!string.IsNullOrEmpty(this.ReportingToken))
+        {
+            query.Add("reportingToken", this.ReportingToken);
         }
 
         return query;

@@ -1,3 +1,13 @@
+# [1.1.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.0.1...v1.1.0) (2025-03-13)
+
+### Documentation
+
+* docs: update readme ([7b2b231bb9ac54980a41ddcc38ab9e540703765f](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/7b2b231bb9ac54980a41ddcc38ab9e540703765f))
+
+### Features
+
+* feat: implement api version 1.28.0 ([b10d762bc24b27801344754b6d31865adb201fb5](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/b10d762bc24b27801344754b6d31865adb201fb5))
+
 ## [0.0.1](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.0.0...v0.0.1) (2024-12-12)
 
 ### Documentation

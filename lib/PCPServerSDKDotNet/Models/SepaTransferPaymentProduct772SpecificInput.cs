@@ -1,29 +1,22 @@
 namespace PCPServerSDKDotNet.Models
 {
     using System.Runtime.Serialization;
-    using System.Text;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object containing additional Information needed for Apple Pay payment transactions.
+    /// Object containing the specific input details for SEPA credit transfers
+    /// excluding cross-border ones.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class PaymentProduct320SpecificInput
+    public class SepaTransferPaymentProduct772SpecificInput
     {
         /// <summary>
-        /// Gets or Sets Network.
+        /// Gets or Sets BankAccountInformation.
         /// </summary>
-        [DataMember(Name = "network", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "network")]
-        public NetworkEnum? Network { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Token.
-        /// </summary>
-        [DataMember(Name = "token", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "token")]
-        public ApplePaymentDataTokenInformation? Token { get; set; }
+        [DataMember(Name = "bankAccountInformation", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "bankAccountInformation")]
+        public BankAccountInformation? BankAccountInformation { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object.
@@ -31,10 +24,9 @@ namespace PCPServerSDKDotNet.Models
         /// <returns>String presentation of the object.</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PaymentProduct320SpecificInput {\n");
-            sb.Append("  Network: ").Append(this.Network).Append('\n');
-            sb.Append("  Token: ").Append(this.Token).Append('\n');
+            var sb = new System.Text.StringBuilder();
+            sb.Append("class SepaTransferPaymentProduct772SpecificInput {\n");
+            sb.Append("  BankAccountInformation: ").Append(this.BankAccountInformation).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

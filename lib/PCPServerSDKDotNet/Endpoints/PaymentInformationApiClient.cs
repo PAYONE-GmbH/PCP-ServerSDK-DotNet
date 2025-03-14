@@ -39,7 +39,7 @@ public class PaymentInformationApiClient : BaseApiClient
         {
             Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/payment-informations",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/payment-information",
         }.Uri;
 
         string jsonString = JsonConvert.SerializeObject(payload);
@@ -79,11 +79,56 @@ public class PaymentInformationApiClient : BaseApiClient
         {
             Scheme = HTTPS_SCHEME,
             Host = this.GetConfig().Host,
-            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/payment-informations/{paymentInformationId}",
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/payment-information/{paymentInformationId}",
         }.Uri;
 
         HttpRequestMessage request = new(HttpMethod.Get, url);
 
         return await this.MakeApiCallAsync<PaymentInformationResponse>(request);
+    }
+
+    public async Task<PaymentInformationRefundResponse> RefundPaymentInformationAsync(string merchantId, string commerceCaseId, string checkoutId, string paymentInformationId, PaymentInformationRefundRequest payload)
+    {
+        if (string.IsNullOrEmpty(merchantId))
+        {
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(commerceCaseId))
+        {
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(checkoutId))
+        {
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(paymentInformationId))
+        {
+            throw new ArgumentException("Payment Information ID is required");
+        }
+
+        if (payload == null)
+        {
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        }
+
+        Uri url = new UriBuilder
+        {
+            Scheme = HTTPS_SCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/payment-information/{paymentInformationId}/refund",
+        }.Uri;
+
+        string jsonString = JsonConvert.SerializeObject(payload);
+
+        HttpRequestMessage request = new(HttpMethod.Post, url)
+        {
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
+        };
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+
+        return await this.MakeApiCallAsync<PaymentInformationRefundResponse>(request);
     }
 }

@@ -48,12 +48,12 @@ public class ApplePayTransformer
         }
 
         MobilePaymentMethodSpecificInput input = new();
-        PaymentProduct320SpecificInput paymentProduct320SpecificInput = new();
+        PaymentProduct302SpecificInput paymentProduct302SpecificInput = new();
         ApplePaymentDataTokenInformation applePaymentDataTokenInformation = new();
 
         if (network != null)
         {
-            paymentProduct320SpecificInput.Network = Enum.Parse<NetworkEnum>(network);
+            paymentProduct302SpecificInput.Network = Enum.Parse<NetworkEnum>(network);
         }
 
         if (version != null)
@@ -68,12 +68,12 @@ public class ApplePayTransformer
             ApplicationData = applicationData,
         };
 
-        paymentProduct320SpecificInput.Token = applePaymentDataTokenInformation;
+        paymentProduct302SpecificInput.Token = applePaymentDataTokenInformation;
 
         input.PaymentProductId = APPLEPAYPAYMENTPRODUCTID;
         input.PublicKeyHash = publicKeyHash;
         input.EphemeralKey = ephemeralKey;
-        input.PaymentProduct302SpecificInput = paymentProduct320SpecificInput;
+        input.PaymentProduct302SpecificInput = paymentProduct302SpecificInput;
 
         return input;
     }

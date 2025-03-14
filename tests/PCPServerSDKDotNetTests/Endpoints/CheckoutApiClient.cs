@@ -35,6 +35,24 @@ public class CheckoutApiClientTests
         Assert.Equivalent(expected, result);
     }
 
+
+    [Theory]
+    [InlineData(null, "2")] // Merchant ID is null
+    [InlineData("1", null)] // Commerce Case ID is null
+    public async Task CreateCheckoutRequest_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId)
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        CreateCheckoutRequest payload = new();
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.CreateCheckoutRequestAsync(merchantId, commerceCaseId, payload);
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
     [Fact]
     public async Task CreateCheckoutRequestUnsuccessful()
     {
@@ -91,6 +109,22 @@ public class CheckoutApiClientTests
         Assert.Equivalent(expected, result);
     }
 
+    [Theory]
+    [InlineData(null, "2", "3")] // Merchant ID is null
+    [InlineData("1", null, "3")] // Commerce Case ID is null
+    [InlineData("1", "2", null)] // Checkout ID is null
+    public async Task GetCheckoutRequest_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId)
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.GetCheckoutRequestAsync(merchantId, commerceCaseId, checkoutId);
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
     [Fact]
     public async Task GetCheckoutRequestUnsuccessful()
     {
@@ -139,6 +173,19 @@ public class CheckoutApiClientTests
     }
 
     [Fact]
+    public async Task GetCheckoutsRequest_NullParams_ShouldThrowArgumentException()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.GetCheckoutsRequestAsync("");
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
+    [Fact]
     public async Task GetCheckoutsRequestUnsuccessful()
     {
         Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
@@ -170,9 +217,6 @@ public class CheckoutApiClientTests
         Assert.Equal(500, e.StatusCode);
     }
 
-
-
-
     [Fact]
     public async Task UpdateCheckoutRequestSuccessful()
     {
@@ -186,6 +230,24 @@ public class CheckoutApiClientTests
         await mockClient.Object.UpdateCheckoutRequestAsync("1", "2", "3", payload);
 
         Assert.True(true);
+    }
+
+    [Theory]
+    [InlineData(null, "2", "3")] // Merchant ID is null
+    [InlineData("1", null, "3")] // Commerce Case ID is null
+    [InlineData("1", "2", null)] // Checkout ID is null
+    public async Task UpdateCheckoutRequest_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId)
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        PatchCheckoutRequest payload = new();
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.UpdateCheckoutRequestAsync(merchantId, commerceCaseId, checkoutId, payload);
+        });
+
+        Assert.IsType<ArgumentException>(e);
     }
 
     [Fact]
@@ -238,6 +300,23 @@ public class CheckoutApiClientTests
         Assert.True(true);
     }
 
+    [Theory]
+    [InlineData(null, "2", "3")] // Merchant ID is null
+    [InlineData("1", null, "3")] // Commerce Case ID is null
+    [InlineData("1", "2", null)] // Checkout ID is null
+    public async Task RemoveCheckoutRequest_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId)
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.RemoveCheckoutRequestAsync(merchantId, commerceCaseId, checkoutId);
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
     [Fact]
     public async Task RemoveCheckoutRequestUnsuccessful()
     {
@@ -271,7 +350,74 @@ public class CheckoutApiClientTests
     }
 
 
+    [Fact]
+    public async Task CompleteCheckoutRequestSuccessful()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        CompletePaymentResponse expected = new() { };
+        HttpResponseMessage response = ApiResponseMocks.CreateResponse(HttpStatusCode.OK, expected);
 
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        CompleteOrderRequest payload = new();
+        CompletePaymentResponse result = await mockClient.Object.CompleteCheckoutRequestAsync("1", "2", "3", payload);
+
+        Assert.Equivalent(expected, result);
+    }
+
+    [Theory]
+    [InlineData(null, "2", "3")] // Merchant ID is null
+    [InlineData("1", null, "3")] // Commerce Case ID is null
+    [InlineData("1", "2", null)] // Checkout ID is null
+    public async Task CompleteCheckoutRequest_NullParams_ShouldThrowArgumentException(string merchantId, string commerceCaseId, string checkoutId)
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+
+        CompleteOrderRequest payload = new();
+
+        ArgumentException e = await Assert.ThrowsAsync<ArgumentException>(async () =>
+        {
+            await mockClient.Object.CompleteCheckoutRequestAsync(merchantId, commerceCaseId, checkoutId, payload);
+        });
+
+        Assert.IsType<ArgumentException>(e);
+    }
+
+    [Fact]
+    public async Task CompleteCheckoutRequestUnsuccessful()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateErrorResponse(HttpStatusCode.BadRequest);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        CompleteOrderRequest payload = new();
+
+        ApiErrorResponseException e = await Assert.ThrowsAsync<ApiErrorResponseException>(async () =>
+        {
+            await mockClient.Object.CompleteCheckoutRequestAsync("1", "2", "3", payload);
+        });
+
+        Assert.Equal(400, e.StatusCode);
+    }
+
+    [Fact]
+    public async Task CompleteCheckoutRequestUnsuccessful500()
+    {
+        Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
+        HttpResponseMessage response = ApiResponseMocks.CreateEmptyErrorResponse(HttpStatusCode.InternalServerError);
+
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
+
+        CompleteOrderRequest payload = new();
+
+        ApiResponseRetrievalException e = await Assert.ThrowsAsync<ApiResponseRetrievalException>(async () =>
+        {
+            await mockClient.Object.CompleteCheckoutRequestAsync("1", "2", "3", payload);
+        });
+
+        Assert.Equal(500, e.StatusCode);
+    }
 
 
 

@@ -5,28 +5,32 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object containing information about the end customer's bank account.
+    /// Request to initiate refund for a Payment Information of Checkout.
+    /// It is possible to initiate multiple partial refunds by providing an amount that is
+    /// lower than the total captured amount of the Payment Information.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class BankAccountInformation
+    public class PaymentInformationRefundRequest
     {
         /// <summary>
-        /// Gets or sets IBAN of the end customer's bank account. The IBAN is the International Bank Account Number. It is an internationally agreed format for the BBAN and includes the ISO country code and two check digits.
+        /// Gets or Sets AmountOfMoney.
         /// </summary>
-        [DataMember(Name = "iban", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "iban")]
-        public string? Iban { get; set; }
+        [DataMember(Name = "amountOfMoney", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "amountOfMoney")]
+        public PositiveAmountOfMoney? AmountOfMoney { get; set; }
 
         /// <summary>
-        /// Gets or sets BIC (Bank Identification Code).
+        /// Gets or Sets References.
         /// </summary>
-        [DataMember(Name = "bic", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "bic")]
-        public string? Bic { get; set; }
+        [DataMember(Name = "references", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "references")]
+        public PaymentReferences? References { get; set; }
 
         /// <summary>
-        /// Gets or sets account holder of the bank account with the given IBAN. Does not necessarily have to be the end customer (e.g. joint accounts).
+        /// Gets or sets account holder of the bank account.
+        /// Does not necessarily have to be the customer (e.g. joint accounts).
+        /// The name of the account holder is required for payment methods that will use a credit transfer for the refund (e.g. girocard, SEPA Direct Debit).
         /// </summary>
         [DataMember(Name = "accountHolder", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "accountHolder")]
@@ -39,9 +43,9 @@ namespace PCPServerSDKDotNet.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BankAccountInformation {\n");
-            sb.Append("  Iban: ").Append(this.Iban).Append('\n');
-            sb.Append("  Bic: ").Append(this.Bic).Append('\n');
+            sb.Append("class PaymentInformationRefundRequest {\n");
+            sb.Append("  AmountOfMoney: ").Append(this.AmountOfMoney).Append('\n');
+            sb.Append("  References: ").Append(this.References).Append('\n');
             sb.Append("  AccountHolder: ").Append(this.AccountHolder).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
