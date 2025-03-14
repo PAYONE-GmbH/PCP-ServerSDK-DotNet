@@ -52,8 +52,8 @@ version() {
     git add CHANGELOG.md
     git tag -a v$NEW_VERSION -m "Version $NEW_VERSION"
     git commit -m "chore: Update version to $VERSION"
-    git push origin tag v$NEW_VERSION
     git push -u origin HEAD
+    git push origin tag v$NEW_VERSION
 
     echo "Version complete."
 }
