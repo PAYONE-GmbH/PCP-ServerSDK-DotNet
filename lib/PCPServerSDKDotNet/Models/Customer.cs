@@ -75,6 +75,13 @@ namespace PCPServerSDKDotNet.Models
         public PersonalInformation? PersonalInformation { get; set; }
 
         /// <summary>
+        /// Gets or Sets Account.
+        /// </summary>
+        [DataMember(Name = "account", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "account")]
+        public CustomerAccount? Account { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -90,6 +97,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  BusinessRelation: ").Append(this.BusinessRelation).Append('\n');
             sb.Append("  Locale: ").Append(this.Locale).Append('\n');
             sb.Append("  PersonalInformation: ").Append(this.PersonalInformation).Append('\n');
+            sb.Append("  Account: ").Append(this.Account).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
