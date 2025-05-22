@@ -29,7 +29,7 @@ namespace PCPServerSDKDotNet.Models
     /// * X - Exact AVS Match
     /// * Y - Address (Street) and 5 digit Zip match
     /// * Z - 5 digit Zip matches, Address (Street) does not
-    /// * 0 - No service available
+    /// * 0 - No service available.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AvsResult

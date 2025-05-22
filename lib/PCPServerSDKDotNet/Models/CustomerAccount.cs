@@ -19,7 +19,7 @@ namespace PCPServerSDKDotNet.Models
         /// * YYYY-MM-DD'T'HH:mm:ss-XX:XX
         /// * YYYY-MM-DD'T'HH:mm'Z'
         /// * YYYY-MM-DD'T'HH:mm+XX:XX
-        /// * YYYY-MM-DD'T'HH:mm-XX:XX
+        /// * YYYY-MM-DD'T'HH:mm-XX:XX.
         /// </summary>
         [DataMember(Name = "createDate", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "createDate")]

@@ -9,7 +9,7 @@ namespace PCPServerSDKDotNet.Models
     /// Mandatory for the following payment methods:
     /// * 3390 - PAYONE Secured Invoice
     /// * 3391 - PAYONE Secured Installment
-    /// * 3392 - PAYONE Secured Direct Debit
+    /// * 3392 - PAYONE Secured Direct Debit.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum BusinessRelation
