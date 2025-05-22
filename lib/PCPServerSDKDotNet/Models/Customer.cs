@@ -49,12 +49,15 @@ namespace PCPServerSDKDotNet.Models
         public string? FiscalNumber { get; set; }
 
         /// <summary>
-        /// Gets or sets business relation to the customer. Possible values:         * B2C - Indicates business to consumer * B2B - Indicates business to business  Mandatory for the the following payment methods: * 3390 - PAYONE Secured Invoice * 3391 - PAYONE Secured Installment * 3392 - PAYONE Secured Direct Debit.
+        /// Gets or sets business relation to the customer.
+        /// Mandatory for the following payment methods:
+        /// * 3390 - PAYONE Secured Invoice
+        /// * 3391 - PAYONE Secured Installment
+        /// * 3392 - PAYONE Secured Direct Debit
         /// </summary>
-        /// <value>Business relation to the customer. Possible values:         * B2C - Indicates business to consumer * B2B - Indicates business to business  Mandatory for the the following payment methods: * 3390 - PAYONE Secured Invoice * 3391 - PAYONE Secured Installment * 3392 - PAYONE Secured Direct Debit.</value>
         [DataMember(Name = "businessRelation", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "businessRelation")]
-        public string? BusinessRelation { get; set; }
+        public BusinessRelation? BusinessRelation { get; set; }
 
         /// <summary>
         /// Gets or sets the locale that the customer should be addressed in (for 3rd parties).   Note: Only the language code is supported.
