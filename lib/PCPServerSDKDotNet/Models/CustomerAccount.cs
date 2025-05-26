@@ -5,19 +5,25 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object containing data related to recurring.
+    /// Object containing data related to the account the customer has with you.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class CardRecurrenceDetails
+    public class CustomerAccount
     {
         /// <summary>
-        /// Gets or sets the recurring payment sequence indicator.
+        /// Gets or sets creation date and time of the customer account in ISO 8601 format (UTC).
+        /// Accepted formats are:
+        /// * YYYY-MM-DD'T'HH:mm:ss'Z'
+        /// * YYYY-MM-DD'T'HH:mm:ss+XX:XX
+        /// * YYYY-MM-DD'T'HH:mm:ss-XX:XX
+        /// * YYYY-MM-DD'T'HH:mm'Z'
+        /// * YYYY-MM-DD'T'HH:mm+XX:XX
+        /// * YYYY-MM-DD'T'HH:mm-XX:XX.
         /// </summary>
-        /// <value>Indicates whether this is the first or a subsequent recurring transaction.</value>
-        [DataMember(Name = "recurringPaymentSequenceIndicator", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "recurringPaymentSequenceIndicator")]
-        public RecurringPaymentSequenceIndicator? RecurringPaymentSequenceIndicator { get; set; }
+        [DataMember(Name = "createDate", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "createDate")]
+        public string? CreateDate { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object.
@@ -26,8 +32,8 @@ namespace PCPServerSDKDotNet.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CardRecurrenceDetails {\n");
-            sb.Append("  RecurringPaymentSequenceIndicator: ").Append(this.RecurringPaymentSequenceIndicator).Append('\n');
+            sb.Append("class CustomerAccount {\n");
+            sb.Append("  CreateDate: ").Append(this.CreateDate).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
