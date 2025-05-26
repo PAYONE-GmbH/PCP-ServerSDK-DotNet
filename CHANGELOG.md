@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.1.0...v1.2.0) (2025-05-26)
+
+### Documentation
+
+* docs: update APIError category summary for clarity and completeness ([7267413f4417f5160e4e7562ae52ef870e4149b6](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/7267413f4417f5160e4e7562ae52ef870e4149b6))
+* docs: update readme ([acbdeea2a5e5de0638124e3b60ae7b55b6c91aa0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/acbdeea2a5e5de0638124e3b60ae7b55b6c91aa0))
+
+### Features
+
+* feat: add ActionType enum and update MerchantAction to use it ([8625213cb6d06db03099a0257ecc18fe535b43ba](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/8625213cb6d06db03099a0257ecc18fe535b43ba))
+* feat: add AvsResult enum and update CardFraudResults to use it ([36ae51c475a679e8d621a61ec6fbb820a2675f91](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/36ae51c475a679e8d621a61ec6fbb820a2675f91))
+* feat: add BusinessRelation enum and update Customer model to use it ([2d049b37c80c06226878e63db61a4e3e6199587f](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/2d049b37c80c06226878e63db61a4e3e6199587f))
+* feat: add CustomerAccount model and integrate it into Customer ([dacd5727d88b20e4741a4dae8ebd875615a31884](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/dacd5727d88b20e4741a4dae8ebd875615a31884))
+* feat: add FraudNetId property to RedirectPaymentProduct840SpecificInput for transaction linking ([2a8f59a789c666c3ac096469094a38ee0d0a43d0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/2a8f59a789c666c3ac096469094a38ee0d0a43d0))
+* feat: refactor CardRecurrenceDetails to use RecurringPaymentSequenceIndicator enum ([89c38b397cec807714aaba1dd422cbb977b60d04](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/89c38b397cec807714aaba1dd422cbb977b60d04))
+
 # [1.1.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.0.1...v1.1.0) (2025-03-13)
 
 ### Documentation

@@ -20,6 +20,15 @@ namespace PCPServerSDKDotNet.Models
         public bool? AddressSelectionAtPayPal { get; set; }
 
         /// <summary>
+        /// Gets or sets a unique ID determined by the merchant, to link a Paypal transaction to a FraudNet PayPal risk session.
+        /// Only applicable to customer-initiated transactions, when the FraudNet SDK is used, and to be passed in the API
+        /// request with the same tracking ID value (FraudNet Session Identifier).
+        /// </summary>
+        [DataMember(Name = "fraudNetId", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fraudNetId")]
+        public string? FraudNetId { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -28,6 +37,7 @@ namespace PCPServerSDKDotNet.Models
             var sb = new StringBuilder();
             sb.Append("class RedirectPaymentProduct840SpecificInput {\n");
             sb.Append("  AddressSelectionAtPayPal: ").Append(this.AddressSelectionAtPayPal).Append('\n');
+            sb.Append("  FraudNetId: ").Append(this.FraudNetId).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
