@@ -9,10 +9,12 @@ Welcome to the .NET SDK for the PAYONE Commerce Platform (api-version 1.35.0)! T
 
 ## Table of Contents
 
+
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
   - [General](#general)
+  - [Authentication Token Retrieval](#authentication-token-retrieval)
   - [Error Handling](#error-handling)
   - [Client Side](#client-side)
   - [Apple Pay](#apple-pay)
@@ -78,6 +80,27 @@ CreateCommerceCaseResponse res = await client.CreateCommerceCaseRequestAsync(mer
 ```
 
 The models directly map to the API as described in [PAYONE Commerce Platform API Reference](https://docs.payone.com/pcp/commerce-platform-api). For an in depth example you can take a look at the [demo app](#demo-app).
+
+
+### Authentication Token Retrieval
+
+To interact with certain client-side SDKs (such as the credit card tokenizer), you need to generate a short-lived authentication JWT token for your merchant. This token can be retrieved using the SDK as follows:
+
+```csharp
+using PCPServerSDKDotNet.Endpoints;
+using PCPServerSDKDotNet.Models;
+
+AuthenticationApiClient authenticationApiClient = new AuthenticationApiClient(config);
+AuthenticationToken token = await authenticationApiClient.GetAuthenticationTokensAsync(merchantId);
+Console.WriteLine($"JWT Token: {token.Token}");
+Console.WriteLine($"Token ID: {token.Id}");
+Console.WriteLine($"Created: {token.CreationDate}");
+Console.WriteLine($"Expires: {token.ExpirationDate}");
+```
+
+This token can then be used for secure operations such as initializing the credit card tokenizer or other client-side SDKs that require merchant authentication. The token is valid for a limited time (10 minutes) and should be handled securely.
+
+**Note:** The `GetAuthenticationTokensAsync` method requires a valid `merchantId`. Optionally, you can provide an `X-Request-ID` header for tracing requests.
 
 ### Error Handling
 
