@@ -30,8 +30,17 @@ public class Program
 
 
         CommunicatorConfiguration config = new(apiKey, apiSecret, "api.preprod.commerce.payone.com", null);
-        CheckoutApiClient client = new(config);
 
+        // Example: Authentication Token Retrieval
+        var authenticationApiClient = new AuthenticationApiClient(config);
+        AuthenticationToken token = await authenticationApiClient.GetAuthenticationTokensAsync(merchantId);
+        Console.WriteLine($"JWT Token: {token.Token}");
+        Console.WriteLine($"Token ID: {token.Id}");
+        Console.WriteLine($"Created: {token.CreationDate}");
+        Console.WriteLine($"Expires: {token.ExpirationDate}");
+
+        // ...existing code for other API clients...
+        CheckoutApiClient client = new(config);
         CheckoutsResponse res = await client.GetCheckoutsRequestAsync(merchantId);
         Console.WriteLine(res);
         CreateCheckoutResponse res2 = await client.CreateCheckoutRequestAsync(merchantId, commerceCaseId, new CreateCheckoutRequest());
