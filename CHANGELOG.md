@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.2.0...v1.3.0) (2025-07-10)
+
+### Features
+
+* feat: add auth client ([f96e6cf7568f9d1fedbef5cbd29ee51e6dccaeed](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/f96e6cf7568f9d1fedbef5cbd29ee51e6dccaeed))
+
 # [1.2.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.1.0...v1.2.0) (2025-05-26)
 
 ### Documentation
