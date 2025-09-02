@@ -16,6 +16,11 @@ public class CommerceCaseApiClient : BaseApiClient
     {
     }
 
+    public CommerceCaseApiClient(CommunicatorConfiguration config, HttpClient? httpClient)
+        : base(config, httpClient)
+    {
+    }
+
     public async Task<CreateCommerceCaseResponse> CreateCommerceCaseRequestAsync(string merchantId, CreateCommerceCaseRequest payload)
     {
         if (string.IsNullOrEmpty(merchantId))
