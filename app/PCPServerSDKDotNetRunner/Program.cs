@@ -1,5 +1,6 @@
 ﻿namespace PCPServerSDKDotNetRunner;
 
+using System.Linq;
 using PCPServerSDKDotNet;
 using PCPServerSDKDotNet.Endpoints;
 using PCPServerSDKDotNet.Models;
@@ -98,6 +99,13 @@ public class Program
 
         CheckoutApiClient priorityClient = new(priorityConfig, prioritySpecificClient);
         Console.WriteLine("Created client with both global and client-specific HttpClients");
+
+        // Demonstrate the priority by showing the X-Source header values
+        string globalXSource = priorityGlobalClient.DefaultRequestHeaders.GetValues("X-Source").FirstOrDefault() ?? "Not set";
+        string clientSpecificXSource = prioritySpecificClient.DefaultRequestHeaders.GetValues("X-Source").FirstOrDefault() ?? "Not set";
+
+        Console.WriteLine($"Global HttpClient X-Source header: {globalXSource}");
+        Console.WriteLine($"Client-specific HttpClient X-Source header: {clientSpecificXSource}");
         Console.WriteLine("Client-specific HttpClient takes priority over global configuration");
 
         Console.WriteLine("\n=== End of HTTP Client Customization Demo ===\n");
