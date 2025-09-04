@@ -15,6 +15,19 @@ public class CheckoutApiClientTests
         "awesome-api.com", null);
 
     [Fact]
+    public void CheckoutApiClient_Constructor_WithHttpClient()
+    {
+        // Arrange
+        HttpClient httpClient = new();
+
+        // Act
+        CheckoutApiClient client = new(COMMUNICATOR_CONFIGURATION, httpClient);
+
+        // Assert
+        Assert.NotNull(client);
+    }
+
+    [Fact]
     public async Task CreateCheckoutRequestSuccessful()
     {
         Mock<CheckoutApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);
