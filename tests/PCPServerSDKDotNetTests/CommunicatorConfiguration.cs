@@ -104,5 +104,44 @@ public class CommunicatorConfigurationTest
         // Assert
         Assert.Equal(newServerMetaInfo, config.ServerMetaInfo);
     }
+
+    [Fact]
+    public void HttpClient_ShouldBeNullByDefault()
+    {
+        // Arrange & Act
+        CommunicatorConfiguration config = new("apiKey", "apiSecret", "host", null);
+
+        // Assert
+        Assert.Null(config.HttpClient);
+    }
+
+    [Fact]
+    public void HttpClient_ShouldBeSetCorrectly()
+    {
+        // Arrange
+        CommunicatorConfiguration config = new("apiKey", "apiSecret", "host", null);
+        HttpClient customHttpClient = new();
+
+        // Act
+        config.HttpClient = customHttpClient;
+
+        // Assert
+        Assert.Equal(customHttpClient, config.HttpClient);
+    }
+
+    [Fact]
+    public void HttpClient_ShouldBeSetToNull()
+    {
+        // Arrange
+        CommunicatorConfiguration config = new("apiKey", "apiSecret", "host", null);
+        HttpClient customHttpClient = new();
+
+        // Act - Set and then clear
+        config.HttpClient = customHttpClient;
+        config.HttpClient = null;
+
+        // Assert
+        Assert.Null(config.HttpClient);
+    }
 }
 

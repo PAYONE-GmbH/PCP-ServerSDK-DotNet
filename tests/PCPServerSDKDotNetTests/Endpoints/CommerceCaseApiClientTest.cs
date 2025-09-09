@@ -15,6 +15,19 @@ public class CommerceCaseApiClientTests
         "awesome-api.com", null);
 
     [Fact]
+    public void CommerceCaseApiClient_Constructor_WithHttpClient()
+    {
+        // Arrange
+        HttpClient httpClient = new();
+
+        // Act
+        CommerceCaseApiClient client = new(COMMUNICATOR_CONFIGURATION, httpClient);
+
+        // Assert
+        Assert.NotNull(client);
+    }
+
+    [Fact]
     public async Task CreateCommerceCaseRequestSuccessful()
     {
         Mock<CommerceCaseApiClient> mockClient = new(COMMUNICATOR_CONFIGURATION);

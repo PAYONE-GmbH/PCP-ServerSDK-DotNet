@@ -16,6 +16,11 @@ public class CheckoutApiClient : BaseApiClient
     {
     }
 
+    public CheckoutApiClient(CommunicatorConfiguration config, HttpClient? httpClient)
+        : base(config, httpClient)
+    {
+    }
+
     public async Task<CreateCheckoutResponse> CreateCheckoutRequestAsync(string merchantId, string commerceCaseId, CreateCheckoutRequest payload)
     {
         if (string.IsNullOrEmpty(merchantId))

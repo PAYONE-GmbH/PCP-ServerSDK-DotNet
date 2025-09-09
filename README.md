@@ -109,6 +109,77 @@ When making a request any client may throw a `ApiException`. There two subtypes 
 - `ApiErrorReponseException`: This exception is thrown when the API returns an well-formed error response. The given errors are deserialized into `APIError` objects which are availble via the `GetErrors()` method on the exception. They usually contain useful information about what is wrong in your request or the state of the resource.
 - `ApiResponseRetrievalException`: This exception is a catch-all exception for any error that cannot be turned into a helpful error response. This includes malformed responses or unknown responses.
 
+### HTTP Client Customization
+
+The SDK allows you to customize the underlying `HttpClient` used for API calls. This enables you to configure timeouts, add custom headers, set up proxies, or implement custom retry policies.
+
+#### Global HTTP Client Configuration
+
+You can set a global `HttpClient` that will be used by all API clients:
+
+```csharp
+using PCPServerSDKDotNet;
+
+// Create a custom HttpClient with specific configuration
+HttpClient customHttpClient = new HttpClient();
+customHttpClient.Timeout = TimeSpan.FromSeconds(30);
+customHttpClient.DefaultRequestHeaders.Add("User-Agent", "MyApp/1.0");
+
+// Configure it globally
+CommunicatorConfiguration config = new("apiKey", "apiSecret", "api.preprod.commerce.payone.com", null)
+{
+    HttpClient = customHttpClient
+};
+
+// All API clients will use the custom HttpClient
+CommerceCaseApiClient client = new(config);
+```
+
+#### Client-Specific HTTP Client Configuration
+
+You can also set a specific `HttpClient` for individual API clients, which will override the global configuration:
+
+```csharp
+using PCPServerSDKDotNet;
+using PCPServerSDKDotNet.Endpoints;
+
+// Global configuration
+CommunicatorConfiguration config = new("apiKey", "apiSecret", "api.preprod.commerce.payone.com", null);
+
+// Client-specific HttpClient
+HttpClient specificHttpClient = new HttpClient();
+specificHttpClient.Timeout = TimeSpan.FromSeconds(60);
+
+// This client will use the specific HttpClient
+CommerceCaseApiClient client = new(config, specificHttpClient);
+```
+
+#### Runtime HTTP Client Changes
+
+You can change the `HttpClient` at runtime using the `SetHttpClient` method:
+
+```csharp
+using PCPServerSDKDotNet.Endpoints;
+
+CommerceCaseApiClient client = new(config);
+
+// Change HttpClient at runtime
+HttpClient newHttpClient = new HttpClient();
+newHttpClient.Timeout = TimeSpan.FromSeconds(45);
+client.SetHttpClient(newHttpClient);
+
+// Set back to global/default configuration
+client.SetHttpClient(null);
+```
+
+#### Priority Order
+
+The SDK uses the following priority order when determining which `HttpClient` to use:
+
+1. **Client-specific HttpClient** (set via constructor or `SetHttpClient`)
+2. **Global HttpClient** (set via `CommunicatorConfiguration.HttpClient`)
+3. **Default HttpClient** (created automatically by the SDK)
+
 ### Client Side
 
 For most [payment methods](https://docs.payone.com/pcp/commerce-platform-payment-methods) some information from the client is needed, e.g. payment information given by Apple when a payment via ApplePay suceeds. PAYONE provides client side SDKs which helps you interact the third party payment providers. You can find the SDKs under the [PAYONE GitHub organization](https://github.com/PAYONE-GmbH). Either way ensure to never store or even send credit card information to your server. The PAYONE Commerce Platform never needs access to the credit card information. The client side is responsible for safely retrieving a credit card token. This token must be used with this SDK.
