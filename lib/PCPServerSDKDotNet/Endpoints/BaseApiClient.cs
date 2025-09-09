@@ -24,21 +24,36 @@ public class BaseApiClient
 
     private static readonly string JSON_PARSE_ERROR = "Expected valid JSON response, but failed to parse";
 
-    private readonly HttpClient client;
     private readonly RequestHeaderGenerator requestHeaderGenerator;
     private readonly CommunicatorConfiguration config;
+    private HttpClient? clientSpecificHttpClient;
 
     public BaseApiClient(CommunicatorConfiguration c)
+        : this(c, null)
+    {
+    }
+
+    public BaseApiClient(CommunicatorConfiguration c, HttpClient? httpClient)
     {
         this.config = c;
         this.requestHeaderGenerator = new RequestHeaderGenerator(this.config);
-        this.client = new HttpClient();
+        this.clientSpecificHttpClient = httpClient;
     }
 
     // Virtual needed for testing (moq)
     public virtual async Task<HttpResponseMessage> GetResponseAsync(HttpRequestMessage request)
     {
         return await this.GetClient().SendAsync(request);
+    }
+
+    /// <summary>
+    /// Sets the HttpClient to be used for this specific API client instance.
+    /// This will override any global HttpClient configuration.
+    /// </summary>
+    /// <param name="httpClient">The HttpClient to use for this API client, or null to use global/default configuration</param>
+    public void SetHttpClient(HttpClient? httpClient)
+    {
+        this.clientSpecificHttpClient = httpClient;
     }
 
     protected RequestHeaderGenerator GetRequestHeaderGenerator()
@@ -48,7 +63,19 @@ public class BaseApiClient
 
     protected HttpClient GetClient()
     {
-        return this.client;
+        // Priority: client-specific > global > default
+        if (this.clientSpecificHttpClient != null)
+        {
+            return this.clientSpecificHttpClient;
+        }
+
+        if (this.config.HttpClient != null)
+        {
+            return this.config.HttpClient;
+        }
+
+        // Return default HttpClient if no custom client is configured
+        return new HttpClient();
     }
 
     protected CommunicatorConfiguration GetConfig()
