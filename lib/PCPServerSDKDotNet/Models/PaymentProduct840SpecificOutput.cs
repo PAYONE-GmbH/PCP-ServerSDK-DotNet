@@ -33,6 +33,13 @@ namespace PCPServerSDKDotNet.Models
         public Address? ShippingAddress { get; set; }
 
         /// <summary>
+        /// Gets or Sets PayPalTransactionId.
+        /// </summary>
+        [DataMember(Name = "payPalTransactionId", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "payPalTransactionId")]
+        public string? PayPalTransactionId { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -43,6 +50,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  BillingAddress: ").Append(this.BillingAddress).Append('\n');
             sb.Append("  CustomerAccount: ").Append(this.CustomerAccount).Append('\n');
             sb.Append("  ShippingAddress: ").Append(this.ShippingAddress).Append('\n');
+            sb.Append("  PayPalTransactionId: ").Append(this.PayPalTransactionId).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
