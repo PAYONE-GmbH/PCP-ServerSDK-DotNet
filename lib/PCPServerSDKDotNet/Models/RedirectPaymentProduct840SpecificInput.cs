@@ -29,6 +29,20 @@ namespace PCPServerSDKDotNet.Models
         public string? FraudNetId { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating how PayPal is being integrated inside the checkout page. True = the current integration uses PayPal SDK. False = classic usage with PayPal Redirect flow.
+        /// </summary>
+        [DataMember(Name = "javaScriptSdkFlow", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "javaScriptSdkFlow")]
+        public bool? JavaScriptSdkFlow { get; set; }
+
+        /// <summary>
+        /// Gets or sets the required parameter for a COMPLETE CALL (not only an ORDER CALL) which with value "CONFIRM_ORDER_STATUS" signals process is finished on merchant side.
+        /// </summary>
+        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "action")]
+        public string? Action { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -38,6 +52,8 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("class RedirectPaymentProduct840SpecificInput {\n");
             sb.Append("  AddressSelectionAtPayPal: ").Append(this.AddressSelectionAtPayPal).Append('\n');
             sb.Append("  FraudNetId: ").Append(this.FraudNetId).Append('\n');
+            sb.Append("  JavaScriptSdkFlow: ").Append(this.JavaScriptSdkFlow).Append('\n');
+            sb.Append("  Action: ").Append(this.Action).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
