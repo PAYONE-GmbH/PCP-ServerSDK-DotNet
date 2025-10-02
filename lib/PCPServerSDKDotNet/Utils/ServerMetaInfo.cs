@@ -21,7 +21,7 @@ public class ServerMetaInfo
     {
         return new ServerMetaInfo()
             .WithPlatformIdentifier($"{Environment.OSVersion}, .NET version is: {Environment.Version}")
-            .WithSdkIdentifier("DotNetServerSDK/v1.3.0")
+            .WithSdkIdentifier("DotNetServerSDK/v1.4.0")
             .WithSdkCreator("PAYONE GmbH")
             .WithIntegrator(integrator);
     }
