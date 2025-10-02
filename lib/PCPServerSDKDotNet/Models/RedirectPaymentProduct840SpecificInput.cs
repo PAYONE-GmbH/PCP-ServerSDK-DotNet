@@ -29,11 +29,11 @@ namespace PCPServerSDKDotNet.Models
         public string? FraudNetId { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating how PayPal is being integrated inside the checkout page. True = the current integration uses PayPal SDK. False = classic usage with PayPal Redirect flow.
+        /// Gets or sets a value indicating whether PayPal is being integrated using the PayPal SDK (true) or classic redirect flow (false).
         /// </summary>
         [DataMember(Name = "javaScriptSdkFlow", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "javaScriptSdkFlow")]
-        public bool? JavaScriptSdkFlow { get; set; }
+        public bool JavaScriptSdkFlow { get; set; }
 
         /// <summary>
         /// Gets or sets the required parameter for a COMPLETE CALL (not only an ORDER CALL) which with value "CONFIRM_ORDER_STATUS" signals process is finished on merchant side.

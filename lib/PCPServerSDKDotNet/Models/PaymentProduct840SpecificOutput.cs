@@ -35,9 +35,9 @@ namespace PCPServerSDKDotNet.Models
         /// <summary>
         /// Gets or Sets PayPalTransactionId.
         /// </summary>
-        [DataMember(Name = "payPalTransactionId", EmitDefaultValue = false)]
+        [DataMember(Name = "payPalTransactionId", EmitDefaultValue = true)]
         [JsonProperty(PropertyName = "payPalTransactionId")]
-        public string? PayPalTransactionId { get; set; }
+        required public string PayPalTransactionId { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object.
