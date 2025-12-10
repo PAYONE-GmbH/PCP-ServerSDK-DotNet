@@ -30,6 +30,10 @@ namespace PCPServerSDKDotNet.Models
         [EnumMember(Value = "REVERSAL")]
         Reversal,
 
+        [JsonProperty("CHARGEBACK")]
+        [EnumMember(Value = "CHARGEBACK")]
+        Chargeback,
+
         [JsonProperty("CHARGEBACK_REVERSAL")]
         [EnumMember(Value = "CHARGEBACK_REVERSAL")]
         ChargebackReversal,
