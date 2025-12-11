@@ -36,13 +36,6 @@ namespace PCPServerSDKDotNet.Models
         public bool JavaScriptSdkFlow { get; set; }
 
         /// <summary>
-        /// Gets or sets the required parameter for a COMPLETE CALL (not only an ORDER CALL) which with value "CONFIRM_ORDER_STATUS" signals process is finished on merchant side.
-        /// </summary>
-        [DataMember(Name = "action", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "action")]
-        public string? Action { get; set; }
-
-        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -53,7 +46,6 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  AddressSelectionAtPayPal: ").Append(this.AddressSelectionAtPayPal).Append('\n');
             sb.Append("  FraudNetId: ").Append(this.FraudNetId).Append('\n');
             sb.Append("  JavaScriptSdkFlow: ").Append(this.JavaScriptSdkFlow).Append('\n');
-            sb.Append("  Action: ").Append(this.Action).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

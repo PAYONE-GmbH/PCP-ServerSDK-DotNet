@@ -52,6 +52,13 @@ namespace PCPServerSDKDotNet.Models
         public int? PaymentProductId { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the PayPal JavaScript SDK flow is used.
+        /// </summary>
+        [DataMember(Name = "javaScriptSdkFlow", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "javaScriptSdkFlow")]
+        public bool? JavaScriptSdkFlow { get; set; }
+
+        /// <summary>
         /// Gets or Sets PaymentProduct840SpecificInput.
         /// </summary>
         [DataMember(Name = "paymentProduct840SpecificInput", EmitDefaultValue = false)]
@@ -78,6 +85,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  ReportingToken: ").Append(this.ReportingToken).Append('\n');
             sb.Append("  Tokenize: ").Append(this.Tokenize).Append('\n');
             sb.Append("  PaymentProductId: ").Append(this.PaymentProductId).Append('\n');
+            sb.Append("  JavaScriptSdkFlow: ").Append(this.JavaScriptSdkFlow).Append('\n');
             sb.Append("  PaymentProduct840SpecificInput: ").Append(this.PaymentProduct840SpecificInput).Append('\n');
             sb.Append("  RedirectionData: ").Append(this.RedirectionData).Append('\n');
             sb.Append("}\n");

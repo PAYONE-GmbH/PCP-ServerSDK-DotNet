@@ -12,12 +12,19 @@ namespace PCPServerSDKDotNet.Models
     public class RedirectPaymentMethodSpecificOutput
     {
         /// <summary>
-        /// <- Payment product identifier - please check product documentation for a full overview of possible values.
+        /// Gets or sets the payment product identifier - please check product documentation for a full overview of possible values.
         /// </summary>
         /// <value><- Payment product identifier - please check product documentation for a full overview of possible values.</value>
         [DataMember(Name = "paymentProductId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentProductId")]
         public int? PaymentProductId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the PayPal JavaScript SDK flow was used.
+        /// </summary>
+        [DataMember(Name = "javaScriptSdkFlow", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "javaScriptSdkFlow")]
+        public bool? JavaScriptSdkFlow { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentProduct840SpecificOutput.
@@ -51,6 +58,7 @@ namespace PCPServerSDKDotNet.Models
             var sb = new StringBuilder();
             sb.Append("class RedirectPaymentMethodSpecificOutput {\n");
             sb.Append("  PaymentProductId: ").Append(this.PaymentProductId).Append('\n');
+            sb.Append("  JavaScriptSdkFlow: ").Append(this.JavaScriptSdkFlow).Append('\n');
             sb.Append("  PaymentProduct840SpecificOutput: ").Append(this.PaymentProduct840SpecificOutput).Append('\n');
             sb.Append("  PaymentProcessingToken: ").Append(this.PaymentProcessingToken).Append('\n');
             sb.Append("  ReportingToken: ").Append(this.ReportingToken).Append('\n');

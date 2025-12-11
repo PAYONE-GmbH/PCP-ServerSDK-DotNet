@@ -19,6 +19,13 @@ namespace PCPServerSDKDotNet.Models
         public CompleteFinancingPaymentMethodSpecificInput? FinancingPaymentMethodSpecificInput { get; set; }
 
         /// <summary>
+        /// Gets or sets the redirect payment method specific input.
+        /// </summary>
+        [DataMember(Name = "redirectPaymentMethodSpecificInput", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "redirectPaymentMethodSpecificInput")]
+        public CompleteRedirectPaymentMethodSpecificInput? RedirectPaymentMethodSpecificInput { get; set; }
+
+        /// <summary>
         /// Gets or Sets Order.
         /// </summary>
         [DataMember(Name = "order", EmitDefaultValue = false)]
@@ -41,6 +48,7 @@ namespace PCPServerSDKDotNet.Models
             var sb = new StringBuilder();
             sb.Append("class CompletePaymentRequest {\n");
             sb.Append("  FinancingPaymentMethodSpecificInput: ").Append(this.FinancingPaymentMethodSpecificInput).Append('\n');
+            sb.Append("  RedirectPaymentMethodSpecificInput: ").Append(this.RedirectPaymentMethodSpecificInput).Append('\n');
             sb.Append("  Order: ").Append(this.Order).Append('\n');
             sb.Append("  Device: ").Append(this.Device).Append('\n');
             sb.Append("}\n");

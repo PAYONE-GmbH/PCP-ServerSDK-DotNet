@@ -237,7 +237,17 @@ public class PaymentExecutionApiClientTests
 
         mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>())).ReturnsAsync(response);
 
-        CompletePaymentRequest payload = new();
+        CompletePaymentRequest payload = new()
+        {
+            RedirectPaymentMethodSpecificInput = new CompleteRedirectPaymentMethodSpecificInput
+            {
+                PaymentProduct840SpecificInput = new CompletePaymentProduct840SpecificInput
+                {
+                    Action = "CONFIRM_ORDER_STATUS",
+                    JavaScriptSdkFlow = true,
+                },
+            },
+        };
         CompletePaymentResponse result = await mockClient.Object.CompletePaymentAsync("1", "2", "3", "4", payload);
 
         Assert.Equivalent(expected, result);
