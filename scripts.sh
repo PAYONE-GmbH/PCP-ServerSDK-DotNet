@@ -43,11 +43,11 @@ version() {
     sed -i '' "s|DotNetServerSDK/v[0-9]*\.[0-9]*\.[0-9]*|DotNetServerSDK/v$NEW_VERSION|g" ${SERVER_META_INFO_TEST_PATH}
 
     git add $PACKAGE_JSON_PATH
-    git add $PACKAGE_LOCK_JSON_PATH
     git add $CSPROJ_PATH
     git add $SERVER_META_INFO_PATH
     git add $SERVER_META_INFO_TEST_PATH
     npm install
+    git add $PACKAGE_LOCK_JSON_PATH
     npm run changelog
     git add CHANGELOG.md
     git tag -a v$NEW_VERSION -m "Version $NEW_VERSION"
