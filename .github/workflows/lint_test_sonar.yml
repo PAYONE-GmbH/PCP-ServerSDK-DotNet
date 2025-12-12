@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        dotnet: ['7.0.x', '8.0.x', '9.0.x']
+        dotnet: ['7.0.x', '8.0.x', '9.0.x', '10.0.x']
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -59,7 +59,7 @@ jobs:
           /d:sonar.sln="PCP-ServerSDK-DotNet.sln" \
           /d:sonar.cs.opencover.reportsPaths="tests/PCPServerSDKDotNetTests/TestResults/**/coverage.opencover.xml" \
           /d:sonar.test.exclusions="**/bin/**,**/obj/**" \
-          /d:sonar.exclusions="**/bin/**,**/obj/**,**/*.generated.cs,app/PCPServerSDKDotNetRunner" \
+          /d:sonar.exclusions="**/bin/**,**/obj/**,**/*.generated.cs,app/PCPServerSDKDotNetRunner,scripts.sh" \
           /d:sonar.coverage.exclusions="**/*.Generated.cs,**/Migrations/**,**/Models/**" \
           /d:sonar.cpd.exclusions="**/Endpoints/**" \
           /d:sonar.cs.dotnet.version="8.0.401"

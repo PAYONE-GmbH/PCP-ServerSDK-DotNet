@@ -5,18 +5,18 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// To complete the Order the completePaymentMethodSpecificInput has to be provided, containing the selected installmentOptionId as well as the the bankAccountInformation of the customer.
+    /// Object containing the redirect payment product details to complete a payment execution.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class CompletePaymentMethodSpecificInput
+    public class CompleteRedirectPaymentMethodSpecificInput
     {
         /// <summary>
-        /// Gets or Sets PaymentProduct3391SpecificInput.
+        /// Gets or sets the payment product identifier.
         /// </summary>
-        [DataMember(Name = "paymentProduct3391SpecificInput", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "paymentProduct3391SpecificInput")]
-        public PaymentProduct3391SpecificInput? PaymentProduct3391SpecificInput { get; set; }
+        [DataMember(Name = "paymentProductId", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "paymentProductId")]
+        public int? PaymentProductId { get; set; }
 
         /// <summary>
         /// Gets or sets the PayPal specific completion input.
@@ -32,8 +32,8 @@ namespace PCPServerSDKDotNet.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CompletePaymentMethodSpecificInput {\n");
-            sb.Append("  PaymentProduct3391SpecificInput: ").Append(this.PaymentProduct3391SpecificInput).Append('\n');
+            sb.Append("class CompleteRedirectPaymentMethodSpecificInput {\n");
+            sb.Append("  PaymentProductId: ").Append(this.PaymentProductId).Append('\n');
             sb.Append("  PaymentProduct840SpecificInput: ").Append(this.PaymentProduct840SpecificInput).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
