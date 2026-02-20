@@ -3,12 +3,8 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    /// <summary>
-    /// Obsolete: Use <see cref="MobilePaymentNetwork"/> instead.
-    /// </summary>
-    [Obsolete("Use MobilePaymentNetwork instead.")]
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum NetworkEnum
+    public enum MobilePaymentNetwork
     {
         [JsonProperty("MASTERCARD")]
         Mastercard,

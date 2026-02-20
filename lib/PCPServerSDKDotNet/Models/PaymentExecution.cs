@@ -110,6 +110,13 @@ namespace PCPServerSDKDotNet.Models
         public List<PaymentEvent>? Events { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplits.
+        /// </summary>
+        [DataMember(Name = "fundSplits", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplits")]
+        public List<FundSplit>? FundSplits { get; set; }
+
+        /// <summary>
         /// Get the string representation of the object.
         /// </summary>
         /// <returns>String representation of the object.</returns>
@@ -131,6 +138,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  CreationDateTime: ").Append(this.CreationDateTime).Append('\n');
             sb.Append("  LastUpdated: ").Append(this.LastUpdated).Append('\n');
             sb.Append("  Events: ").Append(this.Events).Append('\n');
+            sb.Append("  FundSplits: ").Append(this.FundSplits).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

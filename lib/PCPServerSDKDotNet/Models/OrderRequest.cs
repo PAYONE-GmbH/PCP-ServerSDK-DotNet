@@ -40,6 +40,13 @@ namespace PCPServerSDKDotNet.Models
         public PaymentMethodSpecificInput? PaymentMethodSpecificInput { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -51,6 +58,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  OrderReferences: ").Append(this.OrderReferences).Append('\n');
             sb.Append("  Items: ").Append(this.Items).Append('\n');
             sb.Append("  PaymentMethodSpecificInput: ").Append(this.PaymentMethodSpecificInput).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

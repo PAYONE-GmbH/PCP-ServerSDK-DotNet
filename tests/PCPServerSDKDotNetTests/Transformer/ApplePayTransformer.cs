@@ -59,7 +59,7 @@ public class ApplePayTransformerTest
             EphemeralKey = null,
             PaymentProduct302SpecificInput = new PaymentProduct302SpecificInput
             {
-                Network = NetworkEnum.Mastercard,
+                Network = MobilePaymentNetwork.Mastercard,
                 Token = new ApplePaymentDataTokenInformation
                 {
                     Signature = null,

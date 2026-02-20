@@ -33,6 +33,13 @@ namespace PCPServerSDKDotNet.Models
         public References? PaymentReferences { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -43,6 +50,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  AmountOfMoney: ").Append(this.AmountOfMoney).Append('\n');
             sb.Append("  ShoppingCart: ").Append(this.ShoppingCart).Append('\n');
             sb.Append("  PaymentReferences: ").Append(this.PaymentReferences).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
