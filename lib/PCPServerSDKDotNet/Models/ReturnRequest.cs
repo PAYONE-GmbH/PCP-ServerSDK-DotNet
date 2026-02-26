@@ -34,6 +34,13 @@ namespace PCPServerSDKDotNet.Models
         public List<ReturnItem>? ReturnItems { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -44,6 +51,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  ReturnType: ").Append(this.ReturnType).Append('\n');
             sb.Append("  ReturnReason: ").Append(this.ReturnReason).Append('\n');
             sb.Append("  ReturnItems: ").Append(this.ReturnItems).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

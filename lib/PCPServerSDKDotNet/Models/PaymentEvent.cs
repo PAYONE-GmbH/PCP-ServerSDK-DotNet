@@ -54,6 +54,20 @@ namespace PCPServerSDKDotNet.Models
         public PaymentInstructions? PaymentInstructions { get; set; }
 
         /// <summary>
+        /// Gets or sets unique identifier of the payment event.
+        /// </summary>
+        [DataMember(Name = "paymentEventId", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "paymentEventId")]
+        public string? PaymentEventId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date and time when the payment event was created.
+        /// </summary>
+        [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "creationDateTime")]
+        public DateTimeOffset? CreationDateTime { get; set; }
+
+        /// <summary>
         /// Get the string representation of the object.
         /// </summary>
         /// <returns>String representation of the object.</returns>
@@ -67,6 +81,8 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  CancellationReason: ").Append(this.CancellationReason).Append('\n');
             sb.Append("  ReturnReason: ").Append(this.ReturnReason).Append('\n');
             sb.Append("  PaymentInstructions: ").Append(this.PaymentInstructions).Append('\n');
+            sb.Append("  PaymentEventId: ").Append(this.PaymentEventId).Append('\n');
+            sb.Append("  CreationDateTime: ").Append(this.CreationDateTime).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

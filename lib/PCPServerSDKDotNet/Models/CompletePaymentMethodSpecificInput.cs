@@ -19,7 +19,7 @@ namespace PCPServerSDKDotNet.Models
         public PaymentProduct3391SpecificInput? PaymentProduct3391SpecificInput { get; set; }
 
         /// <summary>
-        /// Gets or sets the PayPal specific completion input.
+        /// Gets or Sets PaymentProduct840SpecificInput.
         /// </summary>
         [DataMember(Name = "paymentProduct840SpecificInput", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentProduct840SpecificInput")]

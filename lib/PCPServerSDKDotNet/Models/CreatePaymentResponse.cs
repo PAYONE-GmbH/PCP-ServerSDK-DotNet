@@ -41,6 +41,13 @@ namespace PCPServerSDKDotNet.Models
         public string? PaymentExecutionId { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -52,6 +59,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  MerchantAction: ").Append(this.MerchantAction).Append('\n');
             sb.Append("  Payment: ").Append(this.Payment).Append('\n');
             sb.Append("  PaymentExecutionId: ").Append(this.PaymentExecutionId).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

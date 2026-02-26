@@ -41,6 +41,13 @@ namespace PCPServerSDKDotNet.Models
         public List<DeliverItem>? DeliverItems { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -52,6 +59,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  IsFinal: ").Append(this.IsFinal).Append('\n');
             sb.Append("  CancellationReason: ").Append(this.CancellationReason).Append('\n');
             sb.Append("  DeliverItems: ").Append(this.DeliverItems).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
