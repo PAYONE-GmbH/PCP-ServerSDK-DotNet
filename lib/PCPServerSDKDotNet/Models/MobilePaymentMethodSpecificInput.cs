@@ -62,6 +62,13 @@ namespace PCPServerSDKDotNet.Models
         public PaymentProduct302SpecificInput? PaymentProduct302SpecificInput { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentProduct5002SpecificInput.
+        /// </summary>
+        [DataMember(Name = "paymentProduct5002SpecificInput", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "paymentProduct5002SpecificInput")]
+        public PaymentProduct5002SpecificInput? PaymentProduct5002SpecificInput { get; set; }
+
+        /// <summary>
         /// Get the string representation of the object.
         /// </summary>
         /// <returns>String representation of the object.</returns>
@@ -76,6 +83,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  EphemeralKey: ").Append(this.EphemeralKey).Append('\n');
             sb.Append("  ThreeDSecure: ").Append(this.ThreeDSecure).Append('\n');
             sb.Append("  PaymentProduct302SpecificInput: ").Append(this.PaymentProduct302SpecificInput).Append('\n');
+            sb.Append("  PaymentProduct5002SpecificInput: ").Append(this.PaymentProduct5002SpecificInput).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

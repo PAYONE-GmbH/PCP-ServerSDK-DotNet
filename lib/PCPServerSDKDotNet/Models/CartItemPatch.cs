@@ -26,6 +26,13 @@ namespace PCPServerSDKDotNet.Models
         public OrderLineDetailsPatch? OrderLineDetails { get; set; }
 
         /// <summary>
+        /// Gets or Sets SupplierReferences.
+        /// </summary>
+        [DataMember(Name = "supplierReferences", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "supplierReferences")]
+        public CartItemSupplierReferences? SupplierReferences { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -35,6 +42,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("class CartItemPatch {\n");
             sb.Append("  InvoiceData: ").Append(this.InvoiceData).Append('\n');
             sb.Append("  OrderLineDetails: ").Append(this.OrderLineDetails).Append('\n');
+            sb.Append("  SupplierReferences: ").Append(this.SupplierReferences).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

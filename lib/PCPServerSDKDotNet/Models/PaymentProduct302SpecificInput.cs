@@ -23,7 +23,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "network", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "network")]
-        public NetworkEnum? Network { get; set; }
+        public MobilePaymentNetwork? Network { get; set; }
 
         /// <summary>
         /// Gets or sets the Apple Pay token data.

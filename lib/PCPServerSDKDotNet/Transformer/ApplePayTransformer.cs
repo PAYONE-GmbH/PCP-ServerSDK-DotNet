@@ -53,7 +53,7 @@ public class ApplePayTransformer
 
         if (network != null)
         {
-            paymentProduct302SpecificInput.Network = Enum.Parse<NetworkEnum>(network);
+            paymentProduct302SpecificInput.Network = Enum.Parse<MobilePaymentNetwork>(network);
         }
 
         if (version != null)
