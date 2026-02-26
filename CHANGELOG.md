@@ -1,3 +1,13 @@
+# [1.7.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.5.0...v1.7.0) (2026-02-26)
+
+### Bug Fixes
+
+* fix: add newline at end of file in api-definition.yaml ([ed3e327b8a294cb3f5ff2d23844d6b1331649cdb](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/ed3e327b8a294cb3f5ff2d23844d6b1331649cdb))
+
+### Features
+
+* feat: implement api definition 1.47.0 ([0794422122aecb090cbf2bf710257acbe632d6c5](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/0794422122aecb090cbf2bf710257acbe632d6c5))
+
 # [1.4.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.3.1...v1.4.0) (2025-09-26)
 ### Features
 
