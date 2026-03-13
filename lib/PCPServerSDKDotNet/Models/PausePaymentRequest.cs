@@ -1,34 +1,22 @@
 namespace PCPServerSDKDotNet.Models
 {
     using System.Runtime.Serialization;
-    using System.Text;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Request to refresh the payment status of a specific payment.
+    /// Request to pause a payment for a specific payment method.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class PausePaymentRequest
     {
         /// <summary>
-        /// Gets or Sets RefreshType.
-        /// </summary>
-        [DataMember(Name = "refreshType", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "refreshType")]
-        public RefreshType? RefreshType { get; set; }
-
-        /// <summary>
         /// Get the string representation of the object.
         /// </summary>
         /// <returns>String representation of the object.</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class PausePaymentRequest {\n");
-            sb.Append("  RefreshType: ").Append(this.RefreshType).Append('\n');
-            sb.Append("}\n");
-            return sb.ToString();
+            return "class PausePaymentRequest {\n}\n";
         }
 
         /// <summary>

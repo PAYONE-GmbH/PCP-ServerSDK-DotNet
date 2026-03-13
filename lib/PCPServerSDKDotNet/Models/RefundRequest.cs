@@ -23,7 +23,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "references", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "references")]
-        public PaymentReferences? References { get; set; }
+        public PaymentReferencesForRefund? References { get; set; }
 
         /// <summary>
         /// Gets or Sets _Return.

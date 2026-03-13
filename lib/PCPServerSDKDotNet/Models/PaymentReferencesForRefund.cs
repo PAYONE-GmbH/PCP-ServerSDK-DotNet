@@ -5,25 +5,19 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object containing data related to the account the customer has with you.
+    /// Object that holds all reference properties that are linked to this transaction.
+    /// Extends PaymentReferences with an additional captureReference field for refunds.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class CustomerAccount
+    public class PaymentReferencesForRefund : PaymentReferences
     {
         /// <summary>
-        /// Gets or sets creation date and time of the customer account in ISO 8601 format (UTC).
-        /// Accepted formats are:
-        /// * YYYY-MM-DD'T'HH:mm:ss'Z'
-        /// * YYYY-MM-DD'T'HH:mm:ss+XX:XX
-        /// * YYYY-MM-DD'T'HH:mm:ss-XX:XX
-        /// * YYYY-MM-DD'T'HH:mm'Z'
-        /// * YYYY-MM-DD'T'HH:mm+XX:XX
-        /// * YYYY-MM-DD'T'HH:mm-XX:XX.
+        /// Gets or sets the reference of the capture that should be used for the refund.
         /// </summary>
-        [DataMember(Name = "createDate", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "createDate")]
-        public DateTimeOffset? CreateDate { get; set; }
+        [DataMember(Name = "captureReference", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "captureReference")]
+        public string? CaptureReference { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object.
@@ -32,8 +26,9 @@ namespace PCPServerSDKDotNet.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CustomerAccount {\n");
-            sb.Append("  CreateDate: ").Append(this.CreateDate).Append('\n');
+            sb.Append("class PaymentReferencesForRefund {\n");
+            sb.Append("  MerchantReference: ").Append(this.MerchantReference).Append('\n');
+            sb.Append("  CaptureReference: ").Append(this.CaptureReference).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -42,7 +37,7 @@ namespace PCPServerSDKDotNet.Models
         /// Get the JSON string presentation of the object.
         /// </summary>
         /// <returns>JSON string presentation of the object.</returns>
-        public string ToJson()
+        public new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

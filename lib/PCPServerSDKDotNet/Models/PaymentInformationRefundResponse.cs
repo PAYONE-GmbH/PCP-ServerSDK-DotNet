@@ -23,7 +23,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "paymentExecutionId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "paymentExecutionId")]
-        public Guid? PaymentExecutionId { get; set; }
+        public string? PaymentExecutionId { get; set; }
 
         /// <summary>
         /// Get the string representation of the object.

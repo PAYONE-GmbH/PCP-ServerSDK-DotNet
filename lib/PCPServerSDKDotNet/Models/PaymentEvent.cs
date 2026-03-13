@@ -68,6 +68,13 @@ namespace PCPServerSDKDotNet.Models
         public DateTimeOffset? CreationDateTime { get; set; }
 
         /// <summary>
+        /// Gets or sets unique reference from the merchant that was used when the event was created (e.g. from the capture request).
+        /// </summary>
+        [DataMember(Name = "merchantReference", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "merchantReference")]
+        public string? MerchantReference { get; set; }
+
+        /// <summary>
         /// Get the string representation of the object.
         /// </summary>
         /// <returns>String representation of the object.</returns>
@@ -83,6 +90,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  PaymentInstructions: ").Append(this.PaymentInstructions).Append('\n');
             sb.Append("  PaymentEventId: ").Append(this.PaymentEventId).Append('\n');
             sb.Append("  CreationDateTime: ").Append(this.CreationDateTime).Append('\n');
+            sb.Append("  MerchantReference: ").Append(this.MerchantReference).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
