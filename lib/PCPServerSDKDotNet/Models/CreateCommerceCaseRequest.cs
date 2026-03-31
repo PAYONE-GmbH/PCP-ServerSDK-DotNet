@@ -31,7 +31,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "creationDateTime")]
-        public DateTime? CreationDateTime { get; set; }
+        public DateTimeOffset? CreationDateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Checkout.

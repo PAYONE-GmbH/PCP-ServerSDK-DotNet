@@ -33,7 +33,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "javaScriptSdkFlow", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "javaScriptSdkFlow")]
-        public bool JavaScriptSdkFlow { get; set; }
+        public bool? JavaScriptSdkFlow { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object.

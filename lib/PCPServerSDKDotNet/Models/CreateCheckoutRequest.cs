@@ -51,7 +51,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "creationDateTime")]
-        public DateTime? CreationDateTime { get; set; }
+        public DateTimeOffset? CreationDateTime { get; set; }
 
         /// <summary>
         /// Gets or sets set this flag to directly execute a payment when creating a Commerce Case or Checkout. If the value for autoExecuteOrder is set to true, the paymentMethodSpecificInput for the order is mandatory and has to be provided. The autoExecuteOrder can only be used for orderType = full. If no shoppingCart information has been provided, a Payment Execution will be created instead of an Order. As a consequence, only Payment Execution endpoints can be used.
