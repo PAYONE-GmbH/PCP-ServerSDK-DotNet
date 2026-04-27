@@ -16,7 +16,7 @@ namespace PCPServerSDKDotNet.Models
         /// </summary>
         [DataMember(Name = "supplierId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "supplierId")]
-        public string? SupplierId { get; set; }
+        required public string SupplierId { get; set; }
 
         /// <summary>
         /// Gets or sets the order reference at the supplier.
