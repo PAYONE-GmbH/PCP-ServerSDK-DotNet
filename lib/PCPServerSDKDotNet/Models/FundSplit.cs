@@ -6,7 +6,8 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object containing details on how funds should be split across sub-merchants.
+    /// Instructions for distributing funds to multiple suppliers or partners in a marketplace context.
+    /// Only allowed for marketplace merchants or if feature to ignore Marketplace fields is enabled in configuration.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
