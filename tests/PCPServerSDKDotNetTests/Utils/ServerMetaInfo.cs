@@ -16,7 +16,7 @@ public class ServerMetaInfoTest
         // Assert
         Assert.NotNull(result.PlatformIdentifier);
         Assert.Equal($"{Environment.OSVersion}, .NET version is: {Environment.Version}", result.PlatformIdentifier);
-        Assert.Equal("DotNetServerSDK/v1.8.0", result.SdkIdentifier);
+        Assert.Equal("DotNetServerSDK/v1.9.0", result.SdkIdentifier);
         Assert.Equal("PAYONE GmbH", result.SdkCreator);
         Assert.Equal(integrator, result.Integrator);
     }
@@ -30,7 +30,7 @@ public class ServerMetaInfoTest
         // Assert
         Assert.NotNull(result.PlatformIdentifier);
         Assert.Equal($"{Environment.OSVersion}, .NET version is: {Environment.Version}", result.PlatformIdentifier);
-        Assert.Equal("DotNetServerSDK/v1.8.0", result.SdkIdentifier);
+        Assert.Equal("DotNetServerSDK/v1.9.0", result.SdkIdentifier);
         Assert.Equal("PAYONE GmbH", result.SdkCreator);
         Assert.Null(result.Integrator);
     }
@@ -40,7 +40,7 @@ public class ServerMetaInfoTest
     {
         // Arrange
         string platformIdentifier = "Windows 10, .NET version is: 5.0";
-        string sdkIdentifier = "DotNetServerSDK/v1.8.0";
+        string sdkIdentifier = "DotNetServerSDK/v1.9.0";
         string sdkCreator = "Another Creator";
         string integrator = "AnotherIntegrator";
 
