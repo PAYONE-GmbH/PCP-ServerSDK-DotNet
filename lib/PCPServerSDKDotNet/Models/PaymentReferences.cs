@@ -12,9 +12,15 @@ namespace PCPServerSDKDotNet.Models
     public class PaymentReferences
     {
         /// <summary>
-        /// Gets or sets unique reference of the Commerce Case that is also returned for reporting and reconciliation purposes.
+        /// Gets or sets unique reference of payment transactions, also returned for reporting and reconciliation purposes.
+        /// For capture requests, providing this value is recommended to support an end-to-end refund flow.
+        /// If provided for captures or refunds, it must be unique per Checkout.
         /// </summary>
-        /// <value>Unique reference of the Commerce Case that is also returned for reporting and reconciliation purposes.</value>
+        /// <value>
+        /// Unique reference of payment transactions, also returned for reporting and reconciliation purposes.
+        /// For capture requests, providing this value is recommended to support an end-to-end refund flow.
+        /// If provided for captures or refunds, it must be unique per Checkout.
+        /// </value>
         [DataMember(Name = "merchantReference", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "merchantReference")]
         public string? MerchantReference { get; set; }
