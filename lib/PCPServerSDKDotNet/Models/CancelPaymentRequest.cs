@@ -5,7 +5,7 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    ///
+    /// CancelPaymentRequest.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -19,6 +19,15 @@ namespace PCPServerSDKDotNet.Models
         public CancellationReason? CancellationReason { get; set; }
 
         /// <summary>
+        /// Gets or sets the amount that you want to cancel (specified in cents, where single digit currencies
+        /// are presumed to have 2 digits). The amount can be lower than the amount that was authorized, but not higher.
+        /// If left empty, the remaining open amount will be cancelled.
+        /// </summary>
+        [DataMember(Name = "amount", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "amount")]
+        public long? Amount { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -27,6 +36,7 @@ namespace PCPServerSDKDotNet.Models
             var sb = new StringBuilder();
             sb.Append("class CancelPaymentRequest {\n");
             sb.Append("  CancellationReason: ").Append(this.CancellationReason).Append('\n');
+            sb.Append("  Amount: ").Append(this.Amount).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
