@@ -9,6 +9,7 @@ using PCPServerSDKDotNet.Models;
 public class PaymentExecutionApiClient : BaseApiClient
 {
     private const string PAYMENTEXECUTIONIDREQUIREDERROR = "Payment Execution ID is required";
+    private const string EVENTIDREQUIREDERROR = "Event ID is required";
     private const string PCPPATHSEGMENTPAYMENTEXECUTIONS = "payment-executions";
 
     public PaymentExecutionApiClient(CommunicatorConfiguration config)
@@ -324,5 +325,55 @@ public class PaymentExecutionApiClient : BaseApiClient
         request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
 
         return await this.MakeApiCallAsync<PaymentExecution>(request);
+    }
+
+    public async Task<FundSplitResponse> CreateFundSplitAsync(string merchantId, string commerceCaseId, string checkoutId, string paymentExecutionId, string eventId, FundSplitRequest payload)
+    {
+        if (string.IsNullOrEmpty(merchantId))
+        {
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(commerceCaseId))
+        {
+            throw new ArgumentException(COMMERCE_CASE_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(checkoutId))
+        {
+            throw new ArgumentException(CHECKOUT_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(paymentExecutionId))
+        {
+            throw new ArgumentException(PAYMENTEXECUTIONIDREQUIREDERROR);
+        }
+
+        if (string.IsNullOrEmpty(eventId))
+        {
+            throw new ArgumentException(EVENTIDREQUIREDERROR);
+        }
+
+        if (payload == null)
+        {
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        }
+
+        Uri url = new UriBuilder
+        {
+            Scheme = HTTPS_SCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/{PCP_PATH_SEGMENT_COMMERCE_CASES}/{commerceCaseId}/{PCP_PATH_SEGMENT_CHECKOUTS}/{checkoutId}/{PCPPATHSEGMENTPAYMENTEXECUTIONS}/{paymentExecutionId}/events/{eventId}/fund-splits",
+        }.Uri;
+
+        string jsonString = JsonConvert.SerializeObject(payload);
+
+        HttpRequestMessage request = new(HttpMethod.Post, url)
+        {
+            Content = new StringContent(jsonString, System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
+        };
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+
+        return await this.MakeApiCallAsync<FundSplitResponse>(request);
     }
 }

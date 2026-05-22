@@ -5,15 +5,22 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Object that holds all reference properties that are linked to this transaction.
-    /// Extends PaymentReferences with an additional captureReference field for refunds.
+    /// Object that holds all reference properties that are linked to this refund transaction.
+    /// Extends the standard PaymentReferences with an additional captureReference field to support
+    /// scenarios where a Checkout may contain multiple partial captures from different sellers.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class PaymentReferencesForRefund : PaymentReferences
     {
         /// <summary>
-        /// Gets or sets the reference of the capture that should be used for the refund.
+        /// Gets or sets the Merchant-provided reference of the capture that this refund should be applied to.
+        /// A single Checkout can contain multiple partial captures.
+        /// By supplying the captureReference the merchant ensures the refund is allocated to the correct
+        /// capture.
+        ///
+        /// This value must match the merchantReference that was provided in the PaymentReferences of the
+        /// original capture request.
         /// </summary>
         [DataMember(Name = "captureReference", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "captureReference")]
