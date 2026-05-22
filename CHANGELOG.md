@@ -1,3 +1,9 @@
+# [1.10.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.9.0...v1.10.0) (2026-05-22)
+
+### Features
+
+* feat: update API version to 1.55.0 ([410e461ff30d7e6daeaec43d004b25449b431a00](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/410e461ff30d7e6daeaec43d004b25449b431a00))
+
 # [1.9.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.8.0...v1.9.0) (2026-04-29)
 
 ### Features
