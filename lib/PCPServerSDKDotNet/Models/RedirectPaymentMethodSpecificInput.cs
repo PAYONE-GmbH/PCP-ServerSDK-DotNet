@@ -59,6 +59,13 @@ namespace PCPServerSDKDotNet.Models
         public RedirectPaymentProduct840SpecificInput? PaymentProduct840SpecificInput { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentProduct900SpecificInput.
+        /// </summary>
+        [DataMember(Name = "paymentProduct900SpecificInput", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "paymentProduct900SpecificInput")]
+        public RedirectPaymentProduct900SpecificInput? PaymentProduct900SpecificInput { get; set; }
+
+        /// <summary>
         /// Gets or Sets RedirectionData.
         /// </summary>
         [DataMember(Name = "redirectionData", EmitDefaultValue = false)]
@@ -79,6 +86,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  Tokenize: ").Append(this.Tokenize).Append('\n');
             sb.Append("  PaymentProductId: ").Append(this.PaymentProductId).Append('\n');
             sb.Append("  PaymentProduct840SpecificInput: ").Append(this.PaymentProduct840SpecificInput).Append('\n');
+            sb.Append("  PaymentProduct900SpecificInput: ").Append(this.PaymentProduct900SpecificInput).Append('\n');
             sb.Append("  RedirectionData: ").Append(this.RedirectionData).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
