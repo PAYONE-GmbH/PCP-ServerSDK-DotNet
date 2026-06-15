@@ -12,9 +12,9 @@ namespace PCPServerSDKDotNet.Models
     public class CartItemInvoiceData
     {
         /// <summary>
-        /// Gets or sets shopping cart item description. The description will also be displayed in the portal as the product name.
+        /// Gets or sets shopping cart item description. The description will also be displayed in the portal as the product name if orderLineDetails.productName is not set.
         /// </summary>
-        /// <value>Shopping cart item description. The description will also be displayed in the portal as the product name. </value>
+        /// <value>Shopping cart item description. The description will also be displayed in the portal as the product name if orderLineDetails.productName is not set. </value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "description")]
         public string? Description { get; set; }

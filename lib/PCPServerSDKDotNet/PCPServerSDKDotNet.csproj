@@ -5,10 +5,10 @@
     <Authors>PAYONE-GmbH</Authors>
     <Description>The PAYONE PCP SDK</Description>
     <TargetFramework>net7.0</TargetFramework>
-    <Version>1.10.0</Version>
-    <AssemblyVersion>1.10.0.0</AssemblyVersion>
-    <FileVersion>1.10.0.0</FileVersion>
-    <PackageVersion>1.10.0</PackageVersion>
+    <Version>1.11.0</Version>
+    <AssemblyVersion>1.11.0.0</AssemblyVersion>
+    <FileVersion>1.11.0.0</FileVersion>
+    <PackageVersion>1.11.0</PackageVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>../../.ruleset</CodeAnalysisRuleSet>

@@ -82,6 +82,13 @@ namespace PCPServerSDKDotNet.Models
         public string? MerchantShopDeliveryReference { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the product, will be displayed in Portal if set.
+        /// </summary>
+        [DataMember(Name = "productName", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "productName")]
+        public string? ProductName { get; set; }
+
+        /// <summary>
         /// Get the string representation of the object.
         /// </summary>
         /// <returns>String representation of the object.</returns>
@@ -99,6 +106,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  ProductImageUrl: ").Append(this.ProductImageUrl).Append('\n');
             sb.Append("  ProductCategoryPath: ").Append(this.ProductCategoryPath).Append('\n');
             sb.Append("  MerchantShopDeliveryReference: ").Append(this.MerchantShopDeliveryReference).Append('\n');
+            sb.Append("  ProductName: ").Append(this.ProductName).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }
