@@ -28,6 +28,13 @@ namespace PCPServerSDKDotNet.Models
         public long? Amount { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -37,6 +44,7 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("class CancelPaymentRequest {\n");
             sb.Append("  CancellationReason: ").Append(this.CancellationReason).Append('\n');
             sb.Append("  Amount: ").Append(this.Amount).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

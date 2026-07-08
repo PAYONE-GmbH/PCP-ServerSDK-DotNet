@@ -50,7 +50,7 @@ public class BaseApiClient
     /// Sets the HttpClient to be used for this specific API client instance.
     /// This will override any global HttpClient configuration.
     /// </summary>
-    /// <param name="httpClient">The HttpClient to use for this API client, or null to use global/default configuration</param>
+    /// <param name="httpClient">The HttpClient to use for this API client, or null to use global/default configuration.</param>
     public void SetHttpClient(HttpClient? httpClient)
     {
         this.clientSpecificHttpClient = httpClient;
