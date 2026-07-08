@@ -5,7 +5,7 @@ namespace PCPServerSDKDotNet.Models
     using Newtonsoft.Json;
 
     /// <summary>
-    ///
+    /// CancelPaymentResponse.
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
@@ -19,6 +19,13 @@ namespace PCPServerSDKDotNet.Models
         public PaymentResponse? Payment { get; set; }
 
         /// <summary>
+        /// Gets or Sets FundSplit.
+        /// </summary>
+        [DataMember(Name = "fundSplit", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "fundSplit")]
+        public FundSplit? FundSplit { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object.
         /// </summary>
         /// <returns>String presentation of the object.</returns>
@@ -27,6 +34,7 @@ namespace PCPServerSDKDotNet.Models
             var sb = new StringBuilder();
             sb.Append("class CancelPaymentResponse {\n");
             sb.Append("  Payment: ").Append(this.Payment).Append('\n');
+            sb.Append("  FundSplit: ").Append(this.FundSplit).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -171,6 +171,17 @@ public class PaymentExecutionApiClientTests
         CancelPaymentRequest payload = new()
         {
             Amount = 123L,
+            FundSplit = new FundSplit
+            {
+                FundDistributions =
+                [
+                    new FundDistribution
+                    {
+                        Amount = 123L,
+                        Type = FundDistributionType.SellerRevenue,
+                    },
+                ],
+            },
         };
         CancelPaymentResponse result = await mockClient.Object.CancelPaymentAsync("1", "2", "3", "4", payload);
 
@@ -179,6 +190,9 @@ public class PaymentExecutionApiClientTests
         CancelPaymentRequest? serializedPayload = JsonConvert.DeserializeObject<CancelPaymentRequest>(requestBody);
         Assert.NotNull(serializedPayload);
         Assert.Equal(123L, serializedPayload!.Amount);
+        Assert.NotNull(serializedPayload.FundSplit?.FundDistributions);
+        Assert.Single(serializedPayload.FundSplit!.FundDistributions!);
+        Assert.Equal(FundDistributionType.SellerRevenue, serializedPayload.FundSplit.FundDistributions![0].Type);
     }
 
 
