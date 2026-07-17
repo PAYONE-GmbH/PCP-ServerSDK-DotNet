@@ -27,6 +27,30 @@ public class PaymentIntentApiClientTests
         Assert.Equal("/v1/merchant/payment-intents", sentRequest.RequestUri!.AbsolutePath);
     }
 
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public async Task CreatePaymentIntent_WithoutMerchantId_ThrowsArgumentException(string merchantId)
+    {
+        PaymentIntentApiClient client = new(this.communicatorConfiguration);
+
+        ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+            client.CreatePaymentIntentAsync(merchantId, new CreatePaymentIntentRequest()));
+
+        Assert.Equal("Merchant ID is required", exception.Message);
+    }
+
+    [Fact]
+    public async Task CreatePaymentIntent_WithoutPayload_ThrowsArgumentException()
+    {
+        PaymentIntentApiClient client = new(this.communicatorConfiguration);
+
+        ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+            client.CreatePaymentIntentAsync("merchant", null!));
+
+        Assert.Equal("Payload is required", exception.Message);
+    }
+
     [Fact]
     public async Task GetPaymentIntent_UsesThePaymentIntentIdRoute()
     {
@@ -41,5 +65,31 @@ public class PaymentIntentApiClientTests
         Assert.NotNull(sentRequest);
         Assert.Equal(HttpMethod.Get, sentRequest.Method);
         Assert.Equal("/v1/merchant/payment-intents/intent", sentRequest.RequestUri!.AbsolutePath);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public async Task GetPaymentIntent_WithoutMerchantId_ThrowsArgumentException(string merchantId)
+    {
+        PaymentIntentApiClient client = new(this.communicatorConfiguration);
+
+        ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+            client.GetPaymentIntentAsync(merchantId, "intent"));
+
+        Assert.Equal("Merchant ID is required", exception.Message);
+    }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    public async Task GetPaymentIntent_WithoutPaymentIntentId_ThrowsArgumentException(string paymentIntentId)
+    {
+        PaymentIntentApiClient client = new(this.communicatorConfiguration);
+
+        ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+            client.GetPaymentIntentAsync("merchant", paymentIntentId));
+
+        Assert.Equal("Payment Intent ID is required", exception.Message);
     }
 }
