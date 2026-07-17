@@ -9,22 +9,8 @@ namespace PCPServerSDKDotNet.Models
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class CartItemInput
+    public class CartItemInput : CartItemData
     {
-        /// <summary>
-        /// Gets or Sets InvoiceData.
-        /// </summary>
-        [DataMember(Name = "invoiceData", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "invoiceData")]
-        public CartItemInvoiceData? InvoiceData { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OrderLineDetails.
-        /// </summary>
-        [DataMember(Name = "orderLineDetails", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "orderLineDetails")]
-        public OrderLineDetailsInput? OrderLineDetails { get; set; }
-
         /// <summary>
         /// Gets or Sets SupplierReferences.
         /// </summary>
@@ -45,15 +31,6 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  SupplierReferences: ").Append(this.SupplierReferences).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
-        }
-
-        /// <summary>
-        /// Get the JSON string presentation of the object.
-        /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
 }
