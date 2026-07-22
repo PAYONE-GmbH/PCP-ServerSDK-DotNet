@@ -9,16 +9,8 @@ namespace PCPServerSDKDotNet.Models
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class RedirectPaymentProduct840SpecificInput
+    public class RedirectPaymentProduct840SpecificInput : RedirectPaymentProduct840SpecificInputData
     {
-        /// <summary>
-        /// Gets or sets indicates whether to use PayPal Express Checkout Shortcut.  * true = When shortcut is enabled, the consumer can select a shipping address during PayPal checkout.  * false = When shortcut is disabled, the consumer cannot change the shipping address. Default value is false. Please note that this field is ignored when order.additionalInput.typeInformation.purchaseType is set to \"digital\".
-        /// </summary>
-        /// <value>Indicates whether to use PayPal Express Checkout Shortcut.  * true = When shortcut is enabled, the consumer can select a shipping address during PayPal checkout.  * false = When shortcut is disabled, the consumer cannot change the shipping address. Default value is false. Please note that this field is ignored when order.additionalInput.typeInformation.purchaseType is set to \"digital\".</value>
-        [DataMember(Name = "addressSelectionAtPayPal", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "addressSelectionAtPayPal")]
-        public bool? AddressSelectionAtPayPal { get; set; }
-
         /// <summary>
         /// Gets or sets a unique ID determined by the merchant, to link a Paypal transaction to a FraudNet PayPal risk session.
         /// Only applicable to customer-initiated transactions, when the FraudNet SDK is used, and to be passed in the API
@@ -27,13 +19,6 @@ namespace PCPServerSDKDotNet.Models
         [DataMember(Name = "fraudNetId", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "fraudNetId")]
         public string? FraudNetId { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether PayPal is being integrated using the PayPal SDK (true) or classic redirect flow (false).
-        /// </summary>
-        [DataMember(Name = "javaScriptSdkFlow", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "javaScriptSdkFlow")]
-        public bool? JavaScriptSdkFlow { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object.
@@ -48,15 +33,6 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  JavaScriptSdkFlow: ").Append(this.JavaScriptSdkFlow).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
-        }
-
-        /// <summary>
-        /// Get the JSON string presentation of the object.
-        /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
 }
