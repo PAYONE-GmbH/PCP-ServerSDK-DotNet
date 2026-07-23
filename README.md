@@ -5,7 +5,7 @@
 ![NuGet Version](https://img.shields.io/nuget/v/pcp-serversdk-dotnet)
 ![NuGet Downloads](https://img.shields.io/nuget/dt/pcp-serversdk-dotnet)
 
-Welcome to the .NET SDK for the PAYONE Commerce Platform (api-version 1.60.0)! This repository contains a powerful, easy-to-use software development kit (SDK) designed to simplify the integration of online payment processing into your applications.
+Welcome to the .NET SDK for the PAYONE Commerce Platform (api-version 1.61.0)! This repository contains a powerful, easy-to-use software development kit (SDK) designed to simplify the integration of online payment processing into your applications.
 
 ## Table of Contents
 
