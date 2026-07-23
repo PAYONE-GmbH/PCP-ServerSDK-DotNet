@@ -5,6 +5,7 @@ obj/
 # User-specific Files
 *.user
 *.suo
+.vscode/settings.json
 
 # NuGet Packages
 *.nupkg

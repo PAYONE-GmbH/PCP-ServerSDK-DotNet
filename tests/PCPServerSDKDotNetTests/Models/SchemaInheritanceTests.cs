@@ -35,4 +35,17 @@ public class SchemaInheritanceTests
         Assert.Contains("\"amountOfMoney\"", json);
         Assert.Contains("\"paymentMethodSpecificInput\"", json);
     }
+
+    [Fact]
+    public void RedirectPaymentProduct840SpecificInput_PaymentId_IsSerialized()
+    {
+        RedirectPaymentProduct840SpecificInput input = new()
+        {
+            PaymentId = "3066019730_1",
+        };
+
+        string json = input.ToJson();
+
+        Assert.Contains("\"paymentId\": \"3066019730_1\"", json);
+    }
 }
