@@ -1,3 +1,12 @@
+# [1.13.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.12.0...v1.13.0) (2026-07-23)
+
+### Features
+
+* feat: enhance tests for PaymentIntentApiClient to validate merchant ID and payload requirements ([dab190fe1dd98780385c598c571245f05183eccb](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/dab190fe1dd98780385c598c571245f05183eccb))
+* feat: update API version to 1.59.0 ([5b0cb580bf39ce0bc6d7cefaff7bef86210ade45](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/5b0cb580bf39ce0bc6d7cefaff7bef86210ade45))
+* feat: update API version to 1.60.0 ([57c7a6c2da63df68320a89436aa03124ae3b3596](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/57c7a6c2da63df68320a89436aa03124ae3b3596))
+* feat: update API version to 1.61.0 ([5a910a5ed11cddc695c695eb7a09dcc05522cad4](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/commit/5a910a5ed11cddc695c695eb7a09dcc05522cad4))
+
 # [1.12.0](https://github.com/PAYONE-GmbH/PCP-ServerSDK-DotNet/compare/v1.11.0...v1.12.0) (2026-07-08)
 
 ### Features
