@@ -432,7 +432,4 @@ public class CheckoutApiClientTests
         Assert.Equal(500, e.StatusCode);
     }
 
-
-
-
 }

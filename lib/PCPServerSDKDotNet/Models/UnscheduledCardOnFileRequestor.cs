@@ -1,35 +1,21 @@
 namespace PCPServerSDKDotNet.Models
 {
     using System.Runtime.Serialization;
-    using System.Text;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
     /// <summary>
     /// Indicates which party initiated the unscheduled recurring transaction. Allowed values:   * merchantInitiated - Merchant Initiated Transaction.   * cardholderInitiated - Cardholder Initiated Transaction. Note:   * When a customer has chosen to use a token on a hosted Checkout this property is set to \&quot;cardholderInitiated\&quot;.
     /// </summary>
-    [DataContract]
-    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class UnscheduledCardOnFileRequestor
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum UnscheduledCardOnFileRequestor
     {
-        /// <summary>
-        /// Get the string presentation of the object.
-        /// </summary>
-        /// <returns>String presentation of the object.</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append("class UnscheduledCardOnFileRequestor {\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
+        [JsonProperty("merchantInitiated")]
+        [EnumMember(Value = "merchantInitiated")]
+        MerchantInitiated,
 
-        /// <summary>
-        /// Get the JSON string presentation of the object.
-        /// </summary>
-        /// <returns>JSON string presentation of the object.</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
+        [JsonProperty("cardholderInitiated")]
+        [EnumMember(Value = "cardholderInitiated")]
+        CardholderInitiated,
     }
 }

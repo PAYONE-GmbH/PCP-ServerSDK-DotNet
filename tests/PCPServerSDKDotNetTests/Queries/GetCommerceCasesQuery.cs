@@ -29,8 +29,8 @@ public class GetCommerceCasesQueryTest
         Assert.Equal("123456", queryMap["commerceCaseId"]);
         Assert.Equal("7890", queryMap["merchantReference"]);
         Assert.Equal("1234", queryMap["merchantCustomerId"]);
-        Assert.Equal("Billed,Chargebacked", queryMap["includeCheckoutStatus"]);
-        Assert.Equal("Ecommerce,Pos", queryMap["includePaymentChannel"]);
+        Assert.Equal("BILLED,CHARGEBACKED", queryMap["includeCheckoutStatus"]);
+        Assert.Equal("ECOMMERCE,POS", queryMap["includePaymentChannel"]);
     }
 
     [Fact]
