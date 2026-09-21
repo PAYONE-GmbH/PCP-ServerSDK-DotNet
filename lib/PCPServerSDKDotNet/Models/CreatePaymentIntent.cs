@@ -13,7 +13,7 @@ namespace PCPServerSDKDotNet.Models
 
         [DataMember(Name = "references", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "references")]
-        public PaymentReferences? References { get; set; }
+        required public PaymentReferencesForPaymentIntent References { get; set; }
 
         [DataMember(Name = "shoppingCart", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "shoppingCart")]

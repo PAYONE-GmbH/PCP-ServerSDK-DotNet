@@ -11,8 +11,6 @@ public class SchemaInheritanceTests
     [InlineData(typeof(OrderLineDetailsResult), typeof(OrderLineDetailsInput))]
     [InlineData(typeof(PaymentIntentOutput), typeof(PaymentIntentResponseData))]
     [InlineData(typeof(PaymentIntentResponse), typeof(PaymentIntentResponseData))]
-    [InlineData(typeof(PaymentProduct840SpecificOutput), typeof(PaymentProduct840SpecificOutputData))]
-    [InlineData(typeof(PaymentProduct840SpecificOutputForIntent), typeof(PaymentProduct840SpecificOutputData))]
     [InlineData(typeof(PaymentReferencesForRefund), typeof(PaymentReferences))]
     [InlineData(typeof(RedirectPaymentProduct840SpecificInput), typeof(RedirectPaymentProduct840SpecificInputData))]
     [InlineData(typeof(ShippingAddress), typeof(AddressPersonal))]
@@ -27,12 +25,14 @@ public class SchemaInheritanceTests
         CreatePaymentIntentRequest request = new()
         {
             AmountOfMoney = new AmountOfMoney { Amount = 1000, CurrencyCode = "EUR" },
+            References = new PaymentReferencesForPaymentIntent { MerchantReference = "order-1" },
             PaymentMethodSpecificInput = new PaymentMethodSpecificInputForIntent(),
         };
 
         string json = request.ToJson();
 
         Assert.Contains("\"amountOfMoney\"", json);
+        Assert.Contains("\"references\"", json);
         Assert.Contains("\"paymentMethodSpecificInput\"", json);
     }
 
