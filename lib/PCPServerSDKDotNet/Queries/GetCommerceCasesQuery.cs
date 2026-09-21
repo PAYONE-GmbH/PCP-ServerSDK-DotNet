@@ -124,14 +124,12 @@ public class GetCommerceCasesQuery : IQueryConfig
 
         if (this.IncludeCheckoutStatus != null && this.IncludeCheckoutStatus.Count > 0)
         {
-            List<StatusCheckout> statusList = new(this.IncludeCheckoutStatus);
-            query["includeCheckoutStatus"] = string.Join(",", statusList);
+            query["includeCheckoutStatus"] = string.Join(",", this.IncludeCheckoutStatus.Select(x => x.GetWireValue()));
         }
 
         if (this.IncludePaymentChannel != null && this.IncludePaymentChannel.Count > 0)
         {
-            List<PaymentChannel> channelList = new(this.IncludePaymentChannel);
-            query["includePaymentChannel"] = string.Join(",", channelList);
+            query["includePaymentChannel"] = string.Join(",", this.IncludePaymentChannel.Select(x => x.GetWireValue()));
         }
 
         return query;

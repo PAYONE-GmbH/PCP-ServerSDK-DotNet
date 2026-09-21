@@ -5,8 +5,20 @@ namespace PCPServerSDKDotNet.Models
 
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class PaymentProduct840SpecificOutputForIntent : PaymentProduct840SpecificOutputData
+    public class PaymentProduct840SpecificOutputForIntent
     {
+        [DataMember(Name = "billingAddress", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "billingAddress")]
+        public Address? BillingAddress { get; set; }
+
+        [DataMember(Name = "customerAccount", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "customerAccount")]
+        public PaymentProduct840CustomerAccountForIntent? CustomerAccount { get; set; }
+
+        [DataMember(Name = "payPalTransactionId", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "payPalTransactionId")]
+        public string? PayPalTransactionId { get; set; }
+
         [DataMember(Name = "shippingAddress", EmitDefaultValue = false)]
         [JsonProperty(PropertyName = "shippingAddress")]
         public ShippingAddress? ShippingAddress { get; set; }

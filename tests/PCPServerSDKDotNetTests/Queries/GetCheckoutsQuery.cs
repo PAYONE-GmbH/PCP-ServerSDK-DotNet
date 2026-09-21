@@ -40,8 +40,11 @@ public class GetCheckoutsQueryTest
              .SetPhoneNumber("1234567890")
              .SetDateOfBirth("1980-01-01")
              .SetCompanyInformation("Company Inc.")
-             .SetTerminalId("1234")
-             .SetReportingToken("5678");
+              .SetTerminalId("1234")
+              .SetReportingToken("5678")
+              .SetCardAuthorizationId("authorization")
+              .SetReceiptNumber("receipt")
+              .SetTraceNumber("trace");
 
         Dictionary<string, string> queryMap = query.ToQueryMap();
 
@@ -65,9 +68,9 @@ public class GetCheckoutsQueryTest
         Assert.Equal("7890", queryMap["merchantReference"]);
         Assert.Equal("1234", queryMap["merchantCustomerId"]);
         Assert.Equal("12,456", queryMap["includePaymentProductId"]);
-        Assert.Equal("Billed,Chargebacked", queryMap["includeCheckoutStatus"]);
-        Assert.Equal("Open,Deleted", queryMap["includeExtendedCheckoutStatus"]);
-        Assert.Equal("Ecommerce,Pos", queryMap["includePaymentChannel"]);
+        Assert.Equal("BILLED,CHARGEBACKED", queryMap["includeCheckoutStatus"]);
+        Assert.Equal("OPEN,DELETED", queryMap["includeExtendedCheckoutStatus"]);
+        Assert.Equal("ECOMMERCE,POS", queryMap["includePaymentChannel"]);
         Assert.Equal("1234", queryMap["paymentReference"]);
         Assert.Equal("5678", queryMap["paymentId"]);
         Assert.Equal("John", queryMap["firstName"]);
@@ -78,6 +81,9 @@ public class GetCheckoutsQueryTest
         Assert.Equal("Company Inc.", queryMap["companyInformation"]);
         Assert.Equal("1234", queryMap["terminalId"]);
         Assert.Equal("5678", queryMap["reportingToken"]);
+        Assert.Equal("authorization", queryMap["cardAuthorizationId"]);
+        Assert.Equal("receipt", queryMap["receiptNumber"]);
+        Assert.Equal("trace", queryMap["traceNumber"]);
     }
 
     [Fact]
@@ -115,8 +121,11 @@ public class GetCheckoutsQueryTest
              .SetPhoneNumber("1234567890")
              .SetDateOfBirth("1980-01-01")
            .SetCompanyInformation("Company Inc.")
-             .SetTerminalId("1234")
-             .SetReportingToken("5678");
+              .SetTerminalId("1234")
+              .SetReportingToken("5678")
+              .SetCardAuthorizationId("authorization")
+              .SetReceiptNumber("receipt")
+              .SetTraceNumber("trace");
 
         Assert.Equal(1, query.Offset);
         Assert.Equal(10, query.Size);
@@ -151,6 +160,9 @@ public class GetCheckoutsQueryTest
         Assert.Equal("Company Inc.", query.CompanyInformation);
         Assert.Equal("1234", query.TerminalId);
         Assert.Equal("5678", query.ReportingToken);
+        Assert.Equal("authorization", query.CardAuthorizationId);
+        Assert.Equal("receipt", query.ReceiptNumber);
+        Assert.Equal("trace", query.TraceNumber);
     }
 
     [Fact]

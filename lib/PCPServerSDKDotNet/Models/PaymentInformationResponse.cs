@@ -74,6 +74,14 @@ namespace PCPServerSDKDotNet.Models
         [JsonProperty(PropertyName = "merchantReference")]
         public string? MerchantReference { get; set; }
 
+        [DataMember(Name = "traceNumber", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "traceNumber")]
+        public string? TraceNumber { get; set; }
+
+        [DataMember(Name = "receiptNumber", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "receiptNumber")]
+        public string? ReceiptNumber { get; set; }
+
         /// <summary>
         /// Gets or sets the creation date and time of the payment.
         /// </summary>
@@ -119,6 +127,8 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  TerminalId: ").Append(this.TerminalId).Append('\n');
             sb.Append("  CardAcceptorId: ").Append(this.CardAcceptorId).Append('\n');
             sb.Append("  MerchantReference: ").Append(this.MerchantReference).Append('\n');
+            sb.Append("  TraceNumber: ").Append(this.TraceNumber).Append('\n');
+            sb.Append("  ReceiptNumber: ").Append(this.ReceiptNumber).Append('\n');
             sb.Append("  CreationDateTime: ").Append(this.CreationDateTime).Append('\n');
             sb.Append("  LastUpdated: ").Append(this.LastUpdated).Append('\n');
             sb.Append("  CardPaymentDetails: ").Append(this.CardPaymentDetails).Append('\n');

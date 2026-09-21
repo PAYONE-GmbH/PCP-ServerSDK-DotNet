@@ -77,6 +77,12 @@ public class GetCheckoutsQuery : IQueryConfig
 
     public string? ReportingToken { get; set; }
 
+    public string? CardAuthorizationId { get; set; }
+
+    public string? ReceiptNumber { get; set; }
+
+    public string? TraceNumber { get; set; }
+
     public GetCheckoutsQuery SetOffset(int? offset)
     {
         this.Offset = offset;
@@ -275,6 +281,24 @@ public class GetCheckoutsQuery : IQueryConfig
         return this;
     }
 
+    public GetCheckoutsQuery SetCardAuthorizationId(string cardAuthorizationId)
+    {
+        this.CardAuthorizationId = cardAuthorizationId;
+        return this;
+    }
+
+    public GetCheckoutsQuery SetReceiptNumber(string receiptNumber)
+    {
+        this.ReceiptNumber = receiptNumber;
+        return this;
+    }
+
+    public GetCheckoutsQuery SetTraceNumber(string traceNumber)
+    {
+        this.TraceNumber = traceNumber;
+        return this;
+    }
+
     public Dictionary<string, string> ToQueryMap()
     {
         Dictionary<string, string> query = new();
@@ -387,20 +411,17 @@ public class GetCheckoutsQuery : IQueryConfig
 
         if (this.IncludeCheckoutStatus != null && this.IncludeCheckoutStatus.Count > 0)
         {
-            List<StatusCheckout> statusList = new(this.IncludeCheckoutStatus);
-            query.Add("includeCheckoutStatus", string.Join(",", statusList));
+            query.Add("includeCheckoutStatus", string.Join(",", this.IncludeCheckoutStatus.Select(x => x.GetWireValue())));
         }
 
         if (this.IncludeExtendedCheckoutStatus != null && this.IncludeExtendedCheckoutStatus.Count > 0)
         {
-            List<ExtendedCheckoutStatus> statusList = new(this.IncludeExtendedCheckoutStatus);
-            query.Add("includeExtendedCheckoutStatus", string.Join(",", statusList));
+            query.Add("includeExtendedCheckoutStatus", string.Join(",", this.IncludeExtendedCheckoutStatus.Select(x => x.GetWireValue())));
         }
 
         if (this.IncludePaymentChannel != null && this.IncludePaymentChannel.Count > 0)
         {
-            List<PaymentChannel> channelList = new(this.IncludePaymentChannel);
-            query.Add("includePaymentChannel", string.Join(",", channelList));
+            query.Add("includePaymentChannel", string.Join(",", this.IncludePaymentChannel.Select(x => x.GetWireValue())));
         }
 
         if (!string.IsNullOrEmpty(this.PaymentReference))
@@ -451,6 +472,21 @@ public class GetCheckoutsQuery : IQueryConfig
         if (!string.IsNullOrEmpty(this.ReportingToken))
         {
             query.Add("reportingToken", this.ReportingToken);
+        }
+
+        if (!string.IsNullOrEmpty(this.CardAuthorizationId))
+        {
+            query.Add("cardAuthorizationId", this.CardAuthorizationId);
+        }
+
+        if (!string.IsNullOrEmpty(this.ReceiptNumber))
+        {
+            query.Add("receiptNumber", this.ReceiptNumber);
+        }
+
+        if (!string.IsNullOrEmpty(this.TraceNumber))
+        {
+            query.Add("traceNumber", this.TraceNumber);
         }
 
         return query;

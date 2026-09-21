@@ -9,8 +9,20 @@ namespace PCPServerSDKDotNet.Models
     /// </summary>
     [DataContract]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public class PaymentProduct840SpecificOutput : PaymentProduct840SpecificOutputData
+    public class PaymentProduct840SpecificOutput
     {
+        [DataMember(Name = "billingAddress", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "billingAddress")]
+        public Address? BillingAddress { get; set; }
+
+        [DataMember(Name = "customerAccount", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "customerAccount")]
+        public PaymentProduct840CustomerAccount? CustomerAccount { get; set; }
+
+        [DataMember(Name = "payPalTransactionId", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "payPalTransactionId")]
+        public string? PayPalTransactionId { get; set; }
+
         /// <summary>
         /// Gets or Sets ShippingAddress.
         /// </summary>
@@ -32,6 +44,11 @@ namespace PCPServerSDKDotNet.Models
             sb.Append("  PayPalTransactionId: ").Append(this.PayPalTransactionId).Append('\n');
             sb.Append("}\n");
             return sb.ToString();
+        }
+
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
 }

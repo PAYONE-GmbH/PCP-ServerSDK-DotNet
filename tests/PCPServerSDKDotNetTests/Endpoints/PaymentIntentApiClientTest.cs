@@ -20,7 +20,7 @@ public class PaymentIntentApiClientTests
             .Callback<HttpRequestMessage>(request => sentRequest = request)
             .ReturnsAsync(ApiResponseMocks.CreateResponse(HttpStatusCode.Created, new CreatePaymentIntentResponse()));
 
-        await mockClient.Object.CreatePaymentIntentAsync("merchant", new CreatePaymentIntentRequest());
+        await mockClient.Object.CreatePaymentIntentAsync("merchant", CreateRequest());
 
         Assert.NotNull(sentRequest);
         Assert.Equal(HttpMethod.Post, sentRequest.Method);
@@ -35,7 +35,7 @@ public class PaymentIntentApiClientTests
         PaymentIntentApiClient client = new(this.communicatorConfiguration);
 
         ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
-            client.CreatePaymentIntentAsync(merchantId, new CreatePaymentIntentRequest()));
+            client.CreatePaymentIntentAsync(merchantId, CreateRequest()));
 
         Assert.Equal("Merchant ID is required", exception.Message);
     }
@@ -91,5 +91,13 @@ public class PaymentIntentApiClientTests
             client.GetPaymentIntentAsync("merchant", paymentIntentId));
 
         Assert.Equal("Payment Intent ID is required", exception.Message);
+    }
+
+    private static CreatePaymentIntentRequest CreateRequest()
+    {
+        return new CreatePaymentIntentRequest
+        {
+            References = new PaymentReferencesForPaymentIntent { MerchantReference = "order-1" },
+        };
     }
 }
