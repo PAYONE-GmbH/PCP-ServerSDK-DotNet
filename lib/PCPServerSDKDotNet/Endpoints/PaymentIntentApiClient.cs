@@ -62,4 +62,37 @@ public class PaymentIntentApiClient : BaseApiClient
 
         return await this.MakeApiCallAsync<PaymentIntentResponse>(new HttpRequestMessage(HttpMethod.Get, url));
     }
+
+    public async Task<PatchPaymentIntentResponse> PatchPaymentIntentAsync(string merchantId, string paymentIntentId, PatchPaymentIntentRequest payload)
+    {
+        if (string.IsNullOrEmpty(merchantId))
+        {
+            throw new ArgumentException(MERCHANT_ID_REQUIRED_ERROR);
+        }
+
+        if (string.IsNullOrEmpty(paymentIntentId))
+        {
+            throw new ArgumentException("Payment Intent ID is required");
+        }
+
+        if (payload == null)
+        {
+            throw new ArgumentException(PAYLOAD_REQUIRED_ERROR);
+        }
+
+        Uri url = new UriBuilder
+        {
+            Scheme = HTTPS_SCHEME,
+            Host = this.GetConfig().Host,
+            Path = $"{PCP_PATH_SEGMENT_VERSION}/{merchantId}/payment-intents/{paymentIntentId}",
+        }.Uri;
+
+        HttpRequestMessage request = new(HttpMethod.Patch, url)
+        {
+            Content = new StringContent(JsonConvert.SerializeObject(payload), System.Text.Encoding.UTF8, JSON_CONTENT_TYPE),
+        };
+        request.Content.Headers.ContentType = JSON_MEDIA_TYPE;
+
+        return await this.MakeApiCallAsync<PatchPaymentIntentResponse>(request);
+    }
 }

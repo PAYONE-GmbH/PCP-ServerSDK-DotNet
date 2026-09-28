@@ -19,9 +19,9 @@ namespace PCPServerSDKDotNet.Models
         [JsonProperty(PropertyName = "paymentProduct840SpecificOutput")]
         public RedirectPaymentProduct840SpecificInputData? PaymentProduct840SpecificOutput { get; set; }
 
-        [DataMember(Name = "redirectionData", EmitDefaultValue = false)]
-        [JsonProperty(PropertyName = "redirectionData")]
-        public RedirectionData? RedirectionData { get; set; }
+        [DataMember(Name = "redirectData", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "redirectData")]
+        public RedirectData? RedirectData { get; set; }
 
         public string ToJson()
         {
