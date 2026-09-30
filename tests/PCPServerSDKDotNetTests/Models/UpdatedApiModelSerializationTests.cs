@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PCPServerSDKDotNet.Models;
 
 namespace PCPServerSDKDotNetTests.Models;
@@ -80,5 +81,50 @@ public class UpdatedApiModelSerializationTests
         PaymentReferencesForPaymentIntent references = new() { MerchantReference = "order-1" };
 
         Assert.Equal("{\"merchantReference\":\"order-1\"}", JsonConvert.SerializeObject(references));
+    }
+
+    [Fact]
+    public void PatchPaymentIntentRequest_UsesOnlySchemaFields()
+    {
+        PatchPaymentIntentRequest request = new()
+        {
+            AmountOfMoney = new AmountOfMoney { Amount = 100, CurrencyCode = "EUR" },
+            ShoppingCart = new ShoppingCartData { Items = [] },
+        };
+
+        Assert.Equal("{\"amountOfMoney\":{\"amount\":100,\"currencyCode\":\"EUR\"},\"shoppingCart\":{\"items\":[]}}", JsonConvert.SerializeObject(request));
+    }
+
+    [Fact]
+    public void PatchPaymentIntentResponse_InheritsCreateResponseStructure()
+    {
+        const string json = "{\"shoppingCart\":{\"items\":[]},\"paymentIntentOutput\":{\"paymentIntentId\":\"intent\",\"redirectPaymentMethodSpecificOutput\":{\"redirectData\":{\"redirectURL\":\"https://example.com\"}}}}";
+
+        PatchPaymentIntentResponse? response = JsonConvert.DeserializeObject<PatchPaymentIntentResponse>(json);
+
+        Assert.NotNull(response?.ShoppingCart?.Items);
+        Assert.Equal("intent", response.PaymentIntentOutput?.PaymentIntentId);
+        Assert.Equal("https://example.com", response.PaymentIntentOutput?.RedirectPaymentMethodSpecificOutput?.RedirectData?.RedirectURL);
+        Assert.True(JToken.DeepEquals(JToken.Parse(json), JToken.Parse(JsonConvert.SerializeObject(response))));
+    }
+
+    [Fact]
+    public void CreatePaymentIntentResponse_UsesRedirectDataInsteadOfRedirectionData()
+    {
+        CreatePaymentIntentResponse response = new()
+        {
+            PaymentIntentOutput = new PaymentIntentOutput
+            {
+                RedirectPaymentMethodSpecificOutput = new RedirectPaymentMethodSpecificOutputForCreateIntent
+                {
+                    RedirectData = new RedirectData { RedirectURL = "https://example.com" },
+                },
+            },
+        };
+
+        string json = JsonConvert.SerializeObject(response);
+
+        Assert.Contains("\"redirectData\":{\"redirectURL\":\"https://example.com\"}", json);
+        Assert.DoesNotContain("redirectionData", json);
     }
 }
