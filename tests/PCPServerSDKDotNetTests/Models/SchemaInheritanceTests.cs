@@ -11,6 +11,7 @@ public class SchemaInheritanceTests
     [InlineData(typeof(OrderLineDetailsResult), typeof(OrderLineDetailsInput))]
     [InlineData(typeof(PaymentIntentOutput), typeof(PaymentIntentResponseData))]
     [InlineData(typeof(PaymentIntentResponse), typeof(PaymentIntentResponseData))]
+    [InlineData(typeof(PatchPaymentIntentResponse), typeof(CreatePaymentIntentResponse))]
     [InlineData(typeof(PaymentReferencesForRefund), typeof(PaymentReferences))]
     [InlineData(typeof(RedirectPaymentProduct840SpecificInput), typeof(RedirectPaymentProduct840SpecificInputData))]
     [InlineData(typeof(ShippingAddress), typeof(AddressPersonal))]

@@ -1,4 +1,5 @@
 using System.Net;
+using Newtonsoft.Json.Linq;
 using Moq;
 using PCPServerSDKDotNet;
 using PCPServerSDKDotNet.Endpoints;
@@ -91,6 +92,61 @@ public class PaymentIntentApiClientTests
             client.GetPaymentIntentAsync("merchant", paymentIntentId));
 
         Assert.Equal("Payment Intent ID is required", exception.Message);
+    }
+
+    [Fact]
+    public async Task PatchPaymentIntent_SendsSchemaPayloadAndReadsUpdatedResponse()
+    {
+        Mock<PaymentIntentApiClient> mockClient = new(this.communicatorConfiguration);
+        HttpRequestMessage? sentRequest = null;
+        mockClient.Setup(x => x.GetResponseAsync(It.IsAny<HttpRequestMessage>()))
+            .Callback<HttpRequestMessage>(request => sentRequest = request)
+            .ReturnsAsync(ApiResponseMocks.CreateResponse(HttpStatusCode.OK, new PatchPaymentIntentResponse
+            {
+                PaymentIntentOutput = new PaymentIntentOutput { PaymentIntentId = "intent" },
+            }));
+
+        PatchPaymentIntentResponse result = await mockClient.Object.PatchPaymentIntentAsync("merchant", "intent", new PatchPaymentIntentRequest
+        {
+            AmountOfMoney = new AmountOfMoney { Amount = 2500, CurrencyCode = "EUR" },
+            ShoppingCart = new ShoppingCartData { Items = [] },
+        });
+
+        Assert.NotNull(sentRequest);
+        Assert.Equal(HttpMethod.Patch, sentRequest.Method);
+        Assert.Equal("/v1/merchant/payment-intents/intent", sentRequest.RequestUri!.AbsolutePath);
+        Assert.Equal("application/json", sentRequest.Content!.Headers.ContentType!.MediaType);
+        JObject body = JObject.Parse(await sentRequest.Content.ReadAsStringAsync());
+        Assert.Equal(2500, (long?)body["amountOfMoney"]?["amount"]);
+        Assert.Equal("EUR", (string?)body["amountOfMoney"]?["currencyCode"]);
+        Assert.NotNull(body["shoppingCart"]?["items"]);
+        Assert.Equal("intent", result.PaymentIntentOutput?.PaymentIntentId);
+    }
+
+    [Theory]
+    [InlineData(null, "intent", "Merchant ID is required")]
+    [InlineData("", "intent", "Merchant ID is required")]
+    [InlineData("merchant", null, "Payment Intent ID is required")]
+    [InlineData("merchant", "", "Payment Intent ID is required")]
+    public async Task PatchPaymentIntent_WithoutPathParameter_ThrowsArgumentException(string merchantId, string paymentIntentId, string expectedMessage)
+    {
+        PaymentIntentApiClient client = new(this.communicatorConfiguration);
+
+        ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+            client.PatchPaymentIntentAsync(merchantId, paymentIntentId, new PatchPaymentIntentRequest()));
+
+        Assert.Equal(expectedMessage, exception.Message);
+    }
+
+    [Fact]
+    public async Task PatchPaymentIntent_WithoutPayload_ThrowsArgumentException()
+    {
+        PaymentIntentApiClient client = new(this.communicatorConfiguration);
+
+        ArgumentException exception = await Assert.ThrowsAsync<ArgumentException>(() =>
+            client.PatchPaymentIntentAsync("merchant", "intent", null!));
+
+        Assert.Equal("Payload is required", exception.Message);
     }
 
     private static CreatePaymentIntentRequest CreateRequest()
